@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413210916) do
+ActiveRecord::Schema.define(version: 20150413235230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,5 +33,36 @@ ActiveRecord::Schema.define(version: 20150413210916) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.integer  "role"
+    t.integer  "category"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.boolean  "notifications_on"
+    t.boolean  "finished"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["course_id"], name: "index_subscriptions_on_course_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "country"
+    t.string   "partner"
+    t.integer  "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
