@@ -1,0 +1,7 @@
+$(".row-courses").html(
+  "<%= escape_javascript(render 'plan/courses', courses: @courses, role: @role) %>"
+);
+
+$('html,body').animate({
+  scrollTop: $(".row-courses").offset().top
+  },'slow');

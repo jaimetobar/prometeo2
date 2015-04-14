@@ -1,0 +1,16 @@
+<%# vars: courses, role %>
+<div class="col-xs-12 text-center">
+  <h2>Cursos para <%= role.titlecase %></h2>
+</div>
+<% Course.categories.each do |category,category_code| %>
+  <div class="col-xs-4">
+    <h3><%= category.titlecase %></h3>
+    <ul class="list-group">
+      <% courses.where(category: category_code).each do |course| %>
+        <li class="list-group-item">
+          <%= course.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

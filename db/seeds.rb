@@ -8,12 +8,14 @@
 
 Course.roles.each do |role,role_value|
   Course.categories.each do |category,category_value|
-    Course.create(
-      name: "#{category}-#{role}",
-      category: category,
-      role: role,
-      start_date: DateTime.now + 1.week,
-      end_date: DateTime.now + 1.week + 2.hours
-    )
+    3.times do |i|
+      Course.create(
+        name: "#{category}-#{role} course #{i}",
+        category: category,
+        role: role,
+        start_date: DateTime.now + 1.week,
+        end_date: DateTime.now + 1.week + 2.hours
+      )
+    end
   end
 end
