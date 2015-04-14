@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413235230) do
+ActiveRecord::Schema.define(version: 20150414225639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accreditations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -34,15 +40,30 @@ ActiveRecord::Schema.define(version: 20150413235230) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "courses", force: true do |t|
-    t.string   "name"
-    t.integer  "role"
-    t.integer  "category"
+  create_table "course_sessions", force: true do |t|
+    t.integer  "course_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "course_sessions", ["course_id"], name: "index_course_sessions_on_course_id", using: :btree
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.integer  "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.boolean  "for_sales_engineer"
+    t.boolean  "for_sales"
+    t.boolean  "for_delivery"
+    t.integer  "session_type"
+    t.integer  "accreditation_id"
+  end
+
+  add_index "courses", ["accreditation_id"], name: "index_courses_on_accreditation_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"

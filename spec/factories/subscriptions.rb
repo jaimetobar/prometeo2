@@ -14,9 +14,9 @@
 FactoryGirl.define do
   factory :subscription do
     user nil
-course nil
-notifications_on false
-finished false
+    course nil
+    notifications_on false
+    finished false
   end
 
 end
