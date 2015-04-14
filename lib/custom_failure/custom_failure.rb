@@ -9,7 +9,7 @@ class CustomFailure < Devise::FailureApp
     else
       store_location!
       flash[:alert] =  i18n_message(:invalid)
-      redirect_to :back 
+      redirect_to admin_root_path
     end
   end
 end
