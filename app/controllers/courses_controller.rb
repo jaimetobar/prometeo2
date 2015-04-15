@@ -9,6 +9,13 @@ class CoursesController < ApplicationController
   end
 
   def create
+    @course = Course.new(courses_params)
+    if @course.save
+      redirect_to courses_path
+    else
+      flash[:any_presence] = @course.errors[:any_presence][0]
+      render :new
+    end
   end
 
   def show
@@ -21,5 +28,10 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+  end
+  private
+  def courses_params
+    params.require(:course).permit(:name,:category,:description,
+      :for_sales_engineer,:for_sales,:for_delivery,:session_type,:accreditation_id)    
   end
 end

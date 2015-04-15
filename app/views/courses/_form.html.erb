@@ -1,82 +1,30 @@
-<form class="form-horizontal" role="form">
+<%= simple_form_for @course, html: { class: "form-horizontal" },
+wrapper: :horizontal_form,
+wrapper_mappings: {
+  check_boxes: :horizontal_radio_and_checkboxes,
+  radio_buttons: :horizontal_radio_and_checkboxes,
+  file: :horizontal_file_input,
+  boolean: :horizontal_boolean
+} do |f| %>
 
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="">
-      <p class="help-block">Lorem ipsum dolor sit amet</p>
-    </div>
+<%= f.error_notification %>
+<%= f.input :category, as: :select,collection: [:platform,:middleware,:cloud], label: "Categorias" %>
+<%= f.input :name, placeholder: "nombre", label: "Nombre" %>
+
+
+<div class="form-group boolean optional roles <% if flash[:any_presence] %>has-error<% end %>">
+  <label class="string optional col-sm-3 control-label" for="course_name">Roles</label>
+  <div class="col-sm-9">
+    <%= f.input :for_sales_engineer, as: :boolean, label: "Sales Engineer"%> 
+    <%= f.input :for_sales, as: :boolean, label: "Sales"%> 
+    <%= f.input :for_delivery, as: :boolean, label: "Delivery"%>
+    <%if :any_presence%><span class="help-block"><%= flash[:any_presence] %></span><%end%>
   </div>
+</div>
 
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-    <div class="col-sm-9">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      <p class="help-block">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
+<%= f.input :session_type, as: :radio_buttons,
+collection: [:always_available,:per_session], label: "Tipo de Sesion" %>
+<%= f.input :description, hint: "Deja una breve descripción del curso", as: :text %>
 
-  <div class="form-group">
-    <label for="exampleInputFile" class="col-sm-3 control-label">File</label>
-    <div class="col-sm-9">
-      <input type="file" id="exampleInputFile">
-      <p class="help-block">Example block-level help text here.</p>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-9">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Active
-        </label>
-      </div>
-      <p class="help-block">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Roles</label>
-    <div class="col-sm-9">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="optionsRadios" id="optionsCheckbox1" value="option1" checked="">
-          1
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="optionsRadios" id="optionsCheckbox2" value="option2">
-          2
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="optionsRadios" id="optionsCheckbox2" value="option2">
-          3
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Sex</label>
-    <div class="col-sm-9">
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-          Male
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Female
-        </label>
-      </div>
-      <p class="help-block">Lorem ipsum dolor sit amet</p>
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-default">Create User</button>
-</form>
+<%= f.button :submit, value: "Crear Curso" %>
+<% end %>
