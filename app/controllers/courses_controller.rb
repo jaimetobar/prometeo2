@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
   before_action :authenticate_admin!
   def index
+    @courses = Course.all
+    # byebug
   end
 
   def new

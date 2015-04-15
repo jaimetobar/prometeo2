@@ -28,8 +28,17 @@ class Course < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  def which_roles
+    roles = if self.for_sales_engineer then "Sales Engineer\n" else "" end
+    roles += if self.for_sales then "Sales\n" else "" end
+    roles += if self.for_delivery then "Delivery" else "" end
+    return roles
+  end
+
+  private
   def any_presence
-    if [:for_sales_engineer, :for_sales, :for_delivery].all?{|attr| self[attr].blank?}
+    if [:for_sales_engineer, :for_sales, :for_delivery].all?{ |attr| 
+        self[attr].blank? }
       errors.add(:any_presence,"You must fill in at least one field")
     end
   end
