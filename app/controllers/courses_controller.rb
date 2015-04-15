@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @course = Course.new
+    render
   end
 
   def create

@@ -19,3 +19,5 @@ Course.roles.each do |role,role_value|
     end
   end
 end
+
+Admin.create(email: "admin@admin.org", password: "12345678", password_confirmation: "12345678")
