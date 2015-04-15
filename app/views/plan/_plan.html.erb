@@ -1,0 +1,32 @@
+<%# require: plan %>
+<div class="col-xs-12 text-center">
+  <h3>Aquí está el plan que te sugerimos:</h3>
+</div>
+<div class="col-xs-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Fecha</th>
+        <th>Duración en días</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% plan.sessions_per_course.each do |course,session| %>
+        <tr>
+          <td><%= course.name %></td>
+          <% if course.always_available? %>
+            <td>Siempre disponible</td>
+            <td></td>
+          <% elsif session != nil %>
+            <td><%= session.start_date %></td>
+            <td><%= session.duration_in_days %></td>
+          <% else %>
+            <td>No disponible en este momento</td>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
