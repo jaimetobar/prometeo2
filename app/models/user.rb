@@ -12,5 +12,5 @@
 #
 
 class User < ActiveRecord::Base
-  enum role: [:sales_eng,:sales,:delivery]
+  enum role: [:sales_engineer,:sales,:delivery]
 end

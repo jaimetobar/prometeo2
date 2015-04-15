@@ -12,4 +12,10 @@
 
 class CourseSession < ActiveRecord::Base
   belongs_to :course
+
+  def duration_in_days
+    TimeDifference.between(
+      self.start_date,self.end_date
+    ).in_days.round(1)
+  end
 end

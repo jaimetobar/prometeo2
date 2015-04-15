@@ -1,21 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 
-Course.roles.each do |role,role_value|
+User.roles.each do |role,role_value|
   Course.categories.each do |category,category_value|
+    a = Accreditation.create(
+      name: "#{role.to_s.titlecase} #{category.to_s.titlecase} god"
+    )
     3.times do |i|
-      Course.create(
-        name: "#{category}-#{role} course #{i}",
+      c = Course.create(
+        name: "#{category}-#{role} level #{i}",
+        accreditation: a,
         category: category,
-        role: role,
-        start_date: DateTime.now + 1.week,
-        end_date: DateTime.now + 1.week + 2.hours
+        for_sales_engineer: role.to_s == "sales_engineer",
+        for_sales: role.to_s == "sales",
+        for_delivery: role.to_s == "delivery",
+        session_type: [:always_available,:per_session][rand(2)],
+        description: lorem_ipsum
       )
+      if c.per_session?
+        3.times do |j|
+          CourseSession.create(
+            course:c,
+            start_date: DateTime.now + 2.months + j.days,
+            end_date: DateTime.now + 2.months + j.days + rand(3).days + 1.hour
+          )
+        end
+      end
     end
   end
 end
