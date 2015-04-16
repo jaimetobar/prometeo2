@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
   end
 
   def edit
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
      redirect_to @user, notice: 'User was successfully created.'
     else
      render :new
-    end
     end
   end
 
