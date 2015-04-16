@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: a28012bf2f2aa6dabd2b1efd5a306279cb3c885e
+  branch: master
+  specs:
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -183,6 +192,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.3)
   shoulda-matchers
+  simple_form (~> 3.1.0.rc1)!
   spring
   table_print
   thor

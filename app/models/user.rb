@@ -12,5 +12,6 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :subscriptions  
   enum role: [:sales_eng,:sales,:delivery]
 end
