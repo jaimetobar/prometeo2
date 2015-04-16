@@ -24,22 +24,32 @@ class Course < ActiveRecord::Base
  #acreditation is missing
   validate :any_presence
 
+  belongs_to :accreditation
   has_many :sessions, class_name: "CourseSession"
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  def roles
+    rs = []
+    rs << :sales_engineer if self.for_sales_engineer
+    rs << :sales if self.for_sales
+    rs << :delivery if self.for_delivery
+    rs
+  end
+
   def which_roles
-    roles = if self.for_sales_engineer then "Sales Engineer\n" else "" end
-    roles += if self.for_sales then "Sales\n" else "" end
-    roles += if self.for_delivery then "Delivery" else "" end
-    return roles
+    rs = if self.for_sales_engineer then "Sales Engineer\n" else "" end
+    rs += if self.for_sales then "Sales\n" else "" end
+    rs += if self.for_delivery then "Delivery" else "" end
+    return rs
   end
 
   private
   def any_presence
-    if [:for_sales_engineer, :for_sales, :for_delivery].all?{ |attr| 
+    if [:for_sales_engineer, :for_sales, :for_delivery].all?{ |attr|
         self[attr].blank? }
       errors.add(:any_presence,"You must fill in at least one field")
     end
   end
+
 end
