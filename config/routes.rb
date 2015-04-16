@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/show'
-
-  get 'users/destroy'
-
   root "plan#index"
 
   get "/", to: "plan#index"
@@ -27,11 +13,9 @@ Rails.application.routes.draw do
   authenticated :admin do
     scope :admin do
       resources :courses
+      resources :users do
+        get 'subscriptions', to: "subscriptions#index"
+      end
     end
-    scope :admin do
-      resources :users
-    end
-
   end
-
 end

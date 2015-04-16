@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Usuario: <%= @user_email %></h2>
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Curso</th>
+                <th>Categoría</th>
+                <th>Rol</th>
+                <th>Recibir Notificaciones</th>
+                <th>Finalizado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if !@subscriptions.blank? %>
+                <% @subscriptions.each do |subscription|  %>
+                    <tr>
+                      <td><%= subscription.course.name %></td>
+                      <td><%= subscription.course.category %></td>
+                      <td><%= subscription.user.role %></td>
+                      <td>
+                        <%= checkbox(subscription.notifications_on) %>
+                      </td>
+                      <td>
+                        <%= checkbox(subscription.finished) %>
+                      </td>
+                    </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+</div>
