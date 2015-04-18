@@ -15,5 +15,8 @@ class User < ActiveRecord::Base
 
   enum role: [:sales_engineer,:sales,:delivery]
   has_many :subscriptions
-  
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :country, presence: true
+  validates :partner, presence: true
+  validates :role, presence: true
 end
