@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :courses
       resources :users do
         get 'subscriptions', to: "subscriptions#index"
+        patch 'subscriptions/:id', to: "subscriptions#update", as: :subscription
+        # resources :subscriptions
       end
     end
   end
