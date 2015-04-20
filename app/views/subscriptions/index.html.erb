@@ -29,11 +29,11 @@
                       <td><%= subscription.user.role %></td>
                       <td>
                         <%= hidden_field_tag "finished[]",subscription.finished %>
-                        <%= check_box_tag("Terminado", value = nil , checked = subscription.finished, class: "f_#{subscription.id}") %>
+                        <%= check_box_tag("Terminado", value = nil , checked = subscription.finished, class: "subscription") %>
                       </td>
                       <td>
                         <%= hidden_field_tag "notifications_on[]",subscription.notifications_on %>
-                        <%= check_box_tag("notificatio", value = nil, checked = subscription.notifications_on, class: "n_#{subscription.id}") %>
+                        <%= check_box_tag("notificatio", value = nil, checked = subscription.notifications_on, class: "subscription") %>
                       </td>
                     </tr> 
                   <% end %>

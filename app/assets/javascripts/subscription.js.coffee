@@ -1,6 +1,6 @@
 doc = $(document)
 doc.on 'ready page:load', ->
-  doc.on 'click', '[type=checkbox]', ->
+  doc.on 'click', '.subscription', ->
     # Get the task ID
     $el = $(this).siblings()
     if $el.val() == 'true'
