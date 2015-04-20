@@ -1,4 +1,4 @@
-<%= simple_form_for @course, html: { class: "form-horizontal" }, method: @method || post ,
+<%= simple_form_for @course, html: { class: "form-horizontal" }, method: @method || :post ,
 wrapper: :horizontal_form,
 wrapper_mappings: {
   check_boxes: :horizontal_radio_and_checkboxes,
@@ -24,6 +24,8 @@ wrapper_mappings: {
 
 <%= f.input :session_type, as: :radio_buttons,
 collection: [:always_available,:per_session], label: "Tipo de Sesion" %>
+<%= f.association :accreditation,label: "Acreditación" %>
+
 <%= f.input :description, hint: "Deja una breve descripción del curso", as: :text %>
 
 <%= f.button :submit, value: "Crear Curso" %>

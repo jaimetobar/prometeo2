@@ -20,6 +20,7 @@ class Course < ActiveRecord::Base
   enum session_type: [:always_available,:per_session]
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
+  validates :accreditation_id, presence: true
   validates :session_type, presence: true
  #acreditation is missing
   validate :any_presence
