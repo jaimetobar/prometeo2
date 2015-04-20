@@ -21,7 +21,6 @@ Rails.application.routes.draw do
             patch :multiple
           end
         end
-        # resources :subscriptions
       end
     end
   end
