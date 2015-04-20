@@ -29,6 +29,8 @@ class Course < ActiveRecord::Base
   has_many :sessions, class_name: "CourseSession"
   has_many :subscriptions
   has_many :users, through: :subscriptions
+  has_many :courses_accreditations
+  has_many :accreditations, through: :courses_accreditations
 
   def roles
     rs = []

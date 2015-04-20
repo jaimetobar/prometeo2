@@ -9,4 +9,6 @@
 #
 
 class Accreditation < ActiveRecord::Base
+  has_many :courses_accreditations
+  has_many :courses, through: :courses_accreditations
 end

@@ -10,9 +10,4 @@ class SubscriptionsController < ApplicationController
 
     redirect_to user_subscriptions_path
   end
-
-  private
-  def subscription_params
-    params.required(:subscription).permit[:id,:user_id]
-  end
 end
