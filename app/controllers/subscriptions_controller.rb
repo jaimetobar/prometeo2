@@ -1,10 +1,18 @@
 class SubscriptionsController < ApplicationController
+  
   def index
-    @subscriptions = Subscription.where(user_id: subscription_params)
-    @user_email = @subscriptions.first.user.email
+    @subscriptions = Subscription.where(user_id: params[:user_id]).order('id asc')
+    @user = @subscriptions.first.user
   end
+
+  def multiple
+    Subscription.update_multiple(params[:user_id],params[:notifications_on],params[:finished])
+
+    redirect_to user_subscriptions_path
+  end
+
   private
   def subscription_params
-    params[:user_id]
+    params.required(:subscription).permit[:id,:user_id]
   end
 end
