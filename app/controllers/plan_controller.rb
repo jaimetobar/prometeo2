@@ -5,7 +5,7 @@ class PlanController < ApplicationController
   # GET /plan/courses/:role
   def courses
     @role = params[:role]
-    @courses = Course.where("for_#{@role}": true)
+    Course.where("for_#{@role}" => true)
   end
 
   # POST /plan
