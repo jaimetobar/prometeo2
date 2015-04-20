@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   
   def index
     @subscriptions = Subscription.where(user_id: params[:user_id]).order('id asc')
-    @user = @subscriptions.first.user
+    @user = Subscription.find(params[:user_id]))
   end
 
   def multiple
