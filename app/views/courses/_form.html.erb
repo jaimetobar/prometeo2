@@ -15,8 +15,8 @@ wrapper_mappings: {
 <div class="form-group boolean optional roles <% if flash[:any_presence] %>has-error<% end %>">
   <label class="string optional col-sm-3 control-label" for="course_name">Roles</label>
   <div class="col-sm-9">
-    <%= f.input :for_sales_engineer, as: :boolean, label: "Sales Engineer"%> 
-    <%= f.input :for_sales, as: :boolean, label: "Sales"%> 
+    <%= f.input :for_sales_engineer, as: :boolean, label: "Sales Engineer"%>
+    <%= f.input :for_sales, as: :boolean, label: "Sales"%>
     <%= f.input :for_delivery, as: :boolean, label: "Delivery"%>
     <%if :any_presence%><span class="help-block"><%= flash[:any_presence] %></span><%end%>
   </div>
