@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414225639) do
+ActiveRecord::Schema.define(version: 20150423162112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20150414225639) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "accreditations_courses", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "accreditation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accreditations_courses", ["accreditation_id"], name: "index_accreditations_courses_on_accreditation_id", using: :btree
+  add_index "accreditations_courses", ["course_id"], name: "index_accreditations_courses_on_course_id", using: :btree
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -60,10 +70,7 @@ ActiveRecord::Schema.define(version: 20150414225639) do
     t.boolean  "for_sales"
     t.boolean  "for_delivery"
     t.integer  "session_type"
-    t.integer  "accreditation_id"
   end
-
-  add_index "courses", ["accreditation_id"], name: "index_courses_on_accreditation_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"

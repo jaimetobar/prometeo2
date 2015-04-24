@@ -2,7 +2,7 @@
 #
 # Table name: subscriptions
 #
-#  id               :integer          not null, primary  key
+#  id               :integer          not null, primary key
 #  user_id          :integer
 #  course_id        :integer
 #  notifications_on :boolean

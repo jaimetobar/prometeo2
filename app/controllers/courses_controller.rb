@@ -44,7 +44,8 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
   def courses_params
-    params.require(:course).permit(:name,:category,:description,
-      :for_sales_engineer,:for_sales,:for_delivery,:session_type,:accreditation_id)    
+    params.require(:course).permit(
+      :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,
+      :session_type,accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ])
   end
 end
