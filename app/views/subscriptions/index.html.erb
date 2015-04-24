@@ -1,8 +1,12 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-12">
+    <%= link_to(users_path, class: "btn btn-warning btn-back") do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      Todos los usuarios
+    <% end %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2>Usuario: <%= @user.email %></h2>
+        <h2><span class="glyphicon glyphicon-user"></span> <%= @user.email %></h2>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -35,13 +39,13 @@
                         <%= hidden_field_tag "notifications_on[]",subscription.notifications_on %>
                         <%= check_box_tag("notificatio", value = nil, checked = subscription.notifications_on, class: "subscription") %>
                       </td>
-                    </tr> 
+                    </tr>
                   <% end %>
                 <% end %>
               </tbody>
             </table>
             <%= hidden_field_tag 'user_id', @user.id %>
-            <%= submit_tag "Editar Subscripciones" %>
+            <%= submit_tag "Guardar", class:"btn btn-success pull-right" %>
         <% end %>
         </div>
         <!-- /.table-responsive -->
