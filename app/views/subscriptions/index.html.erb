@@ -2,39 +2,47 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2>Usuario: <%= @user_email %></h2>
+        <h2>Usuario: <%= @user.email %></h2>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
         <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Curso</th>
-                <th>Categoría</th>
-                <th>Rol</th>
-                <th>Recibir Notificaciones</th>
-                <th>Finalizado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% if !@subscriptions.blank? %>
-                <% @subscriptions.each do |subscription|  %>
+          <%= form_tag multiple_user_subscriptions_path, method: :patch do %>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Curso</th>
+                  <th>Categoría</th>
+                  <th>Rol</th>
+                  <th>Finalizado</th>
+                  <th>Recibir Notificaciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if !@subscriptions.blank? %>
+                  <% @subscriptions.each do |subscription|  %>
                     <tr>
-                      <td><%= subscription.course.name %></td>
+                      <td>
+                        <%= subscription.course.name %>
+                      </td>
                       <td><%= subscription.course.category %></td>
                       <td><%= subscription.user.role %></td>
                       <td>
-                        <%= checkbox(subscription.notifications_on) %>
+                        <%= hidden_field_tag "finished[]",subscription.finished %>
+                        <%= check_box_tag("Terminado", value = nil , checked = subscription.finished, class: "subscription") %>
                       </td>
                       <td>
-                        <%= checkbox(subscription.finished) %>
+                        <%= hidden_field_tag "notifications_on[]",subscription.notifications_on %>
+                        <%= check_box_tag("notificatio", value = nil, checked = subscription.notifications_on, class: "subscription") %>
                       </td>
-                    </tr>
+                    </tr> 
+                  <% end %>
                 <% end %>
-              <% end %>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+            <%= hidden_field_tag 'user_id', @user.id %>
+            <%= submit_tag "Editar Subscripciones" %>
+        <% end %>
         </div>
         <!-- /.table-responsive -->
       </div>

@@ -9,4 +9,8 @@
 #
 
 class Accreditation < ActiveRecord::Base
+  has_many :accreditations_courses
+  has_many :courses, through: :accreditations_courses
+
+  accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
 end

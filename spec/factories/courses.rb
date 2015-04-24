@@ -12,7 +12,6 @@
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
-#  accreditation_id   :integer
 #
 
 FactoryGirl.define do

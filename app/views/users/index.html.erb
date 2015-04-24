@@ -2,7 +2,10 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Usuarios
+        Usuarios <%= link_to new_user_path,class: "btn btn-info btn-md" do %>
+              <span class="glyphicon glyphicon-user"></span>
+              <span class="glyphicon glyphicon-plus"></span>
+          <% end %>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -10,11 +13,11 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Role</th>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Tipo de Sesión</th>
+                <th>#</th>
+                <th>Correo electronico</th>
+                <th>País</th>
+                <th>Partner</th>
+                <th>Roles</th>
                 <th>Actions</th>
               </tr>
             </thead>

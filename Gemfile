@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 gem 'rails', '4.1.4'
 
 ### OpenShift Online changes:
@@ -59,3 +59,4 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'table_print'
 gem 'time_difference'
+gem 'nested_form_fields'

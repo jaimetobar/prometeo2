@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     scope :admin do
       resources :courses
       resources :users do
-        get 'subscriptions', to: "subscriptions#index"
+        resources 'subscriptions',only: [:index]  do
+          collection do
+            patch :multiple
+          end
+        end
       end
     end
   end

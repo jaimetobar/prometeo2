@@ -12,22 +12,25 @@
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
-#  accreditation_id   :integer
 #
 
 class Course < ActiveRecord::Base
   enum category: [:platform,:middleware,:cloud]
   enum session_type: [:always_available,:per_session]
+
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
   validates :session_type, presence: true
- #acreditation is missing
-  validate :any_presence
 
-  belongs_to :accreditation
+  validate :validate_presence_of_roles
+
+  has_many :accreditations_courses
+  has_many :accreditations, through: :accreditations_courses
   has_many :sessions, class_name: "CourseSession"
   has_many :subscriptions
   has_many :users, through: :subscriptions
+
+  accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
 
   def roles
     rs = []
@@ -38,18 +41,12 @@ class Course < ActiveRecord::Base
   end
 
   def which_roles
-    rs = if self.for_sales_engineer then "Sales Engineer\n" else "" end
-    rs += if self.for_sales then "Sales\n" else "" end
-    rs += if self.for_delivery then "Delivery" else "" end
-    return rs
+    self.roles.map(&:to_s).map(&:humanize).join("\n")
   end
 
-  private
-  def any_presence
-    if [:for_sales_engineer, :for_sales, :for_delivery].all?{ |attr|
-        self[attr].blank? }
-      errors.add(:any_presence,"You must fill in at least one field")
-    end
+  protected
+  def validate_presence_of_roles
+    errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
   end
 
 end
