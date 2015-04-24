@@ -12,5 +12,5 @@
  <%= f.input :country, as: :uuid, label: "País" %>
  <%= f.input :partner, label: "Partner" %>
  <%= f.input :role, collection: [:sales_engineer,:sales,:delivery], label: "Tipo de Rol" %>
- <%= f.button :submit, value: "Crear Nuevo Usuario" %>
+ <%= f.button :submit, value: "Guardar", class: "btn btn-success pull-right" %>
  <% end %>
