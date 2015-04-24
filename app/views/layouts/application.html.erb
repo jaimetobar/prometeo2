@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Prometeo</title>
+  <link href="http://red-hat-overpass-fonts.s3.amazonaws.com/overpass.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "admins/session_options" %>
+  <%= render "layouts/navigation" %>
   <div class="container">
     <% if flash[:notice] %>
       <div class="alert alert-success alert-dismissible" role="alert">
@@ -21,9 +22,7 @@
         <%= flash[:alert] %>
       </div>
       <% end %>
+    <%= yield %>
   </div>
-  <%= yield %>
-  <%# debug(params) if Rails.env.development? %>
-
 </body>
 </html>
