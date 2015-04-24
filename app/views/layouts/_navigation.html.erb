@@ -22,6 +22,7 @@
           <%= link_to "Presentaciones", "#" %>
         </li>
       </ul>
+      <div class="divider"></div>
       <ul class="nav navbar-nav navbar-right">
         <% if admin_signed_in? %>
           <li class="<%= 'active' if params[:controller] == "courses" %>">
@@ -29,6 +30,9 @@
           </li>
           <li class="<%= 'active' if ["users","subscriptions"].include?(params[:controller]) %>">
             <%= link_to "Partners", users_path %>
+          </li>
+          <li class="<%= 'active' if ["accreditations"].include?(params[:controller]) %>">
+            <%= link_to "Acreditaciones", accreditations_path %>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">

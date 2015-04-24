@@ -1,22 +1,21 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :get_course, only: [:destroy, :update, :edit]
+  before_action :set_course, only: [:destroy, :update, :edit]
+
   def index
     @courses = Course.all
-    # byebug
   end
 
   def new
     @course = Course.new
-    render
   end
 
   def create
-    @course = Course.new(courses_params)
+    @course = Course.new(course_params)
     if @course.save
+      flash[:notice] = "Curso creado"
       redirect_to courses_path
     else
-      flash[:any_presence] = @course.errors[:any_presence][0]
+      flash[:roles] = @course.errors[:roles][0]
       render :new
     end
   end
@@ -25,10 +24,10 @@ class CoursesController < ApplicationController
   end
 
   def update
-    if @course.update(courses_params)
+    if @course.update(course_params)
       redirect_to courses_path
     else
-      flash[:any_presence] = @course.errors[:any_presence][0]
+      flash[:roles] = @course.errors[:roles][0]
       render :edit
     end
   end
@@ -40,10 +39,10 @@ class CoursesController < ApplicationController
 
 
   private
-  def get_course
+  def set_course
     @course = Course.find(params[:id])
   end
-  def courses_params
+  def course_params
     params.require(:course).permit(
       :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,
       :session_type,accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ])

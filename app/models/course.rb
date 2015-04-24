@@ -24,7 +24,7 @@ class Course < ActiveRecord::Base
 
   validate :validate_presence_of_roles
 
-  has_many :accreditations_courses
+  has_many :accreditations_courses, dependent: :delete_all
   has_many :accreditations, through: :accreditations_courses
   has_many :sessions, class_name: "CourseSession"
   has_many :subscriptions
