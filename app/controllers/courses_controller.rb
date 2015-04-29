@@ -2,7 +2,12 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:destroy, :update, :edit]
 
   def index
-    @courses = Course.all
+    @courses = Course.all.order(:name)
+    if @accreditation = Accreditation.find_by_id(params[:accreditation])
+      @courses = @courses
+        .joins(:accreditations_courses)
+        .where("accreditations_courses.accreditation_id = ?",@accreditation.id)
+    end
   end
 
   def new

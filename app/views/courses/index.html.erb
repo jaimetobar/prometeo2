@@ -9,6 +9,9 @@
                       Agregar curso
                   <% end %>
                 </h2>
+                <% if @accreditation %>
+                  <h4>para la acreditación <strong><%= @accreditation.id %> - <%= @accreditation.name %></strong></h4>
+                <% end %>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -30,7 +33,7 @@
                               <% @courses.each do |course|  %>
                                 <tr>
                                     <td><%= course.name %></td>
-                                    <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path,) %></td>
+                                    <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path(course: course.id),) %></td>
                                     <td><%= course.which_roles %></td>
                                     <td><%= course.category %></td>
                                     <td><%= truncate(course.description) %></td>

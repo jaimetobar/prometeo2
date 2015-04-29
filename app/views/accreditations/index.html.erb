@@ -9,6 +9,9 @@
                       Agregar acreditación
                   <% end %>
                 </h2>
+                <% if @course %>
+                  <h4>para el curso <strong><%= @course.id %> - <%= @course.name %></strong></h4>
+                <% end %>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -30,7 +33,7 @@
                                     <td><%= a.id %></td>
                                     <td><%= a.role %></td>
                                     <td><%= a.name %></td>
-                                    <td><%= link_to(pluralize(a.courses.count,"curso"), courses_path,) %></td>
+                                    <td><%= link_to(pluralize(a.courses.count,"curso"), courses_path(accreditation: a.id),) %></td>
                                     <td>
                                       <%= link_to edit_accreditation_path(a), class: "btn btn-info" do %>
                                           <span class="glyphicon glyphicon-pencil"></span>

@@ -3,6 +3,12 @@ class AccreditationsController < ApplicationController
 
   def index
     @accreditations = Accreditation.all
+
+    if @course = Course.find_by_id(params[:course])
+      @accreditations = @accreditations
+        .joins(:accreditations_courses)
+        .where("accreditations_courses.course_id = ?",@course.id)
+    end
   end
 
   def new
