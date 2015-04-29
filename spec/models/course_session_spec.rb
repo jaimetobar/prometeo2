@@ -4,10 +4,11 @@
 #
 #  id         :integer          not null, primary key
 #  course_id  :integer
-#  start_date :datetime
-#  end_date   :datetime
+#  start_date :date
+#  end_date   :date
 #  created_at :datetime
 #  updated_at :datetime
+#  duration   :string(255)
 #
 
 require 'rails_helper'
