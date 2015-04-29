@@ -24,13 +24,14 @@ class Course < ActiveRecord::Base
 
   validate :validate_presence_of_roles
 
-  has_many :accreditations_courses
+  has_many :accreditations_courses, dependent: :delete_all
   has_many :accreditations, through: :accreditations_courses
-  has_many :sessions, class_name: "CourseSession"
+  has_many :course_sessions
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
+  accepts_nested_attributes_for :course_sessions, allow_destroy: true
 
   def roles
     rs = []

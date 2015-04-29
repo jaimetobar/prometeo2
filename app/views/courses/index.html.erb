@@ -9,41 +9,52 @@
                       Agregar curso
                   <% end %>
                 </h2>
+                <% if @accreditation %>
+                  <h4>para la acreditación <strong><%= @accreditation.id %> - <%= @accreditation.name %></strong></h4>
+                <% end %>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
-                            <tr>
-                                <th>Role</th>
-                                <th>Category</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Tipo de Sesión</th>
-                                <th class="actions">Actions</th>
-                            </tr>
+                          <tr>
+                            <th>Name</th>
+                            <th>Acreditaciones</th>
+                            <th>Roles</th>
+                            <th>Categoría</th>
+                            <th>Descripción</th>
+                            <th>Sesiones</th>
+                            <th class="actions"></th>
+                          </tr>
                         </thead>
                         <tbody>
-                            <% if !@courses.blank? %>
-                              <% @courses.each do |course|  %>
-                                <tr>
-                                    <td><%= course.which_roles %></td>
-                                    <td><%= course.category %></td>
-                                    <td><%= course.name %></td>
-                                    <td><%= course.description %></td>
-                                    <td><%= course.session_type %></td>
-                                    <td>
-                                      <%= link_to edit_course_path(course), class: "btn btn-info" do %>
-                                          <span class="glyphicon glyphicon-pencil"></span>
-                                      <% end %>
-                                      <%= link_to course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
-                                          <span class="glyphicon glyphicon-trash"></span>
-                                      <% end %>
-                                    </td>
-                                </tr>
+                          <% if !@courses.blank? %>
+                            <% @courses.each do |course|  %>
+                              <tr>
+                                <td><%= course.name %></td>
+                                <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path(course: course.id),) %></td>
+                                <td><%= course.which_roles %></td>
+                                <td><%= course.category %></td>
+                                <td><%= truncate(course.description) %></td>
+                                <td>
+                                  <% if course.per_session? %>
+                                    <%= pluralize(course.course_sessions.count,"sesión","sesiones") %>
+                                  <% else %>
+                                    Siempre disponible
+                                  <% end %>
+                                </td>
+                                <td>
+                                  <%= link_to edit_course_path(course), class: "btn btn-info" do %>
+                                      <span class="glyphicon glyphicon-pencil"></span>
+                                  <% end %>
+                                  <%= link_to course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
+                                      <span class="glyphicon glyphicon-trash"></span>
+                                  <% end %>
+                                </td>
+                              </tr>
                             <% end %>
-                             <% end %>
+                          <% end %>
                         </tbody>
                     </table>
                 </div>

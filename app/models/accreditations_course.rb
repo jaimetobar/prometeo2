@@ -13,7 +13,7 @@ class AccreditationsCourse < ActiveRecord::Base
   belongs_to :accreditation
   belongs_to :course
 
-  validates :accreditation, presence: true
-  validates :course, presence: true
+  validates :accreditation, presence: true, if: -> { self.course.nil? }
+  validates :course, presence: true, if: -> { self.accreditation.nil? }
 
 end
