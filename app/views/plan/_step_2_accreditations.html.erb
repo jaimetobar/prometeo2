@@ -1,4 +1,5 @@
 <%= form_tag(step_3_schedule_plan_path, method: "get", remote: true) do %>
+  <%= hidden_field_tag :role, @role %>
   <div class="row">
     <div class="col-xs-12 text-center">
       <%= link_to(step_1_roles_plan_path, class: "link pull-left", remote: true) do %>
@@ -22,7 +23,7 @@
           <div class="accreditation-box">
             <div class="select-btn-container">
               <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
-                <span class="glyphicon glyphicon-ok text-muted"></span>
+                <span class="glyphicon glyphicon-ok"></span>
               </a>
             </div>
             <h3><%= a.name %></h3>

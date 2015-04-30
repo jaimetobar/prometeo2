@@ -15,8 +15,8 @@ class PlanController < ApplicationController
 
   # GET /plan/step_3_schedule
   def step_3_schedule
+    @role = params[:role]
     @accreditations_ids = params[:accreditations]
-    byebug
   end
 
   # POST /plan
