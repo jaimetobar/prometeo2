@@ -8,5 +8,17 @@ hiddenInput = (name,value)->
 
 ready = ->
 
+  $(document).on "click",".btn-select-accreditation", ->
+    console.log "hola"
+    $form = $("form")
+    $btn = $(@)
+    id = $btn.data("accreditation-id")
+    $input = $form.find("input[value='#{id}']")
+    if !!$input.length
+      $input.remove()
+      $btn.removeClass "active"
+    else
+      $form.append( hiddenInput("accreditations[]",id) )
+      $btn.addClass "active"
 
 $(document).on("ready page:load",ready)

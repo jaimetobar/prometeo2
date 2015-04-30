@@ -46,6 +46,16 @@
     vertical-align: middle;
     padding: 30px;
     background-color: #ecf0f1;
-
+    .btn-select-accreditation {
+      span {
+        color: #777777;
+      }
+      &.active {
+        background-color: $brand-primary;
+        span {
+          color: white !important;
+        }
+      }
+    }
   }
 }
