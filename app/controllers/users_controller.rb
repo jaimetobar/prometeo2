@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+     PlanMailer.plan_greatings(current_user)
      redirect_to  users_path, notice: 'Usuario creado correctamente'
     else
      render :new
