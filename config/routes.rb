@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :step_4_subscription
     end
   end
+  get "/users/:subscription_token", to: "users#subscription", as: :user_subscription_token,constraints: { subscription_token: /[a-z\d]/ }
 
   devise_for :admins
 
