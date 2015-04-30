@@ -1,0 +1,20 @@
+<h1>Te recordamos que el curso <%= @course.name %> iniciará en 2 días</h1>
+
+<table>
+  <thead>
+      <tr>
+          <th>Curso</th>
+          <th>Duración</th>
+          <th>Fecha</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= subscription.course.name %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+      </tr>
+  </tbody>
+</table>
+<br>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to("Edición de notificaciones", user_subscription_token_path) %></label>
