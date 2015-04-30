@@ -1,1 +1,20 @@
-<h1>Le damos la bienvinida al Prometeo</h1>
+<h1>Le damos la bienvinida <%= @user.email %> a Prometeo</h1>
+
+<h3>Te has suscrito a los siguientes cursos: </h3>
+
+<table>
+  <thead>
+      <tr>
+          <th>Curso</th>
+          <th>Duración</th>
+          <th>Fecha</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= %></td>
+      <td><%= %></td>
+      <td><%= %></td>
+    </tr>
+  </tbody>
+</table>

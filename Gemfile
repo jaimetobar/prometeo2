@@ -20,6 +20,7 @@ gem 'rake', '~> 0.9.6'
 
 group :development do
   gem 'spring'
+  gem 'annotate'
 end
 group :development, :test do
   gem 'rspec-rails'
