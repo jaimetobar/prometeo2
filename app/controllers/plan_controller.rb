@@ -11,6 +11,8 @@ class PlanController < ApplicationController
   # POST /plan
   def create
     @plan = Plan.new(courses: Course.where(id: plan_params[:courses]))
+    byebug
+    PlanMailer.plan_greatings(current_user)
   end
 
   protected
