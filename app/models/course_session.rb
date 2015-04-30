@@ -19,13 +19,6 @@ class CourseSession < ActiveRecord::Base
 
   scope :upcoming, -> { where("start_date > ?", DateTime.now) }
 
-  def duration_in_days
-    TimeDifference.between(
-      self.start_date,
-      self.end_date
-    ).in_days.round(1)
-  end
-
   #source: http://makandracards.com/makandra/984-test-if-two-date-ranges-overlap-in-ruby-or-rails
   def overlaps?(other)
     if other.respond_to? :each
