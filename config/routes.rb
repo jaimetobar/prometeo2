@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :step_1_roles
       get :step_2_accreditations
       get :step_3_schedule
+      get :step_4_subscription
     end
   end
 

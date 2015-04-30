@@ -7,7 +7,7 @@
       </span>
     <% end %>
 
-    <%= button_tag :submit, class: "btn btn-default btn-success btn-lg pull-right" do %>
+    <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right", remote: true do %>
       <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
       <span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
