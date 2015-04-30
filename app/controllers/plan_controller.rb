@@ -16,12 +16,16 @@ class PlanController < ApplicationController
   # GET /plan/step_3_schedule
   def step_3_schedule
     @role = params[:role]
-    accreditations_ids = params[:accreditations]
+    @accreditations_ids = params[:accreditations]
     courses = Course.joins(:accreditations_courses)
-      .where("accreditations_courses.accreditation_id" => accreditations_ids).uniq
+      .where("accreditations_courses.accreditation_id" => @accreditations_ids).uniq
 
     @plan = Plan.new(courses: courses)
-    
+  end
+
+  def step_4_subscription
+    @role = params[:role]
+    @accreditations_ids = params[:accreditations]
   end
 
   protected
