@@ -8,7 +8,7 @@
   } do |f| %>
 
   <%= f.error_notification %>
-  <%= f.input :category, as: :select,collection: [:platform,:middleware,:cloud], label: "Categorias" %>
+  <%= f.input :category, as: :select,collection: Course.categories.keys, label: "Categorias" %>
   <%= f.input :name, placeholder: "nombre", label: "Nombre" %>
 
 
@@ -19,7 +19,7 @@
       <%= f.input :for_sales, as: :boolean, label: "Sales"%>
       <%= f.input :for_delivery, as: :boolean, label: "Delivery"%>
 
-      <%if :any_presence%><span class="help-block"><%= flash[:roles] %></span><%end%>
+      <%if flash[:roles] %><span class="help-block bg-danger"><%= flash[:roles] %></span><%end%>
     </div>
   </div>
   <div class="form-group optional accreditations_courses form-inline <% if flash[:accreditations_courses] %>has-error<% end %>">
@@ -33,8 +33,42 @@
     </div>
   </div>
 
-  <%= f.input :session_type, as: :radio_buttons,
+
+  <%= f.input :session_type, as: :radio_buttons, class: "course-session-type-radio",
   collection: [:always_available,:per_session], label: "Tipo de Sesion" %>
+  <div class="form-group optional sessions form-inline" <%= "style='display: none'".html_safe if @course.session_type == "always_available" %> >
+    <label class="optional col-sm-3 control-label" for="sessions">Sesiones</label>
+    <div class="col-sm-9">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de finalización</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= f.nested_fields_for :course_sessions, wrapper_tag: :tr do |ff| %>
+            <td>
+              <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
+            </td>
+            <td>
+              <%= ff.input :start_date, wrapper: :datetimepicker,as: :string %>
+            </td>
+            <td>
+              <%= ff.input :end_date, wrapper: :datetimepicker,as: :string %>
+            </td>
+            <td>
+              <%= ff.input :duration, label: false, placeholder: "ej: 5 horas", hint: false %>
+            </td>
+
+          <% end %>
+        </tbody>
+      </table>
+      <%= f.add_nested_fields_link :course_sessions, content_tag(:span,"Sesión",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+    </div>
+  </div>
 
   <%= f.input :description, hint: "Deja una breve descripción del curso", as: :text, :input_html => {:rows => 7} %>
 

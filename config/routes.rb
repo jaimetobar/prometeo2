@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   post "/plan", to: "plan#create"
 
   devise_for :admins
-  
+
   # get "/admin",
 
   get "admin", to: "admin#index", as: :admin_root
   authenticated :admin do
     scope :admin do
       resources :courses
+
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      resources :accreditations
+
     end
   end
 end

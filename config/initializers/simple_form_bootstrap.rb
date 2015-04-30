@@ -132,6 +132,19 @@ SimpleForm.setup do |config|
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
   end
+
+  config.wrappers :datetimepicker, tag: 'div', error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'form-group input-group datetimepicker' do |bb|
+      bb.use :html5
+      bb.use :input, class: 'form-control'
+      bb.wrapper tag: 'span', class: 'input-group-addon' do |bbb|
+        bbb.wrapper tag: 'span', class: 'glyphicon glyphicon-calendar' do |bbbb|
+        end
+      end
+    end
+    b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+  end
+
   # Wrappers for forms and inputs using the Bootstrap toolkit.
   # Check the Bootstrap docs (http://getbootstrap.com)
   # to learn about the different styles for forms and inputs,
@@ -146,4 +159,7 @@ SimpleForm.setup do |config|
     date: :multi_select,
     time: :multi_select
   }
+
+
+
 end

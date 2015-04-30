@@ -16,3 +16,30 @@
     }
   }
 }
+
+.sessions {
+  .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+    input.form-control {
+      margin-left: 0px;
+    }
+  }
+  table {
+    td {
+      .form-group {
+        margin-bottom: 0px;
+      }
+
+      .has-error {
+        input {
+          border-color: red;
+        }
+        .help-block {
+          color: red;
+        }
+      }
+
+    }
+  }
+}
