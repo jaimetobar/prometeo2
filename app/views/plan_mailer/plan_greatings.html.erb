@@ -11,10 +11,14 @@
       </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= %></td>
-      <td><%= %></td>
-      <td><%= %></td>
-    </tr>
+    <% @user.subscriptions.map do |subscription| %>
+      <tr>
+        <td><%= subscription.course.name %></td>
+        <td><%= %></td>
+        <td><%= %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
+<br>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to("Edición de notificaciones", subscription_token_path) %></label>
