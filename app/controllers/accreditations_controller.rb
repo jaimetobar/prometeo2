@@ -2,7 +2,7 @@ class AccreditationsController < ApplicationController
   before_action :set_accreditation, only: [:destroy, :update, :edit]
 
   def index
-    @accreditations = Accreditation.all
+    @accreditations = Accreditation.all.order(:name)
 
     if @course = Course.find_by_id(params[:course])
       @accreditations = @accreditations
@@ -52,7 +52,7 @@ class AccreditationsController < ApplicationController
   end
 
   def accreditation_params
-    params.require(:accreditation).permit(:name,:role,
+    params.require(:accreditation).permit(:name,:role,:description,
       accreditations_courses_attributes:[ :course_id, :_destroy, :id ])
   end
 end

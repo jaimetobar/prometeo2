@@ -20,8 +20,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Rol</th>
                                 <th>Name</th>
+                                <th>Descripción</th>
+                                <th>Rol</th>
                                 <th>Cursos</th>
                                 <th class="actions"></th>
                             </tr>
@@ -31,8 +32,9 @@
                               <% @accreditations.each do |a|  %>
                                 <tr>
                                     <td><%= a.id %></td>
-                                    <td><%= a.role %></td>
                                     <td><%= a.name %></td>
+                                    <td><%= truncate(a.description) %></td>
+                                    <td><%= a.role %></td>
                                     <td><%= link_to(pluralize(a.courses.count,"curso"), courses_path(accreditation: a.id),) %></td>
                                     <td>
                                       <%= link_to edit_accreditation_path(a), class: "btn btn-info" do %>

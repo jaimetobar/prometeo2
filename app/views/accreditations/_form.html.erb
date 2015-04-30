@@ -21,6 +21,6 @@
       <%= f.add_nested_fields_link :accreditations_courses, content_tag(:span,"Curso",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
     </div>
   </div>
-
+  <%= f.input :description, placeholder: "Breve descripción de la acreditación", label: "Descripción" %>
   <%= f.button :submit, value: "Guardar", class:"btn btn-success pull-right" %>
 <% end %>
