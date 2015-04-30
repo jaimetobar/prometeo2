@@ -30,6 +30,8 @@ class Course < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  alias_method :sessions, :course_sessions
+
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
 
