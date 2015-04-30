@@ -27,7 +27,7 @@
               <td><%= course.name %></td>
 
               <% if course.always_available? %>
-                <td></td>
+                <td><%= course.duration %></td>
                 <td>Siempre disponible</td>
               <% elsif session != nil %>
                 <td><%= session.duration %></td>

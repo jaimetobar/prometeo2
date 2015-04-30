@@ -12,6 +12,7 @@
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
+#  duration           :string(255)
 #
 
 class Course < ActiveRecord::Base
