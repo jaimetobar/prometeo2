@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left", remote: true) do %>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="hidden-xs hidden-sm">
+        Cambiar acreditaciones
+      </span>
+    <% end %>
+
+    <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right", remote: true do %>
+      <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    <% end %>
+    <h3>Aquí está el plan que te sugerimos</h3>
+    <div class="table-responsive text-left table-schedule">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Duración</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plan.sessions_per_course.each do |course,session| %>
+            <tr>
+              <td><%= course.name %></td>
+
+              <% if course.always_available? %>
+                <td><%= course.duration %></td>
+                <td>Siempre disponible</td>
+              <% elsif session != nil %>
+                <td><%= session.duration %></td>
+                <td><%= session.start_date %> a <%= session.end_date %></td>
+              <% else %>
+                <td></td>
+                <td>No disponible en este momento</td>
+                <td></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

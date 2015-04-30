@@ -12,6 +12,7 @@
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
+#  duration           :string(255)
 #
 
 class Course < ActiveRecord::Base
@@ -29,6 +30,8 @@ class Course < ActiveRecord::Base
   has_many :course_sessions
   has_many :subscriptions
   has_many :users, through: :subscriptions
+
+  alias_method :sessions, :course_sessions
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true

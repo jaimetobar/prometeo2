@@ -1,7 +1,0 @@
-$(".row-plan").html(
-  "<%= escape_javascript(render 'plan/plan', plan: @plan) %>"
-);
-
-$('html,body').animate({
-  scrollTop: $(".row-plan").offset().top
-  },'slow');

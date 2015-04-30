@@ -4,14 +4,19 @@ Rails.application.routes.draw do
 
   get "/", to: "plan#index"
 
-  get "/plan/courses/:role", to: "plan#courses", as: :plan_courses
-  post "/plan", to: "plan#create"
+  resource :plan, only:[], controller: :plan do
+    collection do
+      get :step_1_roles
+      get :step_2_accreditations
+      get :step_3_schedule
+      get :step_4_subscription
+    end
+  end
 
   devise_for :admins
 
-  # get "/admin",
-
   get "admin", to: "admin#index", as: :admin_root
+
   authenticated :admin do
     scope :admin do
       resources :courses

@@ -1,0 +1,38 @@
+<%= form_tag(step_3_schedule_plan_path, method: "get", remote: true) do %>
+  <%= hidden_field_tag :role, @role %>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= link_to(step_1_roles_plan_path, class: "link pull-left", remote: true) do %>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="hidden-xs hidden-sm">
+          Cambiar Rol
+        </span>
+      <% end %>
+
+      <%= button_tag :submit, class: "btn btn-default btn-success btn-lg pull-right" do %>
+        <span class="hidden-xs hidden-sm">Crear Plan</span>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      <% end %>
+      <h3>Selecciona las acreditaciones que deseas tomar</h3>
+    </div>
+  </div>
+  <div class="btn-group roles">
+    <div class="accreditations">
+      <% @accreditations.each do |a| %>
+        <div class="full-col col-xs-12 col-md-<%=(12/@accreditations.count).ceil%>" >
+          <div class="accreditation-box">
+            <div class="select-btn-container">
+              <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
+                <span class="glyphicon glyphicon-ok"></span>
+              </a>
+            </div>
+            <h3><%= a.name %></h3>
+            <p>
+              <%= a.description %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

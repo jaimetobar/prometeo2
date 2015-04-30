@@ -8,9 +8,9 @@
   } do |f| %>
 
   <%= f.error_notification %>
-  <%= f.input :category, as: :select,collection: Course.categories.keys, label: "Categorias" %>
+  <%= f.input :category, as: :select,collection: Course.categories.keys, label: "Categoría" %>
   <%= f.input :name, placeholder: "nombre", label: "Nombre" %>
-
+  <%= f.input :duration, placeholder: "ej: 5 horas", label: "Duración" %>
 
   <div class="form-group boolean optional roles <% if flash[:roles] %>has-error<% end %>">
     <label class="string optional col-sm-3 control-label" for="course_name">Roles</label>
