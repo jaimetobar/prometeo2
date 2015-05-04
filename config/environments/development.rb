@@ -40,8 +40,8 @@ Rails.application.configure do
       :address              => 'smtp.gmail.com',
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'prometeoredhat@gmail.com',
-      :password             => 'asdsaffffffff',
+      :user_name            => ENV['PROMETEO_USER'],
+      :password             => ENV['PROMETEO_PASSWORD'],
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
