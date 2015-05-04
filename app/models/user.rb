@@ -20,4 +20,12 @@ class User < ActiveRecord::Base
   validates :country, presence: true
   validates :partner, presence: true
   validates :role, presence: true
+  before_create :add_token
+
+  private
+  def add_token
+    begin
+      self.email_token = SecureRandom.hex[0,10].downcase
+    end while self.class.exists?(email_token: email_token)
+  end
 end
