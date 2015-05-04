@@ -21,4 +21,4 @@
   </tbody>
 </table>
 <br>
-<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", root_path %></label>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", user_email_token_url(@user.email_token) %></label>

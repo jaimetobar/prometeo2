@@ -12,17 +12,16 @@ Rails.application.routes.draw do
       get :step_4_subscription
     end
   end
-  get "/users/:subscription_token", to: "users#subscription", as: :user_subscription_token,constraints: { subscription_token: /[a-z\d]/ }
-
   devise_for :admins
 
   get "admin", to: "admin#index", as: :admin_root
 
+  resources :users, only: [:new ,:create]
+  get "/users/:email_token" => "users#token", as: :user_email_token
   authenticated :admin do
     scope :admin do
       resources :courses
-
-      resources :users do
+      resources :users, except: [:new ,:create] do
         resources 'subscriptions',only: [:index]  do
           collection do
             patch :multiple
