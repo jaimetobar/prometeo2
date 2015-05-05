@@ -14,8 +14,6 @@ class UsersController < ApplicationController
   def edit
   end
   
-  def token
-  end
 
   def create
     @user = User.new(user_params)
