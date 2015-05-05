@@ -12,12 +12,15 @@ Rails.application.routes.draw do
       get :step_4_subscription
     end
   end
+
   devise_for :admins
 
   get "admin", to: "admin#index", as: :admin_root
 
+
   resources :users, only: [:new ,:create]
   get "/users/:email_token" => "users#token", as: :user_email_token
+
   authenticated :admin do
     scope :admin do
       resources :courses
