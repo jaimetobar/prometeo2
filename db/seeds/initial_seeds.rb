@@ -1,14 +1,15 @@
+# rake db:seed:seed_file_name # Name of the file EXCLUDING the .rb extension 
+
 lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
 
 User.roles.each do |role,role_value|
   Course.categories.each do |category,category_value|
-    a = Accreditation.create(
-      name: "#{role.to_s.titlecase} #{category.to_s.titlecase} god"
-    )
+    # a = Accreditation.create(
+    #   name: "#{role.to_s.titlecase} #{category.to_s.titlecase} god"
+    # )
     3.times do |i|
       c = Course.create(
         name: "#{category}-#{role} level #{i}",
-        accreditation: a,
         category: category,
         for_sales_engineer: role.to_s == "sales_engineer",
         for_sales: role.to_s == "sales",
