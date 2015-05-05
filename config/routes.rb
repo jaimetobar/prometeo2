@@ -19,7 +19,11 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new ,:create]
-  get "/users/:email_token" => "users#token", as: :user_email_token
+  resource :users, only:[], controller: :users do
+    collection do
+      get :email_token
+    end
+  end
 
   authenticated :admin do
     scope :admin do
