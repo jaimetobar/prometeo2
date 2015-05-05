@@ -1,4 +1,4 @@
-<h1>Te recordamos que el curso <%= @course.name %> iniciará en 2 días</h1>
+<h1>Te recordamos que el curso <%= @courses_session.course.name %> iniciará en <%= @days_left %> días</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
   <tbody>
       <tr>
-        <td><%= subscription.course.name %></td>
-        <td><%= %></td>
-        <td><%= %></td>
+        <td><%= @courses_session.course.name %></td>
+        <td><%= @courses_session.duration%></td>
+        <td><%= @courses_session.start_date %></td>
       </tr>
   </tbody>
 </table>
 <br>
-<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to("Edición de notificaciones", user_subscription_token_path) %></label>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", user_email_token_url(@user.email_token) %></label>
