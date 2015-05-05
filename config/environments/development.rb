@@ -37,9 +37,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.gmail.com',
+      :address              => ENV['PROMETEO_ADDRESS'],
       :port                 => 587,
-      :domain               => 'gmail.com',
+      :domain               => ENV['PROMETEO_DOMAIN'],
       :user_name            => ENV['PROMETEO_USER'],
       :password             => ENV['PROMETEO_PASSWORD'],
       :authentication       => 'plain',
