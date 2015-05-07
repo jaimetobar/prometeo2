@@ -20,6 +20,7 @@ module Rails4Example
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     # config.autoload_paths += %W(#{config.root}/lib/custom_failure)
+    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
     config.eager_load_paths += %W(
       #{config.root}/lib/custom_failure
     )
