@@ -17,10 +17,16 @@ Rails.application.routes.draw do
 
   get "admin", to: "admin#index", as: :admin_root
 
+
+  resource :users, only:[], controller: :users do
+    collection do
+      get :email_token
+    end
+  end
+
   authenticated :admin do
     scope :admin do
       resources :courses
-
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
