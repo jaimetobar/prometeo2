@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "admin", to: "admin#index", as: :admin_root
 
 
-  resources :users, only: [:new ,:create]
   resource :users, only:[], controller: :users do
     collection do
       get :email_token
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
   authenticated :admin do
     scope :admin do
       resources :courses
-      resources :users, except: [:new ,:create] do
+      resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
             patch :multiple
