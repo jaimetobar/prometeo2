@@ -1,0 +1,17 @@
+.pagination {
+  margin: 5px 0;
+  @extend .btn-group;
+  > * {
+    @extend .btn;
+    @extend .btn-default;
+  }
+  .current {
+    @extend .active;
+  }
+  .previous_page, .next_page {
+    //@extend .btn-primary;
+  }
+  .gap {
+    @extend .disabled;
+  }
+}
