@@ -25,17 +25,13 @@
           <% @plan.sessions_per_course.each do |course,session| %>
             <tr>
               <td><%= course.name %></td>
-
+              <td><%= course.duration %></td>
               <% if course.always_available? %>
-                <td><%= course.duration %></td>
                 <td>Siempre disponible</td>
               <% elsif session != nil %>
-                <td><%= session.duration %></td>
                 <td><%= session.start_date %> a <%= session.end_date %></td>
               <% else %>
-                <td></td>
                 <td>No disponible en este momento</td>
-                <td></td>
               <% end %>
             </tr>
           <% end %>
