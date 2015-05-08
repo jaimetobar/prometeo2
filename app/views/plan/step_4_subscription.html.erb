@@ -23,7 +23,7 @@
         <%= f.error_notification %>
         <%= f.input :name, label: "Nombre" %>
         <%= f.input :email, label: "Email" %>
-        <%= f.input :country, as: :uuid, label: "País" %>
+        <%= f.input :country, label: "País", priority: ["AR", "CO", "PE","BR"] %>
         <%= f.input :partner, label: "Partner" %>
         <%= f.input :role, collection: User.roles.keys , label: "Rol" %>
         <%= f.fields_for :subscriptions do |ff| %>

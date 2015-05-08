@@ -10,7 +10,7 @@
  <%= f.error_notification %>
  <%= f.input :name, label: "Nombre del usuario" %>
  <%= f.input :email, label: "Email de usuario" %>
- <%= f.input :country, as: :uuid, label: "País" %>
+ <%= f.input :country, label: "País", priority: ["AR", "CO", "PE","BR"] %>
  <%= f.input :partner, label: "Partner" %>
  <%= f.input :role, collection: [:sales_engineer,:sales,:delivery], label: "Tipo de Rol" %>
  <%= f.button :submit, value: "Guardar", class: "btn btn-success pull-right" %>

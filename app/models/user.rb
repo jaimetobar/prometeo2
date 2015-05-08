@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   enum role: [:sales_engineer,:sales,:delivery]
   has_many :subscriptions
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
-  validates :country, presence: true
+  validates :country, presence: true, inclusion: { in: ISO3166::Country.all.map { |name, code| code } }
   validates :partner, presence: true
   validates :role, presence: true
   validates :name, presence: true
