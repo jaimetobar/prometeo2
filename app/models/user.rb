@@ -17,12 +17,12 @@ class User < ActiveRecord::Base
 
   enum role: [:sales_engineer,:sales,:delivery]
   has_many :subscriptions
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
   validates :country, presence: true
   validates :partner, presence: true
   validates :role, presence: true
   validates :name, presence: true
-  
+
   before_create :add_token
 
   accepts_nested_attributes_for :subscriptions
