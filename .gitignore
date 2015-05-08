@@ -18,3 +18,4 @@
 /log/*.log
 /tmp
 db_credentials.txt
+rhc_env.sh
