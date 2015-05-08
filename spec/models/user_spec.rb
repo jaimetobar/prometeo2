@@ -10,6 +10,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  email_token :string(255)
+#  name        :string(255)
 #
 
 require 'rails_helper'

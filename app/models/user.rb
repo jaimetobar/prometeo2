@@ -10,6 +10,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  email_token :string(255)
+#  name        :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -20,7 +21,11 @@ class User < ActiveRecord::Base
   validates :country, presence: true
   validates :partner, presence: true
   validates :role, presence: true
+  validates :name, presence: true
+  
   before_create :add_token
+
+  accepts_nested_attributes_for :subscriptions
 
   private
   def add_token

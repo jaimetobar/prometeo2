@@ -8,6 +8,7 @@
  } do |f| %>
 
  <%= f.error_notification %>
+ <%= f.input :name, label: "Nombre del usuario" %>
  <%= f.input :email, label: "Email de usuario" %>
  <%= f.input :country, as: :uuid, label: "País" %>
  <%= f.input :partner, label: "Partner" %>
