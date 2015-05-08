@@ -21,6 +21,7 @@ gem 'rake', '~> 0.9.6'
 group :development do
   gem 'spring'
   gem 'annotate'
+  gem 'letter_opener'
 end
 group :development, :test do
   gem 'rspec-rails'
