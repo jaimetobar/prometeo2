@@ -6,7 +6,7 @@
     <div class="btn-group roles">
       <% User.roles.each do |role, role_code| %>
         <%= link_to role.titlecase, step_2_accreditations_plan_path(role: role),
-          class:"btn btn-default btn-role", remote: true %>
+          class:"btn btn-default btn-role" %>
       <% end %>
     </div>
     <p>

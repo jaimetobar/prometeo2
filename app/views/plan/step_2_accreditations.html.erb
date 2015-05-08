@@ -1,8 +1,8 @@
-<%= form_tag(step_3_schedule_plan_path, method: "get", remote: true) do %>
+<%= form_tag(step_3_schedule_plan_path, method: "get") do %>
   <%= hidden_field_tag :role, @role %>
   <div class="row">
     <div class="col-xs-12 text-center">
-      <%= link_to(step_1_roles_plan_path, class: "link pull-left", remote: true) do %>
+      <%= link_to(step_1_roles_plan_path, class: "link pull-left") do %>
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="hidden-xs hidden-sm">
           Cambiar Rol

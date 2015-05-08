@@ -1,0 +1,34 @@
+<h1><%= @user.name %> te damos la bienvenida a Prometeo</h1>
+
+<h3>Te has suscrito a los siguientes cursos: </h3>
+
+<table>
+  <thead>
+      <tr>
+          <th>Curso</th>
+          <th>Categoría</th>
+          <th>Duración</th>
+          <th>Siguiente Fecha</th>
+      </tr>
+  </thead>
+  <tbody style="border-style: solid; border-color: black;">
+    <% @user.subscriptions.each do |s| %>
+      <tr>
+        <td><%= s.course.name %></td>
+        <td><%= s.course.category %></td>
+        <td><%= s.course.duration %></td>
+        <td>
+          <% if s.course.always_available? %>
+            Siempre disponible
+          <% elsif next_session = s.course.next_session %>
+            <%= next_session.start_date %> - <%= next_session.end_date %>
+          <% else %>
+            No disponible por ahora
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", email_token_users_url(@user.email_token) %></label>

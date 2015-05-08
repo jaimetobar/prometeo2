@@ -1,18 +1,22 @@
 class SubscriptionsController < ApplicationController
 
+  # GET /admin/users/:id/subscriptions
   def index
     @user = User.find(params[:user_id])
     @subscriptions = Subscription.where(user: @user).order('id asc')
   end
 
-  def multiple
-    Subscription.update_multiple(params[:user_id],params[:notifications_on],params[:finished])
-
-    redirect_to user_subscriptions_path
+  # PATCH /admin/users/:id/subscriptions
+  def update_user_subscriptions
+    @user = User.find(params[:user_id])
+    @user.update(user_params)
+    redirect_to users_path
   end
 
   protected
-  def subscription_params
-    params.required(:subscription).permit(:id,:user_id)
+  def user_params
+    params.require(:user).permit(
+      subscriptions_attributes: [:id, :notifications_on, :finished]
+    )
   end
 end

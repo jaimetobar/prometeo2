@@ -22,6 +22,7 @@ class Course < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
   validates :session_type, presence: true
+  validates :duration, presence: true
 
   validate :validate_presence_of_roles
 
@@ -46,6 +47,10 @@ class Course < ActiveRecord::Base
 
   def which_roles
     self.roles.map(&:to_s).map(&:humanize).join("\n")
+  end
+
+  def next_session
+    self.sessions.where("start_date > ?",DateTime.now).first
   end
 
   protected

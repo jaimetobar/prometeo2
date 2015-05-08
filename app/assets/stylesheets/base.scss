@@ -1,6 +1,10 @@
-html,body {
-  height:100%;
+html {
+    height: 100%;
+    body{
+        height: 100%
+    }
 }
+
 body {
   padding-top: $navbar-height + 10px;
 }
@@ -34,4 +38,9 @@ fieldset {
 .has-error .radio-inline,
 .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
   color: red;
+}
+
+.wrapper {
+  position: relative;
+  transform: translateY(50%);
 }

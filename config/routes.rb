@@ -2,25 +2,14 @@ Rails.application.routes.draw do
 
   root "plan#index"
 
-  get "/", to: "plan#index"
+  devise_for :admins
 
-  resource :plan, only:[], controller: :plan do
+  resource :plan, only:[:index,:create], controller: :plan do
     collection do
       get :step_1_roles
       get :step_2_accreditations
       get :step_3_schedule
       get :step_4_subscription
-    end
-  end
-
-  devise_for :admins
-
-  get "admin", to: "admin#index", as: :admin_root
-
-
-  resource :users, only:[], controller: :users do
-    collection do
-      get :email_token
     end
   end
 
@@ -30,7 +19,7 @@ Rails.application.routes.draw do
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
-            patch :multiple
+            patch "/", to: :update_user_subscriptions
           end
         end
       end
@@ -39,4 +28,11 @@ Rails.application.routes.draw do
 
     end
   end
+
+  resource :users, only:[:create], controller: :users do
+    collection do
+      get :email_token
+    end
+  end
+
 end

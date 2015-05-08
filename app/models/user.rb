@@ -10,17 +10,22 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  email_token :string(255)
+#  name        :string(255)
 #
 
 class User < ActiveRecord::Base
 
   enum role: [:sales_engineer,:sales,:delivery]
   has_many :subscriptions
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
-  validates :country, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
+  validates :country, presence: true, inclusion: { in: ISO3166::Country.all.map { |name, code| code } }
   validates :partner, presence: true
   validates :role, presence: true
+  validates :name, presence: true
+
   before_create :add_token
+
+  accepts_nested_attributes_for :subscriptions
 
   private
   def add_token

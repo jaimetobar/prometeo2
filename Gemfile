@@ -21,6 +21,7 @@ gem 'rake', '~> 0.9.6'
 group :development do
   gem 'spring'
   gem 'annotate'
+  gem 'letter_opener'
 end
 group :development, :test do
   gem 'rspec-rails'
@@ -64,3 +65,6 @@ gem 'time_difference'
 gem 'nested_form_fields'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+gem 'email_validator'
+gem 'rails-i18n', '~> 4.0.0'
+gem 'country_select'

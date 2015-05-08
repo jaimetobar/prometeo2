@@ -51,7 +51,7 @@ class CoursesController < ApplicationController
     params.require(:course).permit(
       :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration,
       accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ],
-      course_sessions_attributes:[ :start_date, :end_date, :duration, :_destroy, :id ]
+      course_sessions_attributes:[ :start_date, :end_date, :_destroy, :id ]
     )
   end
 end
