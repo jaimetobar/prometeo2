@@ -48,6 +48,10 @@ class Course < ActiveRecord::Base
     self.roles.map(&:to_s).map(&:humanize).join("\n")
   end
 
+  def next_session
+    self.sessions.where("start_date > ?",DateTime.now).first
+  end
+
   protected
   def validate_presence_of_roles
     errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
