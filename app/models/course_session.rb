@@ -8,14 +8,12 @@
 #  end_date   :date
 #  created_at :datetime
 #  updated_at :datetime
-#  duration   :string(255)
 #
 
 class CourseSession < ActiveRecord::Base
   belongs_to :course
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :duration, presence: true
 
   scope :upcoming, -> { where("start_date > ?", DateTime.now) }
 

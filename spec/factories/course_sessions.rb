@@ -8,7 +8,6 @@
 #  end_date   :date
 #  created_at :datetime
 #  updated_at :datetime
-#  duration   :string(255)
 #
 
 FactoryGirl.define do

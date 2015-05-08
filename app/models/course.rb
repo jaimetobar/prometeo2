@@ -22,6 +22,7 @@ class Course < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
   validates :session_type, presence: true
+  validates :duration, presence: true
 
   validate :validate_presence_of_roles
 
