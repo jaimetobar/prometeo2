@@ -2,11 +2,9 @@ Rails.application.routes.draw do
 
   root "plan#index"
 
-  get "/", to: "plan#index"
-
   devise_for :admins
 
-  resource :plan, only:[:create], controller: :plan do
+  resource :plan, only:[:index,:create], controller: :plan do
     collection do
       get :step_1_roles
       get :step_2_accreditations

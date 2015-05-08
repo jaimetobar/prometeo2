@@ -1,5 +1,6 @@
 class PlanController < ApplicationController
 
+  # GET /plan
   def index
   end
 
@@ -46,10 +47,9 @@ class PlanController < ApplicationController
     @accreditations_ids = params[:accreditations]
 
     @user = User.new(user_params)
-    byebug
     if @user.save
       #PlanMailer.plan_greatings_email(@user).deliver
-      redirect_to :index, notice: "Te avisaremos cuando los cursos vayan a comenzar"
+      redirect_to root_path, notice: "Te avisaremos cuando los cursos vayan a comenzar"
     else
       render :step_4_subscription
     end
