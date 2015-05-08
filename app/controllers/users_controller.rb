@@ -3,6 +3,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    if((@q = params[:q]) && !@q.blank?)
+      @users = @users.search(@q)
+    end
+    if((@country = params[:country]) && !@country.blank?)
+      @users = @users.where(country: @country.upcase)
+    end
+
+    @users = @users
+      .paginate(page: params[:page], per_page: params[:per_page] || 10)
+      .order('email DESC')
   end
 
   def show

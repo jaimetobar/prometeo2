@@ -14,8 +14,6 @@
 
 @import "bootstrap-sprockets";
 @import "theme";
-@import "bootstrap-sprockets.scss";
-@import "bootstrap.scss";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
@@ -24,6 +22,7 @@
 @import "plan";
 @import "navigation";
 @import "courses";
+@import "pagination";
 
 .btn-back {
   margin-bottom: 10px;

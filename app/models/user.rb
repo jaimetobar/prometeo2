@@ -26,6 +26,14 @@ class User < ActiveRecord::Base
   before_create :add_token
 
   accepts_nested_attributes_for :subscriptions
+  scope :search, ->(q) do
+    query_string = q.split.join('%')
+    where(%Q(
+      LOWER(UNACCENT(name)) LIKE LOWER(UNACCENT(:q)) OR
+      LOWER(UNACCENT(email)) LIKE LOWER(UNACCENT(:q)) OR
+      LOWER(UNACCENT(partner)) LIKE LOWER(UNACCENT(:q))
+    ),q: "%#{query_string}%")
+  end
 
   private
   def add_token
