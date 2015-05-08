@@ -11,7 +11,7 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
         <div class="table-responsive">
-          <%= form_tag multiple_user_subscriptions_path, method: :patch do %>
+          <%= form_for @user, url: user_subscriptions_path, method: :patch do |f| %>
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -24,28 +24,26 @@
               </thead>
               <tbody>
                 <% if !@subscriptions.blank? %>
-                  <% @subscriptions.each do |subscription|  %>
+                  <%= f.fields_for :subscriptions do |ff| %>
+                    <%= ff.hidden_field :id %>
                     <tr>
                       <td>
-                        <%= subscription.course.name %>
+                        <%= ff.object.course.name %>
                       </td>
-                      <td><%= subscription.course.category %></td>
-                      <td><%= subscription.user.role %></td>
+                      <td><%= ff.object.course.category %></td>
+                      <td><%= ff.object.user.role %></td>
                       <td>
-                        <%= hidden_field_tag "finished[]",subscription.finished %>
-                        <%= check_box_tag("Terminado", value = nil , checked = subscription.finished, class: "subscription") %>
+                        <%= ff.check_box(:finished, class: "subscription") %>
                       </td>
                       <td>
-                        <%= hidden_field_tag "notifications_on[]",subscription.notifications_on %>
-                        <%= check_box_tag("notificatio", value = nil, checked = subscription.notifications_on, class: "subscription") %>
+                        <%= ff.check_box(:notifications_on, class: "subscription") %>
                       </td>
                     </tr>
                   <% end %>
                 <% end %>
               </tbody>
             </table>
-            <%= hidden_field_tag 'user_id', @user.id %>
-            <%= submit_tag "Guardar", class:"btn btn-success pull-right" %>
+            <%= f.submit "Guardar", class:"btn btn-success pull-right" %>
         <% end %>
         </div>
         <!-- /.table-responsive -->

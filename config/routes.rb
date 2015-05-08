@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
-            patch :multiple
+            patch "/", to: :update_user_subscriptions
           end
         end
       end
