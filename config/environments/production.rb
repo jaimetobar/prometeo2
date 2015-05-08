@@ -92,5 +92,4 @@ Rails.application.configure do
       :authentication       => ENV['SMTP_AUTHENTICATION'],
       :enable_starttls_auto => true
   }
-  config.action_mailer.perform_deliveries = true
 end
