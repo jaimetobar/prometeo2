@@ -28,7 +28,6 @@ class UsersController < ApplicationController
     @user = User.find_by_email_token(params[:email_token])
     @email_token = params[:email_token]
     raise ActionController::RoutingError.new('Not Found') unless @user
-    byebug
     if @user.update(notifications_params)
       flash[:notice] = "Tus preferencias de notificaciones fueron actualizadas"
       redirect_to notifications_users_path(@email_token)
