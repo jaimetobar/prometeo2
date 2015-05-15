@@ -1,9 +1,5 @@
 <div class="row">
   <div class="col-md-12">
-    <%= link_to(users_path, class: "btn btn-warning btn-back") do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      Todos los usuarios
-    <% end %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2><span class="glyphicon glyphicon-user"></span> <%= @user.email %></h2>
@@ -11,14 +7,13 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
         <div class="table-responsive">
-          <%= form_for @user, url: user_subscriptions_path, method: :patch do |f| %>
+          <%= form_for @user, url: notifications_users_path(@email_token), method: :patch do |f| %>
             <table class="table table-bordered">
               <thead>
                 <tr>
                   <th>Curso</th>
                   <th>Categoría</th>
                   <th>Rol</th>
-                  <th>Finalizado</th>
                   <th>Recibir Notificaciones</th>
                 </tr>
               </thead>
@@ -32,10 +27,7 @@
                     <td><%= ff.object.course.category %></td>
                     <td><%= ff.object.user.role %></td>
                     <td>
-                      <%= ff.check_box(:finished, class: "subscription") %>
-                    </td>
-                    <td>
-                      <%= ff.check_box(:notifications_on, class: "subscription") %>
+                      <%= ff.check_box(:notifications_on) %>
                     </td>
                   </tr>
                 <% end %>

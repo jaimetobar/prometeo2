@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   private
   def add_token
     begin
-      self.email_token = SecureRandom.hex[0,10].downcase
-    end while self.class.exists?(email_token: email_token)
+      self.email_token = SecureRandom.urlsafe_base64(64)
+    end while User.exists?(email_token: self.email_token)
   end
 end
