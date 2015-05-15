@@ -48,8 +48,8 @@ class PlanController < ApplicationController
 
     @user = User.new(user_params)
     if @user.save
+      PlanMailer.delay.plan_greatings_email(@user)
       redirect_to root_path, notice: "Te avisaremos cuando los cursos vayan a comenzar"
-      PlanMailer.plan_greatings_email(@user).deliver
     else
       render :step_4_subscription
     end
