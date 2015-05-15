@@ -1,7 +1,7 @@
 class NotificationsWorker
   include Sidekiq::Worker
 
-  def perform(name, count)
+  def perform()
     puts 'Doing hard work'
   end
 end
