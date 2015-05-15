@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       end
       format.csv do
         # Email- nombre - Curso - Status - Partner - Pais - Acreditación
-        headers['Content-Disposition'] = "attachment; filename=\"user-list\""
+        headers['Content-Disposition'] = "attachment; filename=\"user-list.csv\""
         headers['Content-Type'] ||= 'text/csv'
       end
     end
