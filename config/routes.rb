@@ -29,9 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :users, only:[:create], controller: :users do
+  resources :users, only:[] do
     collection do
-      get :email_token
+      get "/notifications/:email_token", to: "users#edit_notifications", as: :notifications
+      patch "/notifications/:email_token", to: "users#update_notifications"
     end
   end
 

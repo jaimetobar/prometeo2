@@ -3,7 +3,6 @@ class SubscriptionsController < ApplicationController
   # GET /admin/users/:id/subscriptions
   def index
     @user = User.find(params[:user_id])
-    @subscriptions = Subscription.where(user: @user).order('id asc')
   end
 
   # PATCH /admin/users/:id/subscriptions
