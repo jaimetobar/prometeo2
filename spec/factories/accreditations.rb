@@ -12,7 +12,9 @@
 
 FactoryGirl.define do
   factory :accreditation do
-    name "MyString"
+    name "Acreditation1"
+    role "delivery"
+    description "This is the description 1 from the the Acreditation1"
   end
 
 end
