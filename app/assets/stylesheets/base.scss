@@ -7,6 +7,7 @@ html {
 
 body {
   padding-top: $navbar-height + 10px;
+  padding-bottom: $footer-height + 10px;
 }
 @media (max-width: $screen-xs) {
   body{font-size: 10px;}
@@ -43,4 +44,11 @@ fieldset {
 .wrapper {
   position: relative;
   transform: translateY(50%);
+}
+
+h1,h2,h3 {
+  font-family: "Overpass Bold","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+.btn {
+  font-family: "Overpass Light";
 }

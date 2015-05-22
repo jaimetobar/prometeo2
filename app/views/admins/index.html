@@ -8,7 +8,7 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-              <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12 col-md-6 col-md-offset-6 text-right">
                 <%= form_for @admin, html:{class: "form-inline"} do |f| %>
                   <% if @admin.errors.any? %>
                     <% @admin.errors.full_messages.each do |e| %>
@@ -19,7 +19,7 @@
                   <% end %>
                   <%= f.label :email %>
                   <%= f.text_field :email, required: true,class: "form-control" %>
-                  <%= f.submit "Crear admin", class: "btn btn-success" %>
+                  <%= f.button '<span class="glyphicon glyphicon-plus"></span> Crear admin'.html_safe, class: "btn btn-success" %>
                 <% end %>
               </div>
               <div class="col-xs-12">

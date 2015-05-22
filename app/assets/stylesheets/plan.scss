@@ -1,15 +1,48 @@
 .btn-group.roles {
   width: 100%;
   .btn-role {
+    height: 216px;
     padding: 50px 20px;
     font-size: 2.5em;
+    transition: all 0.3s;
+    margin-right: 15px;
+    border-style: none none solid;
+    border-width: 3px;
+    border-color: rgb(82, 82, 82);
     @media (min-width: $screen-md-min) {
-      width: 33.33%;
+      width: 30%;
     }
     @media (max-width: $screen-md-min) {
       width: 100%;
       border-radius: 4px;
     }
+    .btn.go {
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #cc0000;
+      color: white;
+      border-style: none;
+      transition: all 0.7s;
+    }
+    &:hover {
+      transform: scale(1.1);
+      background-color: white;
+      z-index: 10000000;
+      box-shadow: rgb(136, 136, 136) -5px 5px 5px;
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-right-color: rgb(219, 219, 219);
+      /*
+      .btn.go {
+        width: 70px;
+        height: 70px;
+      }
+      */
+    }
+
   }
 }
 #interaction {
@@ -45,17 +78,24 @@
     text-align: center;
     vertical-align: middle;
     padding: 30px;
-    background-color: #ecf0f1;
+    background-color: white;
+    border-color: #6B6B6B;
+    border-style: solid;
+    transition: all 0.3s;
     .btn-select-accreditation {
       span {
         color: #777777;
       }
       &.active {
-        background-color: $brand-primary;
+        background-color: $brand-success;
         span {
           color: white !important;
         }
       }
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
@@ -70,3 +110,9 @@ TODO: add in and out animtations
     transform: translateX(150%);
   }
 */
+.explanation {
+  padding-top: 50px;
+}
+.title-row {
+  margin-bottom: 50px;
+}

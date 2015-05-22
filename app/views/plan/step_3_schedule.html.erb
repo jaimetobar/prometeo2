@@ -1,12 +1,15 @@
 <div class="row">
-  <div class="col-xs-12 text-center">
+  <div class="col-xs-12">
     <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left") do %>
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="hidden-xs hidden-sm">
         Cambiar acreditaciones
       </span>
     <% end %>
-
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 text-center">
     <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
       <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
       <span class="glyphicon glyphicon-chevron-right"></span>

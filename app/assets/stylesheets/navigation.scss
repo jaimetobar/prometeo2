@@ -1,11 +1,12 @@
 .navbar-brand {
+  max-width: 80%;
   padding: 1px;
   img {
-    width: 160px;
+    max-height: 90px;
   }
 }
 
 .navbar-right {
-  border-left-style: solid;
-  border-left-width: 2px;
+  //border-left-style: solid;
+  //border-left-width: 2px;
 }
