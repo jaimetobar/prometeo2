@@ -9,11 +9,13 @@
 #  finished         :boolean
 #  created_at       :datetime
 #  updated_at       :datetime
+#  accreditation_id :integer
 #
 
 class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
+  belongs_to :accreditation
 
   after_initialize :defaults
 
