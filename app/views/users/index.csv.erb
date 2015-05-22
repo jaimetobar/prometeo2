@@ -5,7 +5,7 @@
 <%= CSV.generate_line([
       u.email,
       u.name,
-      s.accreditation ? s.accreditation.name : '',
+      s.accreditation ? s.accreditation.name : nil,
       s.course.name,
       s.finished ? "finalizado" : "en curso",
       u.partner,
