@@ -37,6 +37,11 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
 
+  def self.by_accreditations(accreditations_ids)
+    joins(:accreditations_courses)
+      .where("accreditations_courses.accreditation_id" => accreditations_ids).uniq
+  end
+
   def roles
     rs = []
     rs << :sales_engineer if self.for_sales_engineer
