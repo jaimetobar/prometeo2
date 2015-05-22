@@ -16,23 +16,27 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Acreditación</th>
             <th>Curso</th>
             <th>Duración</th>
             <th>Fecha</th>
           </tr>
         </thead>
         <tbody>
-          <% @plan.sessions_per_course.each do |course,session| %>
+          <% @user.subscriptions.each do |s| %>
             <tr>
-              <td><%= course.name %></td>
-              <td><%= course.duration %></td>
-              <% if course.always_available? %>
-                <td>Siempre disponible</td>
-              <% elsif session != nil %>
-                <td><%= session.start_date %> a <%= session.end_date %></td>
-              <% else %>
-                <td>No disponible en este momento</td>
-              <% end %>
+              <td><%= s.accreditation.name if s.accreditation %></td>
+              <td><%= s.course.name %></td>
+              <td><%= s.course.duration %></td>
+              <td>
+                <% if s.course.always_available? %>
+                  Siempre disponible
+                <% elsif next_session = s.course.next_session %>
+                  <%= next_session.start_date %> - <%= next_session.end_date %>
+                <% else %>
+                  No disponible por ahora
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

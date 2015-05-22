@@ -27,7 +27,14 @@ class PlanController < ApplicationController
       courses = Course.joins(:accreditations_courses)
         .where("accreditations_courses.accreditation_id" => @accreditations_ids).uniq
 
-      @plan = Plan.new(courses: courses)
+      # Plan
+      subscription_attributes = courses.map do |c|
+        accreditation = c.accreditations.where(role: @role).take
+        accreditation_id = accreditation ? accreditation.id : nil
+
+        { course_id: c.id, accreditation_id: accreditation_id }
+      end
+      @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
     end
   end
 
@@ -38,7 +45,13 @@ class PlanController < ApplicationController
     courses = Course.joins(:accreditations_courses)
       .where("accreditations_courses.accreditation_id" => @accreditations_ids).uniq
 
-    @user = User.new(role: @role, subscriptions_attributes: courses.map { |c| { course_id: c.id} } )
+    subscription_attributes = courses.map do |c|
+      accreditation = c.accreditations.where(role: @role).take
+      accreditation_id = accreditation ? accreditation.id : nil
+
+      { course_id: c.id, accreditation_id: accreditation_id }
+    end
+    @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
   end
 
   # POST /plan
@@ -66,7 +79,7 @@ class PlanController < ApplicationController
   def user_params
     params.require(:user).permit(
       :email,:country,:partner,:role,:name,
-      subscriptions_attributes: [:course_id]
+      subscriptions_attributes: [:course_id,:accreditation_id]
     )
   end
 end

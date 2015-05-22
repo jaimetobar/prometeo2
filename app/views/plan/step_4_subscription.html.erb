@@ -28,6 +28,7 @@
         <%= f.input :role, collection: User.roles.keys , label: "Rol" %>
         <%= f.fields_for :subscriptions do |ff| %>
           <%= ff.input :course_id, as: :hidden %>
+          <%= ff.input :accreditation_id, as: :hidden %>
         <% end %>
         <%= f.button :submit, value: "Suscribirme", class: "btn btn-success pull-right" %>
      <% end %>
