@@ -25,6 +25,9 @@
       <div class="divider"></div>
       <ul class="nav navbar-nav navbar-right">
         <% if admin_signed_in? %>
+          <li class="<%= 'active' if params[:controller] == "admins" %>">
+            <%= link_to "Admins", admins_path %>
+          </li>
           <li class="<%= 'active' if params[:controller] == "courses" %>">
             <%= link_to "Cursos", courses_path %>
           </li>

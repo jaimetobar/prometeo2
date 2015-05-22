@@ -23,6 +23,12 @@ Rails.application.routes.draw do
       require 'sidekiq/web'
       mount Sidekiq::Web => '/sidekiq'
 
+      resources :admins, only:[:index,:create,:destroy] do
+        member do
+          get :email_password_reset
+        end
+      end
+
       resources :courses
       resources :users do
         resources 'subscriptions',only: [:index]  do
