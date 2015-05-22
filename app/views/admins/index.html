@@ -8,34 +8,48 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+              <div class="col-xs-12 col-md-6">
+                <%= form_for @admin, html:{class: "form-inline"} do |f| %>
+                  <% if @admin.errors.any? %>
+                    <% @admin.errors.full_messages.each do |e| %>
+                      <p class="errors">
+                        <%= e %>
+                      </p>
+                    <% end %>
+                  <% end %>
+                  <%= f.label :email %>
+                  <%= f.text_field :email, required: true,class: "form-control" %>
+                  <%= f.submit "Crear admin", class: "btn btn-success" %>
+                <% end %>
+              </div>
+              <div class="col-xs-12">
                 <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Correo</th>
-                            <th class="actions"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-
-                          <% @admins.each do |admin|  %>
-                            <tr>
-                              <td><%= admin.email %></td>
-                              <td>
-                                <% unless admin == current_admin %>
-                                  <%= link_to admin_path(admin), method: :delete, class: "btn btn-danger",
-                                    data: { confirm: 'Esta seguro de eliminar este admin?' } do %>
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                  <% end %>
-                                <% end %>
-                              </td>
-                            </tr>
-                          <% end %>
-
-                        </tbody>
-                    </table>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th class="actions"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @admins.each do |admin|  %>
+                        <tr>
+                          <td><%= admin.email %></td>
+                          <td class="text-right">
+                            <% unless admin == current_admin %>
+                              <%= link_to admin_path(admin), method: :delete, class: "btn btn-danger",
+                                data: { confirm: 'Esta seguro de eliminar este admin?' } do %>
+                                <span class="glyphicon glyphicon-trash"></span>
+                              <% end %>
+                            <% end %>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
                 </div>
                 <!-- /.table-responsive -->
+              </div>
             </div>
             <!-- /.panel-body -->
         </div>

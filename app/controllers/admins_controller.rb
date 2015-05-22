@@ -6,10 +6,11 @@ class AdminsController < ApplicationController
   end
 
   def create
+    @admins = Admin.all
     @admin = Admin.new(admin_params)
     @admin.password = "password"
-    if @admin.create
-      flash[:alert] = "Admin creado. Se le notificara por correo para que active su cuenta"
+    if @admin.save
+      flash[:notice] = "Admin creado. Se le notificara por correo para que active su cuenta"
       #TODO: enviar correo
       redirect_to :back
     else
