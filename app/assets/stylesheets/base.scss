@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  padding-top: $navbar-height + 10px;
+  padding-top: $navbar-height + 40px;
   padding-bottom: $footer-height + 10px;
 }
 @media (max-width: $screen-xs) {
@@ -48,6 +48,10 @@ fieldset {
 
 h1,h2,h3 {
   font-family: "Overpass Bold","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+h4 {
+  font-family: "Overpass Light";
+  font-size: 34px;
 }
 .btn {
   font-family: "Overpass Light";
