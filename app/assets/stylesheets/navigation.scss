@@ -10,3 +10,21 @@
   //border-left-style: solid;
   //border-left-width: 2px;
 }
+
+.navbar-nav {
+  >li {
+    &.active {
+      border-bottom-style: solid;
+      border-bottom-color: #CC0000;
+      border-bottom-width: 3px;
+      a {
+        background: none;
+      }
+    }
+    &:hover {
+      border-bottom-style: solid;
+      border-bottom-color: #CC0000;
+      border-bottom-width: 3px;
+    }
+  }
+}
