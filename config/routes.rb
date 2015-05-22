@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       require 'sidekiq/web'
       mount Sidekiq::Web => '/sidekiq'
 
+      resources :admins, only:[:index,:create,:destroy]
+      
       resources :courses
       resources :users do
         resources 'subscriptions',only: [:index]  do

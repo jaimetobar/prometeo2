@@ -1,0 +1,44 @@
+<div class="row admins_index">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>
+                Administradores
+              </h2>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Correo</th>
+                            <th class="actions"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <% @admins.each do |admin|  %>
+                            <tr>
+                              <td><%= admin.email %></td>
+                              <td>
+                                <% unless admin == current_admin %>
+                                  <%= link_to admin_path(admin), method: :delete, class: "btn btn-danger",
+                                    data: { confirm: 'Esta seguro de eliminar este admin?' } do %>
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                  <% end %>
+                                <% end %>
+                              </td>
+                            </tr>
+                          <% end %>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
