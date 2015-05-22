@@ -9,6 +9,7 @@
 #  finished         :boolean
 #  created_at       :datetime
 #  updated_at       :datetime
+#  accreditation_id :integer
 #
 
 FactoryGirl.define do

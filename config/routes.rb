@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root "plan#index"
 
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
+  as :admin do
+    get 'admins/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
+    patch 'admins/:id' => 'devise/registrations#update', :as => 'admin_registration'
+  end
 
   resource :plan, only:[:index,:create], controller: :plan do
     collection do
@@ -15,11 +19,16 @@ Rails.application.routes.draw do
 
   authenticated :admin do
     scope :admin do
+      # Sidekiq admin console
+      require 'sidekiq/web'
+      mount Sidekiq::Web => '/sidekiq'
+
       resources :courses
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
             patch "/", to: :update_user_subscriptions
+            get :print
           end
         end
       end

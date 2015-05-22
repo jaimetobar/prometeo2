@@ -1,0 +1,15 @@
+<% headers = ['Email', 'Nombre','Acreditacion','Curso','Status','Partner','Pais'] %>
+<%= CSV.generate_line headers %>
+<% @users.each do |u| %>
+  <% u.subscriptions.each do |s| %>
+<%= CSV.generate_line([
+      u.email,
+      u.name,
+      s.accreditation ? s.accreditation.name : '',
+      s.course.name,
+      s.finished ? "finalizado" : "en curso",
+      u.partner,
+      u.country
+      ]) -%>
+  <% end %>
+<% end %>

@@ -71,3 +71,5 @@ gem 'country_select'
 gem 'will_paginate'
 gem 'sidekiq'
 gem 'devise-async'
+gem 'devise-i18n'
+gem 'sinatra', require: false

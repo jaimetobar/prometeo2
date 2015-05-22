@@ -6,6 +6,11 @@
     <% end %>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <div class="pull-right">
+          <%= link_to print_user_subscriptions_path(@user), class: "btn btn-default", target: "_blank" do %>
+            <span class="glyphicon glyphicon-print"></span>
+          <% end %>
+        </div>
         <h2><span class="glyphicon glyphicon-user"></span> <%= @user.email %></h2>
       </div>
       <!-- /.panel-heading -->
@@ -15,6 +20,7 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
+                  <th>Acreditación</th>
                   <th>Curso</th>
                   <th>Categoría</th>
                   <th>Rol</th>
@@ -26,6 +32,9 @@
                 <%= f.fields_for :subscriptions do |ff| %>
                   <%= ff.hidden_field :id %>
                   <tr>
+                    <td>
+                      <%= ff.object.accreditation.name if ff.object.accreditation %>
+                    </td>
                     <td>
                       <%= ff.object.course.name %>
                     </td>
