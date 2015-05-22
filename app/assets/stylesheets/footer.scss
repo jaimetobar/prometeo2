@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  height: $footer-height;
+  background-color: #CC0000;
+  margin-top: 0px;
+  position: fixed;
+  bottom: 0;
+  p {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

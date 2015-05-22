@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+@font-face {
+  font-family: "Overpass Light";
+  src: url('<%= asset_path("overpass_light-webfont.ttf") %>') format('truetype');
+  font-weight: 300;
+  font-style: normal
+}
+
+@font-face {
+  font-family: "Overpass Regular";
+  src: url('<%= asset_path("overpass_regular-webfont.ttf") %>') format('truetype');
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: "Overpass Bold";
+  src: url('<%= asset_path("overpass_bold-webfont.ttf") %>') format('truetype');
+  font-weight: 700;
+  font-style: normal
+}
+
+@font-face {
+    font-family: "Overpass Light";
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-light.eot?1432043696');
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-light.eot?&1432043696#iefix') format('embedded-opentype'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-light.woff?1432043696') format('woff'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-light.ttf?1432043696') format('truetype');
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Overpass Regular";
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-regular.eot?1432043696');
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-regular.eot?&1432043696#iefix') format('embedded-opentype'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-regular.woff?1432043696') format('woff'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-regular.ttf?1432043696') format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Overpass Bold";
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-bold.eot?1432043696');
+    src: url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-bold.eot?&1432043696#iefix') format('embedded-opentype'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-bold.woff?1432043696') format('woff'),url('//connect.redhat.com/sites/all/themes/rhc4tp/dist/fonts/overpass/overpass-bold.ttf?1432043696') format('truetype');
+    font-weight: 700;
+    font-style: normal
+}
+@import "bootstrap-sprockets";
+@import "theme";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+@import "base";
+@import "admin";
+@import "admins";
+@import "plan";
+@import "navigation";
+@import "courses";
+@import "pagination";
+@import "footer";
+
+.btn-back {
+  margin-bottom: 10px;
+}

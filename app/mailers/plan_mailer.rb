@@ -7,11 +7,11 @@ class PlanMailer < ActionMailer::Base
        subject: 'Plan de cursos Prometeo')
   end
 
-  def notifications_email(user, courses_session ,start_date)
-    @days_left = (start_date - Time.now.to_date).to_i
+  def notifications_email(user, subscriptions ,start_date)
     @user = user
-    @courses_session =  courses_session
+    @subscriptions =  subscriptions
+    @start_date = start_date
     mail(to: @user.email,
-       subject: 'Notificación de Curso por Comenzar')
+       subject: 'Prometeo - Notificación de Cursos por Comenzar')
   end
 end

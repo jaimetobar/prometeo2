@@ -21,7 +21,7 @@ class Subscription < ActiveRecord::Base
 
   def self.attributes_from_courses_and_role(courses,role)
     courses.map do |c|
-      accreditation = c.accreditations.where(role: role).take
+      accreditation = c.accreditations.where(role: Accreditation.roles[role]).take
       accreditation_id = accreditation ? accreditation.id : nil
 
       { course_id: c.id, accreditation_id: accreditation_id }

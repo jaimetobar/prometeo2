@@ -355,22 +355,22 @@ $container-lg:                 $container-large-desktop !default;
 //##
 
 // Basics of a navbar
-$navbar-height:                    115px !default;
+$navbar-height:                    95px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             #fff !default;
-$navbar-default-bg:                $brand-primary !default;
+$navbar-default-color:             #2e2e2b !default;
+$navbar-default-bg:                #ffffff !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                #fff !default;
-$navbar-default-link-hover-color:          #fff !default;
+$navbar-default-link-color:                #2e2e2b !default;
+$navbar-default-link-hover-color:          #2e2e2b !default;
 $navbar-default-link-hover-bg:             darken($navbar-default-bg, 20%) !default;
-$navbar-default-link-active-color:         #fff !default;
+$navbar-default-link-active-color:         #2e2e2b !default;
 $navbar-default-link-active-bg:            darken($navbar-default-bg, 10%) !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
@@ -868,3 +868,7 @@ $page-header-border-color:    $gray-lighter !default;
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
+
+
+
+$footer-height: 50px;
