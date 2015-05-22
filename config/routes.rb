@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   authenticated :admin do
     scope :admin do
+      # Sidekiq admin console
+      require 'sidekiq/web'
+      mount Sidekiq::Web => '/sidekiq'
+
       resources :courses
       resources :users do
         resources 'subscriptions',only: [:index]  do
