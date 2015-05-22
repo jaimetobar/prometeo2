@@ -8,10 +8,10 @@ class AdminsController < ApplicationController
   def create
     @admins = Admin.all
     @admin = Admin.new(admin_params)
-    @admin.password = "password"
+    @admin.password = SecureRandom.hex
     if @admin.save
+      @admin.send_reset_password_instructions
       flash[:notice] = "Admin creado. Se le notificara por correo para que active su cuenta"
-      #TODO: enviar correo
       redirect_to :back
     else
       render :index
@@ -28,6 +28,13 @@ class AdminsController < ApplicationController
       flash[:notice] = "Cuenta eliminada"
       redirect_to :back
     end
+  end
+
+  def email_password_reset
+    @admin = Admin.find(params[:id])
+    @admin.send_reset_password_instructions
+    flash[:notice] = "Se ha enviado un correo para que el usuario configure una contraseña"
+    redirect_to :back
   end
 
   protected

@@ -41,6 +41,12 @@
                                 data: { confirm: 'Esta seguro de eliminar este admin?' } do %>
                                 <span class="glyphicon glyphicon-trash"></span>
                               <% end %>
+
+                              <%= link_to email_password_reset_admin_path(admin), method: :get, class: "btn btn-info",title: "Enviar correo para configurar contraseña",
+                                data: { toggle: "tooltip", placement: "top" } do %>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                              <% end %>
+
                             <% end %>
                           </td>
                         </tr>
