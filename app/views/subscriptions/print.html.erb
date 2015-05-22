@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prometeo</title>
+  <link href="http://red-hat-overpass-fonts.s3.amazonaws.com/overpass.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="panel-body">
+          <h2><%= @user.name %> - <%= @user.email %></h2>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Acreditación</th>
+                  <th>Curso</th>
+                  <th>Categoría</th>
+                  <th>Rol</th>
+                  <th>Finalizado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.subscriptions.each do |subscription| %>
+                  <tr>
+                    <td>
+                      <%= subscription.accreditation.name if subscription.accreditation %>
+                    </td>
+                    <td>
+                      <%= subscription.course.name %>
+                    </td>
+                    <td><%= subscription.course.category %></td>
+                    <td><%= subscription.user.role %></td>
+                    <td class="text-center">
+                      <% if subscription.finished %>
+                        <span class="glyphicon glyphicon-ok"></span>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

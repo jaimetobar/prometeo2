@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         resources 'subscriptions',only: [:index]  do
           collection do
             patch "/", to: :update_user_subscriptions
+            get :print
           end
         end
       end

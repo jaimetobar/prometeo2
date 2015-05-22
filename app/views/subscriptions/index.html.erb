@@ -6,6 +6,11 @@
     <% end %>
     <div class="panel panel-default">
       <div class="panel-heading">
+        <div class="pull-right">
+          <%= link_to print_user_subscriptions_path(@user), class: "btn btn-default", target: "_blank" do %>
+            <span class="glyphicon glyphicon-print"></span>
+          <% end %>
+        </div>
         <h2><span class="glyphicon glyphicon-user"></span> <%= @user.email %></h2>
       </div>
       <!-- /.panel-heading -->
