@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticated :admin do
+  authenticate :admin do
     scope :admin do
       # Sidekiq admin console
       require 'sidekiq/web'
