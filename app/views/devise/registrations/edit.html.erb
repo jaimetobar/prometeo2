@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <h4>Cambiar contraseña para <strong><%= resource.email %></strong></h4>
+
+    <%= form_for(resource, as: resource_name, url: admin_registration_path(resource_name), html: { method: :patch }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label "Contraseña" %> <i>(Déja vacío este campo si no quieres cambiar la contraseña)</i><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Confirmación de contraseña" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Contraseña actual" %> <i>(Necesitamos tu contraseña actual para confirmar los cambios)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Cambiar contraseña", class: "btn btn-success btn-md" %>
+      </div>
+    <% end %>
+
+    <%= link_to "Volver", :back %>
+
+  </div>
+</div>

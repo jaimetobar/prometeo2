@@ -11,6 +11,7 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
+                  <th>Acreditación</th>
                   <th>Curso</th>
                   <th>Categoría</th>
                   <th>Rol</th>
@@ -21,6 +22,9 @@
                 <%= f.fields_for :subscriptions do |ff| %>
                   <%= ff.hidden_field :id %>
                   <tr>
+                    <td>
+                      <%= ff.object.accreditation.name if ff.object.accreditation %>
+                    </td>
                     <td>
                       <%= ff.object.course.name %>
                     </td>

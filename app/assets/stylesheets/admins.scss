@@ -1,0 +1,13 @@
+#new_admin.form-inline {
+  p.errors {
+    color: red;
+  }
+  .field_with_errors {
+    display: inline-block;
+    input {
+      border-style: solid;
+      border-color: red;
+    }
+  }
+
+}

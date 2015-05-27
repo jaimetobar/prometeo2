@@ -9,6 +9,7 @@
 #  finished         :boolean
 #  created_at       :datetime
 #  updated_at       :datetime
+#  accreditation_id :integer
 #
 
 require 'rails_helper'

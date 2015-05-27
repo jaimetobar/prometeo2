@@ -9,10 +9,19 @@ class UsersController < ApplicationController
     if((@country = params[:country]) && !@country.blank?)
       @users = @users.where(country: @country.upcase)
     end
+    respond_to do |format|
+      format.html do
+        @users = @users
+          .paginate(page: params[:page], per_page: params[:per_page] || 10)
+          .order('email DESC')
+      end
+      format.csv do
+        # Email- nombre - Curso - Status - Partner - Pais - Acreditación
+        headers['Content-Disposition'] = "attachment; filename=\"user-list.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
 
-    @users = @users
-      .paginate(page: params[:page], per_page: params[:per_page] || 10)
-      .order('email DESC')
   end
 
   # GET /users/notifications/:email_token

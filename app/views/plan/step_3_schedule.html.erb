@@ -1,38 +1,48 @@
 <div class="row">
-  <div class="col-xs-12 text-center">
+  <div class="col-xs-12">
     <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left") do %>
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="hidden-xs hidden-sm">
         Cambiar acreditaciones
       </span>
     <% end %>
-
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 text-center">
     <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
       <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
       <span class="glyphicon glyphicon-chevron-right"></span>
     <% end %>
-    <h3>Aquí está el plan que te sugerimos</h3>
+
     <div class="table-responsive text-left table-schedule">
+      <div class="text-center title-row">
+        <h4>Aquí está el plan que te sugerimos</h4>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Acreditación</th>
             <th>Curso</th>
             <th>Duración</th>
             <th>Fecha</th>
           </tr>
         </thead>
         <tbody>
-          <% @plan.sessions_per_course.each do |course,session| %>
+          <% @user.subscriptions.each do |s| %>
             <tr>
-              <td><%= course.name %></td>
-              <td><%= course.duration %></td>
-              <% if course.always_available? %>
-                <td>Siempre disponible</td>
-              <% elsif session != nil %>
-                <td><%= session.start_date %> a <%= session.end_date %></td>
-              <% else %>
-                <td>No disponible en este momento</td>
-              <% end %>
+              <td><%= s.accreditation.name if s.accreditation %></td>
+              <td><%= s.course.name %></td>
+              <td><%= s.course.duration %></td>
+              <td>
+                <% if s.course.always_available? %>
+                  Siempre disponible
+                <% elsif next_session = s.course.next_session %>
+                  <%= next_session.start_date %> - <%= next_session.end_date %>
+                <% else %>
+                  No disponible por ahora
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

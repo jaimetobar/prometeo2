@@ -5,6 +5,12 @@ class SubscriptionsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  # GET /admin/users/:id/subscriptions/print
+  def print
+    @user = User.find(params[:user_id])
+    render layout: false
+  end
+
   # PATCH /admin/users/:id/subscriptions
   def update_user_subscriptions
     @user = User.find(params[:user_id])

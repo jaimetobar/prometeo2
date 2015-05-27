@@ -5,6 +5,7 @@
 <table>
   <thead>
       <tr>
+          <th>Acreditación</th>
           <th>Curso</th>
           <th>Categoría</th>
           <th>Duración</th>
@@ -14,6 +15,7 @@
   <tbody style="border-style: solid; border-color: black;">
     <% @user.subscriptions.each do |s| %>
       <tr>
+        <td><%= s.accreditation.name if s.accreditation %></td>
         <td><%= s.course.name %></td>
         <td><%= s.course.category %></td>
         <td><%= s.course.duration %></td>

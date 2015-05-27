@@ -1,20 +1,26 @@
-<h1>Te recordamos que el curso <%= @courses_session.course.name %> iniciará en <%= @days_left %> días</h1>
+<h1> Hola <%= @user.email %>,</h1>
+
+<p>Los siguientes cursos comenzarán en <%= distance_of_time_in_words DateTime.now, @start_date %></p>
 
 <table>
   <thead>
-      <tr>
-          <th>Curso</th>
-          <th>Duración</th>
-          <th>Fecha</th>
-      </tr>
+    <tr>
+      <th>Acreditación</th>
+      <th>Curso</th>
+      <th>Fecha de inicio</th>
+      <th>Duración</th>
+    </tr>
   </thead>
   <tbody>
+    <% @subscriptions.each do |s| %>
       <tr>
-        <td><%= @courses_session.course.name %></td>
-        <td><%= @courses_session.duration%></td>
-        <td><%= @courses_session.start_date %></td>
+        <td><%= s.accreditation.name if  s.accreditation %></td>
+        <td><%= s.course.name %></td>
+        <td><%= @start_date %></td>
+        <td><%= s.course.duration %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>
 <br>
-<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", email_token_users_url(@user.email_token) %></label>
+<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", notifications_users_url(@user.email_token) %></label>
