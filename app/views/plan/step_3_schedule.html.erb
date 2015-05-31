@@ -32,7 +32,11 @@
           <% @user.subscriptions.each do |s| %>
             <tr>
               <td><%= s.accreditation.name if s.accreditation %></td>
-              <td><%= s.course.name %></td>
+              <td><%= s.course.name %>
+                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="<%= s.course.name %>" data-content="<%= s.course.description %>">
+                  <span class="glyphicon glyphicon-question-sign"></span>
+                </a>
+              </td>
               <td><%= s.course.duration %></td>
               <td>
                 <% if s.course.always_available? %>

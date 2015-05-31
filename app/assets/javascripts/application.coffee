@@ -19,3 +19,6 @@
 #= require moment/es
 #= require bootstrap-datetimepicker
 #= require_tree .
+
+$(document).on 'page:load ready', ->
+  $('[data-toggle="popover"]').popover()
