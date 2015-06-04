@@ -1,6 +1,6 @@
 desc "Check if there are courses initiaing soon"
 task :courses_checker => :environment do
-  courses_sessions = CourseSession.where("start_date <= ?", Date.parse("#{Time.now}")+2)
+  courses_sessions = CourseSession.where("start_date <= ?", Date.parse("#{Time.now}")+8)
   unless courses_sessions.empty?
     courses_sessions.each do |courses_session|
       start_date = courses_session.start_date
