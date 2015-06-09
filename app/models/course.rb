@@ -42,6 +42,21 @@ class Course < ActiveRecord::Base
       .where("accreditations_courses.accreditation_id" => accreditations_ids).uniq
   end
 
+  def self.sessions_per_course(courses)
+    sessions_per_course = {}
+    sessions = []
+    courses.each do |c|
+      s = c.sessions.upcoming.find do |s|
+        !s.overlaps?(sessions)
+      end
+      unless s.nil?
+        sessions_per_course[c] = s
+        sessions << s
+      end
+    end
+    sessions_per_course
+  end
+
   def roles
     rs = []
     rs << :sales_engineer if self.for_sales_engineer

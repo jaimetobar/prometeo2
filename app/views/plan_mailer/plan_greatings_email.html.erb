@@ -22,7 +22,7 @@
         <td>
           <% if s.course.always_available? %>
             Siempre disponible
-          <% elsif next_session = s.course.next_session %>
+          <% elsif next_session = @sessions_per_course[s.course] %>
             <%= next_session.start_date %> - <%= next_session.end_date %>
           <% else %>
             No disponible por ahora

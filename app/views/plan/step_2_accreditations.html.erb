@@ -19,8 +19,8 @@
 
   <div class="btn-group roles">
     <div class="accreditations">
-      <% @accreditations.each do |a| %>
-        <div class="full-col col-xs-12 col-md-<%=(12/@accreditations.count).ceil%>" >
+      <% @accreditations.each_with_index do |a,i| %>
+        <div class="col-xs-12 col-md-<%= @accreditations.count == 3 ? 4 : 3 %>" >
           <div class="accreditation-box">
             <div class="select-btn-container">
               <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
@@ -33,6 +33,9 @@
             </p>
           </div>
         </div>
+        <% if i % 4 == 3 %>
+          <div class="clearfix"></div>
+        <% end %>
       <% end %>
     </div>
   </div>
