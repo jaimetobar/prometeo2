@@ -28,6 +28,9 @@ class PlanController < ApplicationController
       subscription_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
 
       @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
+
+      @sessions_per_course = Course.sessions_per_course(courses)
+      
     end
   end
 
