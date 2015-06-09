@@ -19,7 +19,8 @@
 
 FactoryGirl.define do
   factory :admin do
-    
+    email "admin@redhat.org"
+    password "password"
   end
 
 end
