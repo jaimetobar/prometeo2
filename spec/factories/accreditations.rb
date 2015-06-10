@@ -12,9 +12,8 @@
 
 FactoryGirl.define do
   factory :accreditation do
-    name "Acreditation1"
+    name Faker::Name.title
     role "delivery"
-    description "This is the description 1 from the the Acreditation1"
+    description Faker::Lorem.sentence
   end
-
 end

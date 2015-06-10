@@ -17,11 +17,11 @@
 
 FactoryGirl.define do
   factory :course do
-    name "MyString"
-role 1
-category 1
-start_date "2015-04-13 18:39:55"
-end_date "2015-04-13 18:39:55"
+    name "Course #{Faker::Hacker.abbreviation}"
+    role 1
+    category 1
+    start_date "2015-04-13 18:39:55"
+    end_date "2015-04-20 18:39:55"
   end
 
 end
