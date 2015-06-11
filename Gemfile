@@ -34,6 +34,9 @@ group :development, :test do
 end
 group :test do
   gem 'database_cleaner'
+  # OSX install before
+  # brew install qt
+  gem 'capybara-webkit','~> 1.5.2' 
 end
 
 gem 'pg'
