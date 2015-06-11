@@ -29,17 +29,20 @@ RSpec.feature "go throw a plan" do
     end
     # let(:accreditation) { create(:accreditation) }
 
-    scenario "Choose an accreditation"  do
-
+    scenario "Choose an accreditation and continue"  do
       within(".accreditation-box") do
-        find(:css, '.btn.btn-default.btn-block.btn-select-accreditation')
+        find(:css, '.btn.btn-default.btn-block.btn-select-accreditation').click
       end
       click_button ("Crear Plan")
-      page.driver.console_messages
-      page.driver.error_messages
-      save_and_open_page
-      expect(current_url).to have_content "/plan/step_3_schedule?utf8=✓&role=delivery&button=&accreditations%5B%5D=#{@accreditation.id}"
+      uri = URI.parse(current_url)
+      expect(uri.query).to have_content "utf8=%E2%9C%93&role=delivery&button=&accreditations%5B%5D=#{@accreditation.id}"
     end
+    scenario "user forgot to choose an accreditation"  do
+      click_button ("Crear Plan")
+      uri = URI.parse(current_url)
+      expect(page).to have_content "Selecciona por lo menos una acreditación"
+    end
+
   end
 
 
