@@ -15,5 +15,11 @@ FactoryGirl.define do
     name Faker::Name.title
     role "delivery"
     description Faker::Lorem.sentence
+
+    trait :with_course do
+      after(:create) do |accreditation|
+        accreditation.courses << create(:course)
+      end
+    end
   end
 end
