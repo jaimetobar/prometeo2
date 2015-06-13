@@ -1,7 +1,7 @@
 require'rails_helper'
 
 RSpec.feature "go throw a plan" do
-  context 'choose a role' do
+  context '#step_1_roles' do
     before do
       visit root_path
     end
@@ -22,7 +22,7 @@ RSpec.feature "go throw a plan" do
     end
   end
 
-  context 'step_3', :js => true do
+  context '#step_2_accreditations', :js => true do
     before do
       @accreditation = create(:accreditation)
       visit '/plan/step_2_accreditations?role=delivery'
@@ -42,8 +42,19 @@ RSpec.feature "go throw a plan" do
       uri = URI.parse(current_url)
       expect(page).to have_content "Selecciona por lo menos una acreditación"
     end
-
   end
 
+  context '#step_3_schedule' do
+    before do
+      @accreditation = create(:accreditation, :with_course)
+      visit '/plan/step_3_schedule?utf8=%E2%9C%93&role=delivery&button=&accreditations%5B%5D=1'
+    end
+    scenario "Verifies if the accreditation has courses"  do
+      expect(page).to have_content "#{@accreditation.courses[0].name}"
+      click_link "Suscribirme a notificaciones"
+      expect(page).to have_content "Déjanos tus datos y te notificaremos cuando los cursos estén disponibles"
+    end
+  end
 
+  
 end
