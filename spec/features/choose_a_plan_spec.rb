@@ -56,5 +56,28 @@ RSpec.feature "go throw a plan" do
     end
   end
 
-  
+  context '#step_4_subscription' do
+    let(:accreditation) { create(:accreditation, :with_course) }
+    let(:user) { build(:subscriber) }
+    before do
+      # @accreditation = create(:accreditation, :with_course)
+      visit '/plan/step_4_subscription?accreditations%5B%5D=1&role=delivery'
+    end
+    scenario "Fill-up the formulary and subscribe"  do
+      expect(page).to have_content "Déjanos tus datos y te notificaremos cuando los cursos estén disponibles"
+      within("form#new_user") do
+        fill_in "user_name", with: user.name
+        fill_in "user_email", with: user.email
+        within '#user_country' do
+          find("option[value='#{user.country}']").click
+        end
+        fill_in "user_partner", with: user.partner
+        #The role sould be taken from the URL
+        click_button "Suscribirme"
+      end
+      uri = URI.parse(current_url)
+      expect(uri.path).to eq '/'
+      # expect(page).to have_content "Te avisaremos cuando los cursos vayan a comenzar "
+    end
+  end
 end
