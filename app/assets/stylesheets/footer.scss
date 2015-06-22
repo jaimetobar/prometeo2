@@ -1,13 +1,14 @@
 .footer {
   width: 100%;
-  height: $footer-height;
-  background-color: #CC0000;
-  margin-top: 0px;
-  position: fixed;
+  height: 25px;
+  background-color: #dcdcdc;
+  margin-top: -25px;
+  margin-bottom: 0px;
+  
   bottom: 0;
   p {
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 5px;
+    font-size: small;
   }
 }
