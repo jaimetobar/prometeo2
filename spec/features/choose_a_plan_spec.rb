@@ -1,6 +1,6 @@
 require'rails_helper'
 
-RSpec.feature "go throw a plan" do
+RSpec.feature "go through a plan" do
   context '#step_1_roles' do
     before do
       visit root_path
@@ -24,18 +24,18 @@ RSpec.feature "go throw a plan" do
 
   context '#step_2_accreditations', :js => true do
     before do
-      @accreditation = create(:accreditation)
+      @accreditation = create(:accreditation, role: "delivery")
       visit '/plan/step_2_accreditations?role=delivery'
     end
     # let(:accreditation) { create(:accreditation) }
 
     scenario "Choose an accreditation and continue"  do
       within(".accreditation-box") do
-        find(:css, '.btn.btn-default.btn-block.btn-select-accreditation').click
+        find(:css, '.btn-select-accreditation').click
       end
       click_button ("Crear Plan")
       uri = URI.parse(current_url)
-      expect(uri.query).to have_content "utf8=%E2%9C%93&role=delivery&button=&accreditations%5B%5D=#{@accreditation.id}"
+      expect(uri.query).to have_content "D=#{@accreditation.id}"
     end
     scenario "user forgot to choose an accreditation"  do
       click_button ("Crear Plan")
@@ -60,7 +60,6 @@ RSpec.feature "go throw a plan" do
     let(:accreditation) { create(:accreditation, :with_course) }
     let(:user) { build(:subscriber) }
     before do
-      # @accreditation = create(:accreditation, :with_course)
       visit '/plan/step_4_subscription?accreditations%5B%5D=1&role=delivery'
     end
     scenario "Fill-up the formulary and subscribe"  do
@@ -77,7 +76,7 @@ RSpec.feature "go throw a plan" do
       end
       uri = URI.parse(current_url)
       expect(uri.path).to eq '/'
-      # expect(page).to have_content "Te avisaremos cuando los cursos vayan a comenzar "
+      expect(page).to have_content "Te avisaremos cuando los cursos vayan a comenzar "
     end
   end
 end
