@@ -5,7 +5,7 @@ class PlanMailer < ActionMailer::Base
     @user = user
     @sessions_per_course = Course.sessions_per_course(user.courses)
     mail(to: @user.email,
-       subject: 'Plan de cursos Prometeo')
+       subject: 'Plan de Acreditaciones de Red Hat')
   end
 
   def notifications_email(user, subscriptions ,start_date)
@@ -13,6 +13,6 @@ class PlanMailer < ActionMailer::Base
     @subscriptions =  subscriptions
     @start_date = start_date
     mail(to: @user.email,
-       subject: 'Prometeo - Notificación de Cursos por Comenzar')
+       subject: 'Recordatorio de cursos disponibles de Red Hat')
   end
 end

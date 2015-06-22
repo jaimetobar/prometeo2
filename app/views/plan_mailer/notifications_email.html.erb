@@ -1,26 +1,36 @@
-<h1> Hola <%= @user.email %>,</h1>
+<p>
+  Hola <strong><%= @user.name.capitalize %></strong>,
+</p>
 
-<p>Los siguientes cursos comenzarán en <%= distance_of_time_in_words DateTime.now, @start_date %></p>
+<p>
+De acuerdo al interés de cursos que habías mostrado en Red Hat,
+te contamos que los siguientes cursos comenzarán en <%= distance_of_time_in_words DateTime.now, @start_date %>:
 
-<table>
+</p>
+
+<table style="border-spacing:0px;">
   <thead>
     <tr>
-      <th>Acreditación</th>
-      <th>Curso</th>
-      <th>Fecha de inicio</th>
-      <th>Duración</th>
+      <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Acreditación</th>
+      <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Curso</th>
+      <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Fecha de inicio</th>
+      <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duración</th>
     </tr>
   </thead>
   <tbody>
     <% @subscriptions.each do |s| %>
       <tr>
-        <td><%= s.accreditation.name if  s.accreditation %></td>
-        <td><%= s.course.name %></td>
-        <td><%= @start_date %></td>
-        <td><%= s.course.duration %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if  s.accreditation %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= @start_date %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", notifications_users_url(@user.email_token) %></label>
+
+<p style="font-size:small;">
+  Si no quieres recibir más notificaciones relacionadas con este curso (esperamos que sea porque ya lo terminaste),
+  haz click <%= link_to "acá", notifications_users_url(@user.email_token) %>.
+</p>

@@ -1,25 +1,33 @@
-<h1><%= @user.name %> te damos la bienvenida a Prometeo</h1>
 
-<h3>Te has suscrito a los siguientes cursos: </h3>
+<p><strong><%= @user.name.capitalize %></strong> te damos la bienvenida a Prometeo.
+  El programa de Enablement que te permitirá tener seguimiento de tu programa de acreditaciones.
+</p>
+<p>
+  Consideramos que tu valor profesional mejora con estos cursos.
+  Recuerda que para inscribirte, deberás hacerlo por medio de
+  <%= link_to "OPEN", "http://bit.ly/OPEN_walk1" %>.
+</p>
 
-<table>
+<p style="font-weight: bold;">Te has suscrito a las notificaciones de los siguientes cursos: </p>
+
+<table style="border-spacing:0px;">
   <thead>
       <tr>
-          <th>Acreditación</th>
-          <th>Curso</th>
-          <th>Categoría</th>
-          <th>Duración</th>
-          <th>Siguiente Fecha</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Acreditación</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Curso</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Categoría</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duración</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Siguiente Fecha</th>
       </tr>
   </thead>
   <tbody style="border-style: solid; border-color: black;">
     <% @user.subscriptions.each do |s| %>
       <tr>
-        <td><%= s.accreditation.name if s.accreditation %></td>
-        <td><%= s.course.name %></td>
-        <td><%= s.course.category %></td>
-        <td><%= s.course.duration %></td>
-        <td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if s.accreditation %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.category %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">
           <% if s.course.always_available? %>
             Siempre disponible
           <% elsif next_session = @sessions_per_course[s.course] %>
@@ -33,4 +41,15 @@
   </tbody>
 </table>
 <br>
-<label> Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", notifications_users_url(@user.email_token) %></label>
+<p>
+  ¿Tienes problemas de acceso?: <%=link_to "Acá", "http://bit.ly/partner_sac_faq"%> encontraras respuestas a tus posibles inquietudes.
+</p>
+<p>
+  ¿Dudas adicionales? Escríbenos:
+</p>
+<p>
+  <%= mail_to "cromero@redhat.com" %> | <%= mail_to "jtobar@redhat.com" %>
+</p>
+<p style="font-size:small;">
+  Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", notifications_users_url(@user.email_token) %>
+</p>
