@@ -6,7 +6,7 @@ RSpec.feature "go through a plan" do
       visit root_path
     end
     scenario "choose 'Sales Engineer' " do
-      find(:xpath, "//a[@href='/plan/step_2_accreditations?role=sales_engineer']").click
+      find(:css,"a[href='/plan/step_2_accreditations?role=sales_engineer']").click
       expect(page).to have_content 'Selecciona las acreditaciones que deseas tomar'
       expect(current_url).to have_content "/plan/step_2_accreditations?role=sales_engineer"
     end
