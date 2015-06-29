@@ -4,7 +4,7 @@ ENV['RAILS_ENV'] ||= 'production'
 
 require File.expand_path("./config/environment", ENV['OPENSHIFT_REPO_DIR'])
 
-start_date = Date.parse("#{Time.now}")+2.days
+start_date = Date.parse("#{Time.now}")+8.days
 courses_sessions = CourseSession.where("start_date = :start_date", start_date: start_date)
 courses = Course.joins(:course_sessions).where("course_sessions.id" => courses_sessions.pluck(:id)).uniq
 courses_ids = courses.pluck(:id)
