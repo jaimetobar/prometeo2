@@ -14,11 +14,11 @@
 #
 
 FactoryGirl.define do
-  factory :user do
-    email "MyString"
-country "MyString"
-partner "MyString"
-role 1
+  factory :user, aliases: [:subscriber] do
+    name Faker::Name.name
+    email Faker::Internet.email
+    country Faker::Address.country_code #=> "IT"
+    partner Faker::Company.name
+    role "delivery"
   end
-
 end

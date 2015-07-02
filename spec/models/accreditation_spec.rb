@@ -13,5 +13,16 @@
 require 'rails_helper'
 
 RSpec.describe Accreditation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "is invalid without name" do
+    accreditation = build(:accreditation, name: nil)
+    accreditation.valid?
+    expect(accreditation.errors[:name]).to include("no puede estar en blanco")
+  end
+  it "is invalid without role" do
+    accreditation = build(:accreditation, role: nil)
+    accreditation.valid?
+    expect(accreditation.errors[:role]).to include("no puede estar en blanco")
+  end
+
 end

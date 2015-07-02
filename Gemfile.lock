@@ -50,6 +50,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.5.2)
+      capybara (>= 2.3.0, < 2.5.0)
+      json
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coffee-rails (4.0.1)
@@ -235,6 +238,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.7.14)
   byebug
   capybara
+  capybara-webkit (~> 1.5.2)
   coffee-rails (~> 4.0.0)
   country_select
   database_cleaner
