@@ -7,5 +7,8 @@ class PagesController < ApplicationController
 
   def presentations
   end
-  
+
+  def start
+    render layout: false
+  end
 end

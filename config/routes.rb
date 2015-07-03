@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/docs', to: "pages#docs"
   get '/presentations', to: "pages#presentations"
+  get '/start', to: "pages#start"
 
   devise_for :admins, skip: [:registrations]
   as :admin do
