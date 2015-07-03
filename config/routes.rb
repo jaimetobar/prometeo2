@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root "plan#index"
+  root "pages#home"
+
+  get '/docs', to: "pages#docs"
+  get '/presentations', to: "pages#presentations"
 
   devise_for :admins, skip: [:registrations]
   as :admin do
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resource :plan, only:[:index,:create], controller: :plan do
+    get '/', action: 'index'
     collection do
       get :step_1_roles
       get :step_2_accreditations

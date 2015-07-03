@@ -3,7 +3,7 @@ require'rails_helper'
 RSpec.feature "go through a plan" do
   context '#step_1_roles' do
     before do
-      visit root_path
+      visit plan_path
     end
     scenario "choose 'Sales Engineer' " do
       find(:css,"a[href='/plan/step_2_accreditations?role=sales_engineer']").click
