@@ -7,26 +7,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to image_tag("logo_large.png", class: "img-responsive"), "/", :class => "navbar-brand" %>
+      <%= link_to image_tag("logo.png"), "/", :class => "navbar-brand" %>
     </div>
 
     <div id="navbar" class="collapse navbar-collapse">
-      <% if params[:controller] == "plan" %>
+      <% if ['pages','plan'].include? params[:controller] %>
         <ul class="nav navbar-nav">
-          <li class="<%= 'active' if params[:controller] == "plan" %>">
-            <%= link_to "Entrenamientos", root_path %>
+          <li class="<%= 'active' if ['plan'].include? params[:controller] %>">
+            <%= link_to "Entrenamientos", plan_path %>
           </li>
-          <li>
-            <%= link_to "Documentos", "http://help-esac.rhcloud.com/documentos.html" %>
+          <li class="<%= 'active' if(['pages'].include?(params[:controller])  && ['docs'].include?(params[:action]))%>">
+            <%= link_to "Documentos", docs_path %>
           </li>
-          <li>
-            <%= link_to "Presentaciones", "http://help-esac.rhcloud.com/presentaciones.html" %>
+          <li class="<%= 'active' if(['pages'].include?(params[:controller])  && ['presentations'].include?(params[:action]))%>">
+            <%= link_to "Presentaciones", presentations_path %>
           </li>
         </ul>
       <% end %>
       <div class="divider"></div>
       <ul class="nav navbar-nav navbar-right">
-        <% if params[:controller] == "plan" %>
+        <% if ["plan","pages"].include? params[:controller] %>
           <li>
             <%= link_to "Panel de Admin", courses_path %>
           </li>

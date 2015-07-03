@@ -1,0 +1,112 @@
+<!-- Section about three main actions -->
+<div class="connect-background">
+<section class="container-fluid" id="section1">
+  <div class="container v-center">
+    <div class="row">
+      <div class="col-md-4">
+        <center>
+          <h1 class="glyphicon glyphicon-pencil" style="font-size:5em;color:#cc0000"></h1>
+          <h2><b>Entrénate</b></h2>
+        </center>
+        <hr>
+        <p class="lead">Tenemos un plan personalizado para ti según tu rol y los productos que te ayudan a realizar tu trabajo. Obtén tu acreditación en línea.</p>
+        <hr>
+        <a href="<%= plan_path %>" class="btn btn-success btn-block" style="font-size:20px"><strong>Crear mi plan</strong></a>
+      </div>
+      <div class="col-md-4">
+        <center>
+          <h1 class="glyphicon glyphicon-play-circle" style="font-size:5em;color:#cc0000"></h1>
+          <h2><b>Presentaciones</b></h2>
+        </center>
+        <hr>
+        <p class="lead">Sabemos que tienes mil tareas por cumplir día a día. Te entregamos las presentaciones de producto listas para facilitar tu trabajo y ahorrarte tiempo.</p>
+        <hr>
+        <a href="<%= presentations_path %>" class="btn btn-danger btn-block" style="font-size:20px">Obtener presentaciones</a>
+      </div>
+      <div class="col-md-4">
+        <center>
+          <h1 class="glyphicon glyphicon-comment" style="font-size:5em;color:#cc0000"></h1>
+          <h2><b>Demostraciones</b></h2>
+        </center>
+        <hr>
+        <p class="lead">Una imagen vale más que mil palabras. Un Demo vale más que mil imágenes. Prepara un demo de nuestros productos en menos de 30 minutos.</p>
+        <hr>
+        <a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#configurarDemo" style="font-size:20px">Configurar mi demo</a>
+        <!-- Modal -->
+        <div class="modal fade" id="configurarDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="configurarDemoLabel">Configurando ambiente</h4>
+              </div>
+              <div class="modal-body">
+                Los ambientes de demostración que te ofrecemos se ejecutan sobre <strong>Red Hat Partner Demo System (RHPDS)</strong>. Allí tendrás el catálogo de la gran mayoría de productos donde al seleccionarlos dispones de (1) un script explicando paso a paso el demo, (2) dos días calendario para usar el ambiente y (3) un correo electrónico con instrucciones de manejo.
+              </div>
+              <div class="alert alert-warning" role="alert">Recuerda que <strong>este acceso es diferente a tu Red Hat Login.</strong> Deberas completar al menos una acreditación de Sales Engineer o Delivery y escribirnos a: <a href="mailto:enablement-latam@redhat.com?Subject=Solicitud de cuenta en RHPDS" target="_top">enablement-latam@redhat.com</a> solicitando tu usuario y contraseña.</div>
+              <div class="modal-footer">
+                <a href="https://www.youtube.com/watch?v=pswrMbx7UV0" target="_blank" class="btn btn-info">Ver video guía</a>
+                <a href="https://www.dropbox.com/s/uh8po6ej039u1al/Gu%C3%ADa%20RHPDS%20V1.0.pdf?dl=0" target="_blank" class="btn btn-info">Descargar guía</a>
+                <a href="http://rhpds.redhat.com" target="_blank" class="btn btn-success" style="font-size:18px"><strong>Ir a RHPDS</strong></a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /modal -->
+      </div>
+    </div><!--/row-->
+    <div class="row"><br></div>
+  </div><!--/container-->
+</section>
+<!-- End of Section about three main actions -->
+
+<!-- Section about FAQ -->
+<section class="container-fluid" id="section2">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h1><strong>PREGUNTAS FRECUENTES (FAQ)</strong></h1>
+      <br>
+      <p class="lead">Te haz preguntado, ¿Cómo crear mi usuario? ¿Cómo ingresar al portal? ¿Cómo registrar mis certificaciones o acceder a entrenamiento? ¿Cómo pedir una NFR? ¿Qué es una NFR?. Tenemos estas respuestas y algunas más disponibles para que las descargues aquí:</p>
+      <br>
+      <a href="http://bit.ly/partner_sac_faq"><i class="glyphicon glyphicon-download" style="font-size:5em;color:#fff"></i></a>
+      <p>Descargar</p>
+    </div>
+  </div>
+</section>
+<!-- End of Section about FAQ -->
+
+<!-- Section about how to use OPEN -->
+<section class="container-fluid" id="section3">
+  <div class="container v-center">
+    <center>
+      <h1><strong>CÓMO USAR OPEN</strong></h1>
+    </center>
+    <br/>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="lead"><strong>Online Partner Enablement Network</strong> enmarca el ecosistema de cursos de Red Hat disponible para nuestros Partners enfocado a los distintos roles presentes en ellos: <strong>Ventas, Preventas y Delivery.</strong> <br/><br/>Cada camino esta diseñado para un conjunto específico de soluciones: <strong>Infraestructura, Middleware y Cloud</strong>. Todos ellos podrás accederlos con tu Red Hat Login e inscribirte como lo indica el vídeo.</p>
+        <a href="http://bit.ly/OPEN_cal" class="btn btn-danger" target="_blank" style="font-size:18px"><i class="glyphicon glyphicon-calendar" style="color:#fff"></i> Ver calendario de laboratorios técnicos</a>
+      </div>
+      <div class="col-md-6">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/TYoBk1yyfSI" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div><!--/container-->
+</section>
+<!-- Section about how to use OPEN -->
+
+<!-- Section about Team -->
+<section class="container-fluid" id="section4">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <h1><strong>EL EQUIPO</strong></h1>
+      <br>
+      <p class="lead">Si tus dudas no fueron resueltas, si tienes sugerencias para nosotros o simplemente nos quieres saludar, ¡escríbenos!: <a href="mailto:enablement-latam@redhat.com?Subject=Pregunta/Sugerencia/Saludo" target="_top">enablement-latam@redhat.com</a></p>
+      <br>
+      <i class="glyphicon glyphicon-envelope" style="font-size:5em;color:#fff"></i>
+    </div>
+  </div>
+</section>
+<!-- End of Section about Team -->
+</div>
