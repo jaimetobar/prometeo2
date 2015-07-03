@@ -40,16 +40,8 @@
     <% end %>
   </tbody>
 </table>
-<br>
-<p>
-  ¿Tienes problemas de acceso?: <%=link_to "Acá", "http://bit.ly/partner_sac_faq"%> encontraras respuestas a tus posibles inquietudes.
-</p>
-<p>
-  ¿Dudas adicionales? Escríbenos:
-</p>
-<p>
-  <%= mail_to "cromero@redhat.com" %> | <%= mail_to "jtobar@redhat.com" %>
-</p>
+<br />
+<%= signature_for(@user) %>
 <p style="font-size:small;">
   Puedes editar las notificaciones que recibes en el siguiente link: <%= link_to "Edición de notificaciones", notifications_users_url(@user.email_token) %>
 </p>
