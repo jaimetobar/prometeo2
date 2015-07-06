@@ -6,26 +6,26 @@ RSpec.feature "go through a plan" do
       visit plan_path
     end
     scenario "choose 'Sales Engineer' " do
-      find(:css,"a[href='/plan/step_2_accreditations?role=sales_engineer']").click
+      find(:css,"a[href='/entrenamiento/step_2_accreditations?role=sales_engineer']").click
       expect(page).to have_content 'Selecciona las acreditaciones que deseas tomar'
-      expect(current_url).to have_content "/plan/step_2_accreditations?role=sales_engineer"
+      expect(current_url).to have_content "/entrenamiento/step_2_accreditations?role=sales_engineer"
     end
     scenario "choose 'Sales' " do
-      find(:xpath, "//a[@href='/plan/step_2_accreditations?role=sales']").click
+      find(:xpath, "//a[@href='/entrenamiento/step_2_accreditations?role=sales']").click
       expect(page).to have_content 'Selecciona las acreditaciones que deseas tomar'
-      expect(current_url).to have_content "/plan/step_2_accreditations?role=sales"
+      expect(current_url).to have_content "/entrenamiento/step_2_accreditations?role=sales"
     end
     scenario "choose 'Delivery' " do
-      find(:xpath, "//a[@href='/plan/step_2_accreditations?role=delivery']").click
+      find(:xpath, "//a[@href='/entrenamiento/step_2_accreditations?role=delivery']").click
       expect(page).to have_content 'Selecciona las acreditaciones que deseas tomar'
-      expect(current_url).to have_content "/plan/step_2_accreditations?role=delivery"
+      expect(current_url).to have_content "/entrenamiento/step_2_accreditations?role=delivery"
     end
   end
 
   context '#step_2_accreditations', :js => true do
     before do
       @accreditation = create(:accreditation, role: "delivery")
-      visit '/plan/step_2_accreditations?role=delivery'
+      visit '/entrenamiento/step_2_accreditations?role=delivery'
     end
     # let(:accreditation) { create(:accreditation) }
 
@@ -47,7 +47,7 @@ RSpec.feature "go through a plan" do
   context '#step_3_schedule' do
     before do
       @accreditation = create(:accreditation, :with_course)
-      visit '/plan/step_3_schedule?utf8=%E2%9C%93&role=delivery&button=&accreditations%5B%5D=1'
+      visit '/entrenamiento/step_3_schedule?utf8=%E2%9C%93&role=delivery&button=&accreditations%5B%5D=1'
     end
     scenario "Verifies if the accreditation has courses"  do
       expect(page).to have_content "#{@accreditation.courses[0].name}"
@@ -58,9 +58,9 @@ RSpec.feature "go through a plan" do
 
   context '#step_4_subscription' do
     let(:accreditation) { create(:accreditation, :with_course) }
-    let(:user) { build(:subscriber) }
+    let(:user) { build(:subscriber, country: "BR") }
     before do
-      visit '/plan/step_4_subscription?accreditations%5B%5D=1&role=delivery'
+      visit '/entrenamiento/step_4_subscription?accreditations%5B%5D=1&role=delivery'
     end
     scenario "Fill-up the formulary and subscribe"  do
       expect(page).to have_content "Déjanos tus datos y te notificaremos cuando los cursos estén disponibles"
@@ -68,7 +68,7 @@ RSpec.feature "go through a plan" do
         fill_in "user_name", with: user.name
         fill_in "user_email", with: user.email
         within '#user_country' do
-          find("option[value='#{user.country}']").click
+          first("option[value='#{user.country}']").click
         end
         fill_in "user_partner", with: user.partner
         #The role sould be taken from the URL

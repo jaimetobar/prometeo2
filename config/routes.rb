@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  get '/docs', to: "pages#docs"
-  get '/presentations', to: "pages#presentations"
-  get '/start', to: "pages#start"
+  get '/documentos', to: "pages#docs", as: :docs
+  get '/presentaciones', to: "pages#presentations", as: :presentations
+  get '/start', to: "pages#start", as: :start
 
   devise_for :admins, skip: [:registrations]
   as :admin do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     patch 'admins/:id' => 'devise/registrations#update', :as => 'admin_registration'
   end
 
-  resource :plan, only:[:index,:create], controller: :plan do
+  resource :plan, only:[:index,:create], controller: :plan, path: :entrenamiento do
     get '/', action: 'index'
     collection do
       get :step_1_roles
