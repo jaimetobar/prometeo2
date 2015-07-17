@@ -22,8 +22,17 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[] do
+    collection do
+      get "/notifications/:email_token", to: "users#edit_notifications", as: :notifications
+      patch "/notifications/:email_token", to: "users#update_notifications"
+    end
+  end
+
+  get '/admin', to: redirect("/admin/courses")
+
   authenticate :admin do
-    scope :admin do
+    namespace :admin do
       # Sidekiq admin console
       require 'sidekiq/web'
       mount Sidekiq::Web => '/sidekiq'
@@ -34,7 +43,8 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :courses
+      resources :courses, except: [:show]
+
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
@@ -46,13 +56,6 @@ Rails.application.routes.draw do
 
       resources :accreditations
 
-    end
-  end
-
-  resources :users, only:[] do
-    collection do
-      get "/notifications/:email_token", to: "users#edit_notifications", as: :notifications
-      patch "/notifications/:email_token", to: "users#update_notifications"
     end
   end
 

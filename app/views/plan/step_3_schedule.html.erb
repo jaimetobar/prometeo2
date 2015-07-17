@@ -1,56 +1,58 @@
-<div class="row">
-  <div class="col-xs-12">
-    <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left") do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="hidden-xs hidden-sm">
-        Cambiar acreditaciones
-      </span>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left") do %>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="hidden-xs hidden-sm">
+          Cambiar acreditaciones
+        </span>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 text-center">
-    <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
-      <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    <% end %>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
+        <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      <% end %>
 
-    <div class="table-responsive text-left table-schedule">
-      <div class="text-center title-row">
-        <h4>Aquí está el plan que te sugerimos</h4>
-      </div>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Acreditación</th>
-            <th>Curso</th>
-            <th>Duración</th>
-            <th>Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @user.subscriptions.each do |s| %>
+      <div class="table-responsive text-left table-schedule">
+        <div class="text-center title-row">
+          <h4>Aquí está el plan que te sugerimos</h4>
+        </div>
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <td><%= s.accreditation.name if s.accreditation %></td>
-              <td><%= s.course.name %>
-                <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="<%= s.course.name %>" data-content="<%= s.course.description %>" data-placement="top">
-                  <span class="glyphicon glyphicon-question-sign"></span>
-                </a>
-              </td>
-              <td><%= s.course.duration %></td>
-              <td>
-                <% if s.course.always_available? %>
-                  Siempre disponible
-                <% elsif next_session = @sessions_per_course[s.course] %>
-                  <%= next_session.start_date %> - <%= next_session.end_date %>
-                <% else %>
-                  No disponible por ahora
-                <% end %>
-              </td>
+              <th>Acreditación</th>
+              <th>Curso</th>
+              <th>Duración</th>
+              <th>Fecha</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @user.subscriptions.each do |s| %>
+              <tr>
+                <td><%= s.accreditation.name if s.accreditation %></td>
+                <td><%= s.course.name %>
+                  <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="<%= s.course.name %>" data-content="<%= s.course.description %>" data-placement="top">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                  </a>
+                </td>
+                <td><%= s.course.duration %></td>
+                <td>
+                  <% if s.course.always_available? %>
+                    Siempre disponible
+                  <% elsif next_session = @sessions_per_course[s.course] %>
+                    <%= next_session.start_date %> - <%= next_session.end_date %>
+                  <% else %>
+                    No disponible por ahora
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

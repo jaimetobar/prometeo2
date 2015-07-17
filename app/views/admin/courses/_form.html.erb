@@ -1,0 +1,72 @@
+<%= simple_form_for [:admin,@course], html: { class: "form-horizontal" }, method: @method || :post ,
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.input :category, as: :select,collection: Course.categories.keys, label: "Categoría" %>
+  <%= f.input :name, placeholder: "nombre", label: "Nombre" %>
+  <%= f.input :duration, placeholder: "ej: 5 horas", label: "Duración" %>
+
+  <div class="form-group boolean optional roles <% if flash[:roles] %>has-error<% end %>">
+    <label class="string optional col-sm-3 control-label" for="course_name">Roles</label>
+    <div class="col-sm-9">
+      <%= f.input :for_sales_engineer, as: :boolean, label: "Sales Engineer"%>
+      <%= f.input :for_sales, as: :boolean, label: "Sales"%>
+      <%= f.input :for_delivery, as: :boolean, label: "Delivery"%>
+
+      <%if flash[:roles] %><span class="help-block bg-danger"><%= flash[:roles] %></span><%end%>
+    </div>
+  </div>
+  <div class="form-group optional accreditations_courses form-inline <% if flash[:accreditations_courses] %>has-error<% end %>">
+    <label class="optional col-sm-3 control-label" for="accreditations_courses">Acreditaciones</label>
+    <div class="col-sm-9">
+      <%= f.nested_fields_for :accreditations_courses do |ff| %>
+        <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
+        <%= ff.collection_select( :accreditation_id, Accreditation.all, :id, :name, {},class: "form-control") %>
+      <% end %>
+      <%= f.add_nested_fields_link :accreditations_courses, content_tag(:span,"Acreditación",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+    </div>
+  </div>
+
+
+  <%= f.input :session_type, as: :radio_buttons, class: "course-session-type-radio",
+  collection: [:always_available,:per_session], label: "Tipo de Sesion" %>
+  <div class="form-group optional sessions form-inline" <%= "style='display: none'".html_safe if @course.session_type == "always_available" %> >
+    <label class="optional col-sm-3 control-label" for="sessions">Sesiones</label>
+    <div class="col-sm-9">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de finalización</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= f.nested_fields_for :course_sessions, wrapper_tag: :tr do |ff| %>
+            <td>
+              <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
+            </td>
+            <td>
+              <%= ff.input :start_date, wrapper: :datetimepicker,as: :string %>
+            </td>
+            <td>
+              <%= ff.input :end_date, wrapper: :datetimepicker,as: :string %>
+            </td>
+
+          <% end %>
+        </tbody>
+      </table>
+      <%= f.add_nested_fields_link :course_sessions, content_tag(:span,"Sesión",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <%= f.input :description, hint: "Deja una breve descripción del curso", as: :text, :input_html => {:rows => 7} %>
+
+  <%= f.button :submit, value: "Guardar", class:"btn btn-success pull-right" %>
+<% end %>

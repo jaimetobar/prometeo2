@@ -6,20 +6,27 @@
   }
 }
 
-.navbar-right {
-  //border-left-style: solid;
-  //border-left-width: 2px;
+@mixin active {
+  border-bottom-style: solid;
+  border-bottom-color: #CC0000;
+  border-bottom-width: 3px;
+  a {
+    background: none;
+  }
+}
+
+.nav {
+  @each $tab in plan, docs, presentations, admin-users, admin-admins, admin-courses, admin-accreditations {
+    &.active-#{$tab} {
+      .#{$tab} { @include active; }
+    }
+  }
 }
 
 .navbar-nav {
   >li {
     &.active {
-      border-bottom-style: solid;
-      border-bottom-color: #CC0000;
-      border-bottom-width: 3px;
-      a {
-        background: none;
-      }
+      @include active;
     }
     &:hover {
       border-bottom-style: solid;

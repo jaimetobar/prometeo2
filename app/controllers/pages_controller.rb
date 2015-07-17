@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :set_active_menu_tab
+
   def home
   end
 
@@ -11,4 +13,11 @@ class PagesController < ApplicationController
   def start
     render layout: false
   end
+
+  protected
+
+  def set_active_menu_tab
+    @active_menu_tab = params[:action]
+  end
+
 end

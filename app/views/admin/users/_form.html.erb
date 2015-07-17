@@ -1,0 +1,17 @@
+<%= simple_form_for [:admin,@user], html: { class: "form-horizontal" }, method: @method || :post ,
+ wrapper: :horizontal_form,
+ wrapper_mappings: {
+   check_boxes: :horizontal_radio_and_checkboxes,
+   radio_buttons: :horizontal_radio_and_checkboxes,
+   file: :horizontal_file_input,
+   boolean: :horizontal_boolean
+ } do |f| %>
+
+ <%= f.error_notification %>
+ <%= f.input :name, label: "Nombre del usuario" %>
+ <%= f.input :email, label: "Email de usuario" %>
+ <%= f.input :country, label: "País", priority: country_priority %>
+ <%= f.input :partner, label: "Partner" %>
+ <%= f.input :role, collection: [:sales_engineer,:sales,:delivery], label: "Tipo de Rol" %>
+ <%= f.button :submit, value: "Guardar", class: "btn btn-success pull-right" %>
+ <% end %>

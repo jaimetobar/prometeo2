@@ -28,8 +28,8 @@ class Course < ActiveRecord::Base
 
   has_many :accreditations_courses, dependent: :delete_all
   has_many :accreditations, through: :accreditations_courses
-  has_many :course_sessions
-  has_many :subscriptions
+  has_many :course_sessions, dependent: :delete_all
+  has_many :subscriptions, dependent: :delete_all
   has_many :users, through: :subscriptions
 
   alias_method :sessions, :course_sessions

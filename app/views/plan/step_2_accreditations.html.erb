@@ -1,42 +1,44 @@
-<%= form_tag(step_3_schedule_plan_path, method: "get") do %>
-  <%= hidden_field_tag :role, @role %>
-  <div class="row">
-    <div class="col-xs-12 text-center title-row">
-      <%= link_to(step_1_roles_plan_path, class: "link pull-left") do %>
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="hidden-xs hidden-sm">
-          Cambiar Rol
-        </span>
-      <% end %>
-
-      <%= button_tag :submit, class: "btn btn-default btn-success btn-lg pull-right" do %>
-        <span class="hidden-xs hidden-sm">Crear Plan</span>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      <% end %>
-      <h4>Selecciona las acreditaciones que deseas tomar</h4>
-    </div>
-  </div>
-
-  <div class="btn-group roles">
-    <div class="accreditations">
-      <% @accreditations.each_with_index do |a,i| %>
-        <div class="col-xs-12 col-md-<%= @accreditations.count == 3 ? 4 : 3 %>" >
-          <div class="accreditation-box">
-            <div class="select-btn-container">
-              <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
-                <span class="glyphicon glyphicon-ok"></span>
-              </a>
-            </div>
-            <h3><%= a.name %></h3>
-            <p>
-              <%= a.description %>
-            </p>
-          </div>
-        </div>
-        <% if i % 4 == 3 %>
-          <div class="clearfix"></div>
+<div class="container">
+  <%= form_tag(step_3_schedule_plan_path, method: "get") do %>
+    <%= hidden_field_tag :role, @role %>
+    <div class="row">
+      <div class="col-xs-12 text-center title-row">
+        <%= link_to(step_1_roles_plan_path, class: "link pull-left") do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="hidden-xs hidden-sm">
+            Cambiar Rol
+          </span>
         <% end %>
-      <% end %>
+
+        <%= button_tag :submit, class: "btn btn-default btn-success btn-lg pull-right" do %>
+          <span class="hidden-xs hidden-sm">Crear Plan</span>
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        <% end %>
+        <h4>Selecciona las acreditaciones que deseas tomar</h4>
+      </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="btn-group roles">
+      <div class="accreditations">
+        <% @accreditations.each_with_index do |a,i| %>
+          <div class="col-xs-12 col-md-<%= @accreditations.count == 3 ? 4 : 3 %>" >
+            <div class="accreditation-box">
+              <div class="select-btn-container">
+                <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </a>
+              </div>
+              <h3><%= a.name %></h3>
+              <p>
+                <%= a.description %>
+              </p>
+            </div>
+          </div>
+          <% if i % 4 == 3 %>
+            <div class="clearfix"></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

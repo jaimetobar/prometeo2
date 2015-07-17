@@ -3,7 +3,7 @@ require'rails_helper'
 describe "sign into admin panel" do
   context 'login credentials' do
     let!(:admin) { create(:admin) }
-    before :each do    
+    before :each do
       visit new_admin_session_path
     end
     it 'check for valid credentials' do
@@ -12,7 +12,7 @@ describe "sign into admin panel" do
         fill_in 'admin_password', with: admin.password
         click_on 'Ingresar'
       end
-      visit admins_path
+      visit admin_admins_path
       expect(page).to have_content("Administradores")
     end
   end
