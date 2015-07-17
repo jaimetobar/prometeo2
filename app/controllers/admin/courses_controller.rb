@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class Admin::CoursesController < Admin::AdminController
   before_action :set_course, only: [:destroy, :update, :edit]
 
   def index
@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     if @course.save
       flash[:notice] = "Curso creado"
-      redirect_to courses_path
+      redirect_to admin_courses_path
     else
       flash[:roles] = @course.errors[:roles][0]
       render :new
@@ -30,7 +30,7 @@ class CoursesController < ApplicationController
 
   def update
     if @course.update(course_params)
-      redirect_to courses_path
+      redirect_to admin_courses_path
     else
       flash[:roles] = @course.errors[:roles][0]
       render :edit
@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    redirect_to courses_path
+    redirect_to admin_courses_path
   end
 
 

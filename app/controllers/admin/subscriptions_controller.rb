@@ -1,4 +1,4 @@
-class SubscriptionsController < ApplicationController
+class Admin::SubscriptionsController < Admin::AdminController
 
   # GET /admin/users/:id/subscriptions
   def index
@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
   def update_user_subscriptions
     @user = User.find(params[:user_id])
     @user.update(user_params)
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 
   protected

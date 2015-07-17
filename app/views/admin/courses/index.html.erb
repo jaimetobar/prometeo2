@@ -5,7 +5,7 @@
               <div class="panel-heading">
                   <h2>
                     Cursos
-                    <%= link_to new_course_path,class: "btn btn-success btn-md pull-right" do %>
+                    <%= link_to new_admin_course_path,class: "btn btn-success btn-md pull-right" do %>
                         <span class="glyphicon glyphicon-plus"></span>
                         Agregar curso
                     <% end %>
@@ -34,7 +34,7 @@
                               <% @courses.each do |course|  %>
                                 <tr>
                                   <td><%= course.name %></td>
-                                  <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path(course: course.id),) %></td>
+                                  <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), admin_accreditations_path(course: course.id),) %></td>
                                   <td><%= course.which_roles %></td>
                                   <td><%= course.category %></td>
                                   <td><%= truncate(course.description) %></td>
@@ -46,10 +46,10 @@
                                     <% end %>
                                   </td>
                                   <td>
-                                    <%= link_to edit_course_path(course), class: "btn btn-info" do %>
+                                    <%= link_to edit_admin_course_path(course), class: "btn btn-info" do %>
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     <% end %>
-                                    <%= link_to course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
+                                    <%= link_to admin_course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
                                         <span class="glyphicon glyphicon-trash"></span>
                                     <% end %>
                                   </td>

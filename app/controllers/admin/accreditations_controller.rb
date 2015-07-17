@@ -1,4 +1,4 @@
-class AccreditationsController < ApplicationController
+class Admin::AccreditationsController < Admin::AdminController
   before_action :set_accreditation, only: [:destroy, :update, :edit]
 
   def index
@@ -19,7 +19,7 @@ class AccreditationsController < ApplicationController
     @accreditation = Accreditation.new(accreditation_params)
     if @accreditation.save
       flash[:notice] = "Acreditación creada"
-      redirect_to accreditations_path
+      redirect_to admin_accreditations_path
     else
       flash[:error] = "Existen algunos errores"
       render :new
@@ -29,7 +29,7 @@ class AccreditationsController < ApplicationController
   def update
     if @accreditation.update(accreditation_params)
       flash[:notice] = "Acreditación actualizada"
-      redirect_to accreditations_path
+      redirect_to admin_accreditations_path
     else
       flash[:error] = "Existen algunos errores"
       render :edit
@@ -42,7 +42,7 @@ class AccreditationsController < ApplicationController
   def destroy
     @accreditation.destroy
     flash[:notice] = "La acreditación fue borrada"
-    redirect_to accreditations_path
+    redirect_to admin_accreditations_path
   end
 
   protected

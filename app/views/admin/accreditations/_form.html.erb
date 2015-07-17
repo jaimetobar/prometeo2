@@ -1,4 +1,4 @@
-<%= simple_form_for @accreditation, html: { class: "form-horizontal" }, method: @method || :post ,
+<%= simple_form_for [:admin,@accreditation], html: { class: "form-horizontal" }, method: @method || :post ,
   wrapper: :horizontal_form,
   wrapper_mappings: {
     check_boxes: :horizontal_radio_and_checkboxes,
