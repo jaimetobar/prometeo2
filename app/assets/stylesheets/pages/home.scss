@@ -1,0 +1,79 @@
+.page-home {
+  background:center no-repeat fixed url('http://connect.redhat.com/sites/all/themes/rhc4tp/dist/images/bg-zones.jpg');
+  background-size: cover;
+
+
+  .icon-bar {
+  	background-color:#fff;
+  }
+
+  section {
+  	padding-top:70px;
+      padding-bottom:50px;
+      min-height:calc(100% - 1px);
+  }
+
+  .v-center {
+      padding-top:5%;
+  }
+
+  .well {
+  	border-color:transparent;
+  }
+
+  a.list-group-item.active,[class*='-info'] {
+  	background-color: #168ccc;
+    color:#fff;
+  }
+
+  #section1 {
+      background:center no-repeat fixed url('http://connect.redhat.com/sites/all/themes/rhc4tp/dist/images/bg-zones.jpg');
+  }
+
+  #section2 {
+      padding-top:70px;
+      padding-bottom:50px;
+      min-height:calc(50% - 1px);
+  	background-color: #cc0000;
+      color:#fff;
+  }
+
+  #section3 {
+  	background:center no-repeat fixed url('http://connect.redhat.com/sites/all/themes/rhc4tp/dist/images/bg-success-stories.jpg');
+  }
+
+  #section4 {
+      padding-top:70px;
+      padding-bottom:50px;
+      min-height:calc(50% - 1px);
+  	background-color: #000000;
+      color:#fff;
+  }
+
+  #section5,#section7,#section7 a {
+      color:#f5f5f5;
+  }
+
+  #section6 {
+  	background-color: #168ccc;
+      color:#ddd;
+  }
+
+  footer {
+  	background-color:#494949;
+      color:#ddd;
+      min-height:15px;
+      padding-top:8px;
+      padding-bottom:3px;
+  }
+
+  footer .nav>li>a {
+      padding:3px;
+      color:#ccc;
+  }
+
+  footer .nav>li>a:hover {
+      background-color:transparent;
+  	color:#fff;
+  }
+}

@@ -4,11 +4,13 @@
   background-color: #dcdcdc;
   margin-top: -25px;
   margin-bottom: 0px;
-  
+  position: relative;
+  z-index: $zindex-navbar;
   bottom: 0;
   p {
     color: white;
     padding: 5px;
     font-size: small;
+    margin-bottom: 0px;
   }
 }

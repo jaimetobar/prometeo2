@@ -1,38 +1,40 @@
-<div class="row">
-  <div class="col-xs-12 title-row">
-    <%= link_to(step_3_schedule_plan_path(role: @role, accreditations: @accreditations_ids), class: "link pull-left") do %>
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="hidden-xs hidden-sm">
-        Cambiar acreditaciones
-      </span>
-    <% end %>
-  </div>
-  <div class="col-xs-12 text-center title-row">
-    <h4>Déjanos tus datos y te notificaremos cuando los cursos estén disponibles</h4>
-  </div>
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 title-row">
+      <%= link_to(step_3_schedule_plan_path(role: @role, accreditations: @accreditations_ids), class: "link pull-left") do %>
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="hidden-xs hidden-sm">
+          Cambiar acreditaciones
+        </span>
+      <% end %>
+    </div>
+    <div class="col-xs-12 text-center title-row">
+      <h4>Déjanos tus datos y te notificaremos cuando los cursos estén disponibles</h4>
+    </div>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-    <%= simple_form_for @user, url: plan_path(role: @role,accreditations: @accreditations_ids), html: { class: "form-horizontal" },
-      wrapper: :horizontal_form,
-      wrapper_mappings: {
-        check_boxes: :horizontal_radio_and_checkboxes,
-        radio_buttons: :horizontal_radio_and_checkboxes,
-        boolean: :horizontal_boolean
-      } do |f| %>
+      <%= simple_form_for @user, url: plan_path(role: @role,accreditations: @accreditations_ids), html: { class: "form-horizontal" },
+        wrapper: :horizontal_form,
+        wrapper_mappings: {
+          check_boxes: :horizontal_radio_and_checkboxes,
+          radio_buttons: :horizontal_radio_and_checkboxes,
+          boolean: :horizontal_boolean
+        } do |f| %>
 
-        <%= f.error_notification %>
-        <%= f.input :name, label: "Nombre" %>
-        <%= f.input :email, label: "Email" %>
-        <%= f.input :country, label: "País", priority: country_priority %>
-        <%= f.input :partner, label: "Partner" %>
-        <%= f.input :role, collection: User.roles.keys , label: "Rol" %>
-        <%= f.fields_for :subscriptions do |ff| %>
-          <%= ff.input :course_id, as: :hidden %>
-          <%= ff.input :accreditation_id, as: :hidden %>
-        <% end %>
-        <%= f.button :submit, value: "Suscribirme", class: "btn btn-success pull-right btn-lg" %>
-     <% end %>
+          <%= f.error_notification %>
+          <%= f.input :name, label: "Nombre" %>
+          <%= f.input :email, label: "Email" %>
+          <%= f.input :country, label: "País", priority: country_priority %>
+          <%= f.input :partner, label: "Partner" %>
+          <%= f.input :role, collection: User.roles.keys , label: "Rol" %>
+          <%= f.fields_for :subscriptions do |ff| %>
+            <%= ff.input :course_id, as: :hidden %>
+            <%= ff.input :accreditation_id, as: :hidden %>
+          <% end %>
+          <%= f.button :submit, value: "Suscribirme", class: "btn btn-success pull-right btn-lg" %>
+       <% end %>
 
 
+    </div>
   </div>
 </div>

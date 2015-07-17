@@ -1,67 +1,69 @@
-<div class="row courses_index">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2>
-                  Cursos
-                  <%= link_to new_course_path,class: "btn btn-success btn-md pull-right" do %>
-                      <span class="glyphicon glyphicon-plus"></span>
-                      Agregar curso
+<div class="container">
+  <div class="row courses_index">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2>
+                    Cursos
+                    <%= link_to new_course_path,class: "btn btn-success btn-md pull-right" do %>
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Agregar curso
+                    <% end %>
+                  </h2>
+                  <% if @accreditation %>
+                    <h4>para la acreditación <strong><%= @accreditation.id %> - <%= @accreditation.name %></strong></h4>
                   <% end %>
-                </h2>
-                <% if @accreditation %>
-                  <h4>para la acreditación <strong><%= @accreditation.id %> - <%= @accreditation.name %></strong></h4>
-                <% end %>
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Acreditaciones</th>
-                            <th>Roles</th>
-                            <th>Categoría</th>
-                            <th>Descripción</th>
-                            <th>Sesiones</th>
-                            <th class="actions"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <% if !@courses.blank? %>
-                            <% @courses.each do |course|  %>
-                              <tr>
-                                <td><%= course.name %></td>
-                                <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path(course: course.id),) %></td>
-                                <td><%= course.which_roles %></td>
-                                <td><%= course.category %></td>
-                                <td><%= truncate(course.description) %></td>
-                                <td>
-                                  <% if course.per_session? %>
-                                    <%= pluralize(course.course_sessions.count,"sesión","sesiones") %>
-                                  <% else %>
-                                    Siempre disponible
-                                  <% end %>
-                                </td>
-                                <td>
-                                  <%= link_to edit_course_path(course), class: "btn btn-info" do %>
-                                      <span class="glyphicon glyphicon-pencil"></span>
-                                  <% end %>
-                                  <%= link_to course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
-                                      <span class="glyphicon glyphicon-trash"></span>
-                                  <% end %>
-                                </td>
-                              </tr>
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Acreditaciones</th>
+                              <th>Roles</th>
+                              <th>Categoría</th>
+                              <th>Descripción</th>
+                              <th>Sesiones</th>
+                              <th class="actions"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% if !@courses.blank? %>
+                              <% @courses.each do |course|  %>
+                                <tr>
+                                  <td><%= course.name %></td>
+                                  <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), accreditations_path(course: course.id),) %></td>
+                                  <td><%= course.which_roles %></td>
+                                  <td><%= course.category %></td>
+                                  <td><%= truncate(course.description) %></td>
+                                  <td>
+                                    <% if course.per_session? %>
+                                      <%= pluralize(course.course_sessions.count,"sesión","sesiones") %>
+                                    <% else %>
+                                      Siempre disponible
+                                    <% end %>
+                                  </td>
+                                  <td>
+                                    <%= link_to edit_course_path(course), class: "btn btn-info" do %>
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    <% end %>
+                                    <%= link_to course_path(course), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    <% end %>
+                                  </td>
+                                </tr>
+                              <% end %>
                             <% end %>
-                          <% end %>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.table-responsive -->
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-    </div>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- /.table-responsive -->
+              </div>
+              <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
+      </div>
+  </div>
 </div>
