@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :courses
+      resources :courses, except: [:show]
       resources :users do
         resources 'subscriptions',only: [:index]  do
           collection do
