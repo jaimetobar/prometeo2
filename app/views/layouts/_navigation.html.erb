@@ -11,37 +11,19 @@
     </div>
 
     <div id="navbar" class="collapse navbar-collapse">
-      <% if ['pages','plan'].include? params[:controller] %>
-        <ul class="nav navbar-nav">
-          <li class="<%= 'active' if ['plan'].include? params[:controller] %>">
-            <%= link_to "Entrenamientos", plan_path %>
-          </li>
-          <li class="<%= 'active' if(['pages'].include?(params[:controller])  && ['docs'].include?(params[:action]))%>">
-            <%= link_to "Documentos", docs_path %>
-          </li>
-          <li class="<%= 'active' if(['pages'].include?(params[:controller])  && ['presentations'].include?(params[:action]))%>">
-            <%= link_to "Presentaciones", presentations_path %>
-          </li>
-        </ul>
-      <% end %>
-      <div class="divider"></div>
-      <ul class="nav navbar-nav navbar-right">
-        <% if ["plan","pages"].include? params[:controller] %>
-          <li>
-            <%= link_to "Panel de Admin", admin_courses_path %>
-          </li>
-        <% else %>
+      <% if @admin_navigation %>
+        <ul class="nav navbar-nav navbar-right active-<%= @active_menu_tab %>">
           <% if admin_signed_in? %>
-            <li class="<%= 'active' if params[:controller] == "admins" %>">
+            <li class="admin-admins">
               <%= link_to "Admins", admin_admins_path %>
             </li>
-            <li class="<%= 'active' if params[:controller] == "courses" %>">
+            <li class="admin-courses">
               <%= link_to "Cursos", admin_courses_path %>
             </li>
-            <li class="<%= 'active' if ["users","subscriptions"].include?(params[:controller]) %>">
+            <li class="admin-users">
               <%= link_to "People", admin_users_path %>
             </li>
-            <li class="<%= 'active' if ["accreditations"].include?(params[:controller]) %>">
+            <li class="admin-accreditations">
               <%= link_to "Acreditaciones", admin_accreditations_path %>
             </li>
             <li class="dropdown">
@@ -55,10 +37,20 @@
               </ul>
             </li>
           <% end %>
-        <% end %>
-
-
-      </ul>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right active-<%= @active_menu_tab %>">
+          <li class="plan">
+            <%= link_to "Entrenamientos", plan_path %>
+          </li>
+          <li class="docs">
+            <%= link_to "Documentos", docs_path %>
+          </li>
+          <li class="presentations">
+            <%= link_to "Presentaciones", presentations_path %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </nav>

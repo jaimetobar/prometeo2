@@ -2,6 +2,7 @@ class PlanController < ApplicationController
 
   before_action :set_role_and_accreditations, only: [:step_2_accreditations,:step_3_schedule,:step_4_subscription,:create]
   before_action :set_accreditations_ids, only: [:step_3_schedule,:step_4_subscription,:create]
+  before_action :set_navigation
 
   # GET /plan
   def index
@@ -30,7 +31,7 @@ class PlanController < ApplicationController
       @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
 
       @sessions_per_course = Course.sessions_per_course(courses)
-      
+
     end
   end
 
@@ -76,4 +77,10 @@ class PlanController < ApplicationController
   def set_accreditations_ids
     @accreditations_ids = params[:accreditations]
   end
+
+  def set_navigation
+    @admin_navigation = false
+    @active_menu_tab = "plan"
+  end
+
 end

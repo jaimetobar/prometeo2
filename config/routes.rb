@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/admin', to: redirect("/admin/courses")
+
   authenticate :admin do
     namespace :admin do
       # Sidekiq admin console

@@ -24,4 +24,10 @@ class Admin::SubscriptionsController < Admin::AdminController
       subscriptions_attributes: [:id, :notifications_on, :finished]
     )
   end
+
+  def set_navigation
+    super
+    @active_menu_tab = "admin-users"
+  end
+
 end
