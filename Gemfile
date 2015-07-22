@@ -36,7 +36,7 @@ group :test do
   gem 'database_cleaner'
   # OSX install before
   # brew install qt
-  gem 'capybara-webkit','~> 1.5.2' 
+  gem 'capybara-webkit','~> 1.5.2'
 end
 
 gem 'pg'
@@ -75,4 +75,4 @@ gem 'will_paginate'
 gem 'sidekiq'
 gem 'devise-async'
 gem 'devise-i18n'
-gem 'sinatra', require: false
+gem 'sinatra', :require => false

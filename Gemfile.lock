@@ -32,7 +32,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (5.2.1)
+    autoprefixer-rails (5.2.1.1)
       execjs
       json
     bcrypt (3.1.10)
