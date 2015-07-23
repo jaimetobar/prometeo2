@@ -1,4 +1,5 @@
 .navbar-brand {
+  cursor: pointer;
   max-width: 80%;
   padding: 1px;
   img {
@@ -16,6 +17,9 @@
 }
 
 .nav {
+  a {
+    cursor: pointer;
+  }
   @each $tab in plan, docs, presentations, admin-users, admin-admins, admin-courses, admin-accreditations {
     &.active-#{$tab} {
       .#{$tab} { @include active; }
