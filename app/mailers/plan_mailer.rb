@@ -1,7 +1,6 @@
 class PlanMailer < ActionMailer::Base
   default from: "cromero@redhat.com"
-  add_template_helper(PlanMailerHelper)
-
+  
   def plan_greatings_email(user)
     @user = user
     @sessions_per_course = Course.sessions_per_course(user.courses)
@@ -11,9 +10,13 @@ class PlanMailer < ActionMailer::Base
       subject: 'Plan de Acreditaciones de Red Hat')
   end
 
-  def notifications_email(user, subscriptions ,start_date)
+  def upcoming_courses_email(user, subscriptions_ids ,start_date)
     @user = user
-    @subscriptions =  subscriptions
+    # TODO:
+    # I'm collectiong ids because there's something that fails with sidekik
+    # when I try to send the subscriptions as an ActiveRecord Asociation.
+    # I guess that it has to do with serialization of the object
+    @subscriptions =  Subscription.where(id: subscriptions_ids)
     @start_date = start_date
     mail(
       from: sender_for(@user),
