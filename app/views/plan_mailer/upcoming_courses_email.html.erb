@@ -4,7 +4,7 @@
     	<!-- NAME: VIGNELLI -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>*|MC:SUBJECT|*</title>
+        <title> Recordatorio de cursos disponibles de Red Hat </title>
 
     <style type="text/css">
 		body,#bodyTable,#bodyCell{
@@ -555,7 +555,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
 
-                            Solicitaste la creación de un Plan Personalizado de Enablement. Aquí lo tienes.
+                            Hiciste un plan personalizado de Enablement con Red Hat. Aquí algunos recordatorios.
                         </td>
                     </tr>
                 </tbody></table>
@@ -618,9 +618,9 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
 
-                            <h1><font color="#cc0000">ENABLEMENT</font></h1>
+                            <h1><span style="color:#000000">ENABLEMENT</span></h1>
 
-<h2>Plan personalizado para <span style="color:#c40000"><%= @user.name.capitalize %></span></h2>
+<h2><span style="color:#c40000"><%= @user.name %></span>&nbsp;recuerda tu plan</h2>
 
                         </td>
                     </tr>
@@ -656,44 +656,38 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
 
-                            <span style="text-align:center">Queremos que tomes todas&nbsp;las oportunidades que se abren para tu carrera cuando mejora el conocimiento en soluciones Red Hat. Este es el plan para ti:<br>
-<br>
+                            <span style="text-align:center">Hace un tiempo marcaste un camino con nosotros, queríamos recordarte algunos cursos técnicos que están a punto de comenzar:</span><br>
+&nbsp;
+<div style="text-align: center;"><span style="color:#c40000"><span style="text-align:center"><u><em><strong>Recuerda que tienes plazo hasta 7 días antes para realizar la inscripción</strong></em></u></span></span><br>
+&nbsp;</div>
 
+<div style="text-align: left;"><span style="text-align:center">
 
-<table style="border-spacing:0px;">
-  <thead>
+  <table style="border-spacing:0px;">
+    <thead>
       <tr>
-          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Acreditación</th>
-          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Curso</th>
-          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Categoría</th>
-          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duración</th>
-          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Siguiente Fecha</th>
+        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Acreditación</th>
+        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Curso</th>
+        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Fecha de inicio</th>
+        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duración</th>
       </tr>
-  </thead>
-  <tbody style="border-style: solid; border-color: black;">
-    <% @user.subscriptions.each do |s| %>
-      <tr>
-        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if s.accreditation %></td>
-        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
-        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.category %></td>
-        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
-        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">
-          <% if s.course.always_available? %>
-            Siempre disponible
-          <% elsif next_session = @sessions_per_course[s.course] %>
-            <%= next_session.start_date %> - <%= next_session.end_date %>
-          <% else %>
-            No disponible por ahora
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @subscriptions.each do |s| %>
+        <tr>
+          <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if  s.accreditation %></td>
+          <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
+          <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= @start_date %></td>
+          <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
 
-</span>
+</span></div>
+
                         </td>
                     </tr>
                 </tbody></table>
@@ -783,7 +777,7 @@
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 26px; padding: 16px;">
-                                <a class="mcnButton " title="Configurar mis notificaciones" href="<%= notifications_users_url(@user.email_token) %>" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Configurar mis notificaciones</a>
+                                <a class="mcnButton " title="Configurar mis notificaciones" href="<%= notifications_users_url(@user.email_token)%>" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Configurar mis notificaciones</a>
                             </td>
                         </tr>
                     </tbody>
@@ -836,9 +830,8 @@
 
                             <div style="text-align: left;"><span style="font-size:14px; line-height:1.6em; text-align:left">
 
-                              <%= signature_for(@user) %>
-
-                              </div>
+                            <%= signature_for(@user) %>
+                          </div>
 
                         </td>
                     </tr>
@@ -896,5 +889,6 @@
                 </tr>
             </table>
         </center>
+
     </body>
 </html>
