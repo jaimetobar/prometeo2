@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
     ),q: "%#{query_string}%")
   end
 
-  def self.notify_upcoming_courses(start_date)
+  def self.notify_upcoming_courses(start_date,opts={})
+    delay = opts[:delay] || true
     courses_sessions = CourseSession.where("start_date = :start_date", start_date: start_date)
 
     courses = Course.joins(:course_sessions).where("course_sessions.id" => courses_sessions.pluck(:id)).uniq
@@ -51,7 +52,11 @@ class User < ActiveRecord::Base
       user_subscriptions_ids = u.subscriptions.where(course_id: courses_ids, notifications_on: true).pluck :id
       unless user_subscriptions_ids.empty?
         begin
-          PlanMailer.delay.upcoming_courses_email(u, user_subscriptions_ids, start_date)
+          if delay
+            PlanMailer.delay.upcoming_courses_email(u, user_subscriptions_ids, start_date)
+          else
+            PlanMailer.upcoming_courses_email(u, user_subscriptions_ids, start_date).deliver
+          end
           Rails.logger.info "Notification email sent to: #{ u.email }, start at: #{start_date}"
         rescue
           Rails.logger.error "Notification email failed. Not sent to: #{ u.email }, start at: #{start_date}"
