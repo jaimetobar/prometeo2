@@ -19,6 +19,8 @@ class Course < ActiveRecord::Base
   enum category: [:platform,:middleware,:cloud]
   enum session_type: [:always_available,:per_session]
 
+  translates :name, :description
+
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
   validates :session_type, presence: true
@@ -36,6 +38,7 @@ class Course < ActiveRecord::Base
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
+  accepts_nested_attributes_for :translations
 
   def self.by_accreditations(accreditations_ids)
     joins(:accreditations_courses)
@@ -74,8 +77,8 @@ class Course < ActiveRecord::Base
   end
 
   protected
-  def validate_presence_of_roles
-    errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
-  end
+    def validate_presence_of_roles
+      errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
+    end
 
 end

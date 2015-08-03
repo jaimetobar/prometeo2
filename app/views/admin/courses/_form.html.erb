@@ -9,7 +9,25 @@
 
   <%= f.error_notification %>
   <%= f.input :category, as: :select,collection: Course.categories.keys, label: "Categoría" %>
-  <%= f.input :name, placeholder: "nombre", label: "Nombre" %>
+  <div class="form-group">
+    <ul class="nav nav-tabs col-sm-9 col-sm-offset-3">
+      <li class="active"><a href="#course-name-es" data-toggle="tab">Español</a></li>
+      <li><a href="#course-name-en" data-toggle="tab">English</a></li>
+      <li><a href="#course-name-pt" data-toggle="tab">Português</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <%= f.simple_fields_for :translations do |f_translations| %>
+        <div role="tabpanel" class="tab-pane <%= 'active' if f_translations.index == 0 %>" id="course-name-<%= f_translations.object.locale %>">
+          <%= f_translations.input :locale, as: :hidden %>
+          <%= f_translations.input :id, as: :hidden unless f_translations.object.id.nil? %>
+          <%= f_translations.input :name, placeholder: "nombre", label: "Nombre" %>
+          <%= f_translations.input :description, hint: "Deja una breve descripción del curso", as: :text, :input_html => {:rows => 7} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <%= f.input :duration, placeholder: "ej: 5 horas", label: "Duración" %>
 
   <div class="form-group boolean optional roles <% if flash[:roles] %>has-error<% end %>">
@@ -65,8 +83,6 @@
       <%= f.add_nested_fields_link :course_sessions, content_tag(:span,"Sesión",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
     </div>
   </div>
-
-  <%= f.input :description, hint: "Deja una breve descripción del curso", as: :text, :input_html => {:rows => 7} %>
 
   <%= f.button :submit, value: "Guardar", class:"btn btn-success pull-right" %>
 <% end %>
