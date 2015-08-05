@@ -7,8 +7,7 @@ when "development"
       CourseSession.create(
        course_id: course.id,
        start_date: DateTime.now + rand(5).days,
-       end_date: DateTime.now + 2.months + i.days + rand(3).days + 1.hour,
-       duration: "#{rand(3)} dias"
+       end_date: DateTime.now + 2.months + i.days + rand(3).days + 1.hour
        )
     end
   end
