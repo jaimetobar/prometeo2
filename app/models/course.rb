@@ -60,6 +60,10 @@ class Course < ActiveRecord::Base
     sessions_per_course
   end
 
+  def self.sort_by_name
+    all.sort_by { |c| (c.name || '').downcase }
+  end
+
   def roles
     rs = []
     rs << :sales_engineer if self.for_sales_engineer
@@ -74,6 +78,12 @@ class Course < ActiveRecord::Base
 
   def next_session
     self.sessions.where("start_date > ?",DateTime.now).first
+  end
+
+  def initialize_translations!
+    ["es","en","pt"].each do |locale|
+      self.translations.build(locale: locale) unless self.translations.exists?(locale: locale)
+    end
   end
 
   protected

@@ -2,7 +2,7 @@ class Admin::CoursesController < Admin::AdminController
   before_action :set_course, only: [:destroy, :update, :edit]
 
   def index
-    @courses = Course.all.sort_by { |c| (c.name || '').downcase }
+    @courses = Course.sort_by_name
     if @accreditation = Accreditation.find_by_id(params[:accreditation])
       @courses = @courses
         .joins(:accreditations_courses)
@@ -12,9 +12,7 @@ class Admin::CoursesController < Admin::AdminController
 
   def new
     @course = Course.new
-    ["es","en","pt"].each do |locale|
-      @course.translations.build(locale: locale) unless @course.translations.exists?(locale: locale)
-    end
+    @course.initialize_translations!
   end
 
   def create
@@ -29,9 +27,7 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def edit
-    ["es","en","pt"].each do |locale|
-      @course.translations.build(locale: locale) unless @course.translations.exists?(locale: locale)
-    end
+    @course.initialize_translations!
   end
 
   def update
