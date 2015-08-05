@@ -1,4 +1,4 @@
-<% headers = ['Email', 'Nombre','Acreditacion','Curso','Status','Partner','Pais'] %>
+<% headers = ['Email', 'Nombre','Acreditacion','Curso','Status','Partner','Pais','Siguiente Fecha'] %>
 <%= CSV.generate_line headers %>
 <% @users.each do |u| %>
   <% u.subscriptions.each do |s| %>
@@ -9,7 +9,8 @@
       s.course.name,
       s.finished ? "finalizado" : "en curso",
       u.partner,
-      u.country
+      u.country,
+      next_session(s.course)
       ]) -%>
   <% end %>
 <% end %>
