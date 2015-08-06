@@ -1,5 +1,6 @@
 <div class="container">
   <%= form_tag(step_3_schedule_plan_path, method: "get") do %>
+    <%= hidden_field_tag :locale, params[:locale] %>
     <%= hidden_field_tag :role, @role %>
     <div class="row">
       <div class="col-xs-12 text-center title-row">
