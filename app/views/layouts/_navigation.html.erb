@@ -36,9 +36,12 @@
                 <li><%= link_to(t(".sign_out"), destroy_admin_session_path, method: :delete) %></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <%= render "layouts/language_select" %>
+            </li>
           <% end %>
         </ul>
-      <% else %>
+        <% else %>
         <ul class="nav navbar-nav navbar-right active-<%= @active_menu_tab %>">
           <li class="plan">
             <%= link_to t(".trainings"), plan_path %>
@@ -49,8 +52,11 @@
           <li class="presentations">
             <%= link_to t(".presentations"), presentations_path %>
           </li>
+          <li class="dropdown">
+            <%= render "layouts/language_select" %>
+          </li>
         </ul>
-      <% end %>
+        <% end %>
     </div>
   </div>
 </nav>
