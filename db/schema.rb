@@ -11,18 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522034932) do
+ActiveRecord::Schema.define(version: 20150805045651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
 
-  create_table "accreditations", force: true do |t|
+  create_table "accreditation_translations", force: true do |t|
+    t.integer  "accreditation_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "accreditation_translations", ["accreditation_id"], name: "index_accreditation_translations_on_accreditation_id", using: :btree
+  add_index "accreditation_translations", ["locale"], name: "index_accreditation_translations_on_locale", using: :btree
+
+  create_table "accreditations", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role"
-    t.text     "description"
   end
 
   create_table "accreditations_courses", force: true do |t|
@@ -63,12 +73,22 @@ ActiveRecord::Schema.define(version: 20150522034932) do
 
   add_index "course_sessions", ["course_id"], name: "index_course_sessions_on_course_id", using: :btree
 
-  create_table "courses", force: true do |t|
+  create_table "course_translations", force: true do |t|
+    t.integer  "course_id",   null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "course_translations", ["course_id"], name: "index_course_translations_on_course_id", using: :btree
+  add_index "course_translations", ["locale"], name: "index_course_translations_on_locale", using: :btree
+
+  create_table "courses", force: true do |t|
     t.integer  "category"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
     t.boolean  "for_sales_engineer"
     t.boolean  "for_sales"
     t.boolean  "for_delivery"

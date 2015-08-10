@@ -38,7 +38,7 @@ class Admin::UsersController < Admin::AdminController
   def create
     @user = User.new(user_params)
     if @user.save
-     redirect_to admin_users_path, notice: 'Te has inscrito correctamente'
+     redirect_to admin_users_path, notice: I18n.t(".user_created",scope: @i18n_scope)
     else
      render :new
     end
@@ -46,7 +46,7 @@ class Admin::UsersController < Admin::AdminController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: 'Usuario Actualizado correctamente'
+      redirect_to admin_users_path, notice: I18n.t(".user_updated",scope: @i18n_scope)
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class Admin::UsersController < Admin::AdminController
   def destroy
     @user.destroy
 
-    redirect_to admin_users_path, notice: 'Usuario ha sido borrado correctamente'
+    redirect_to admin_users_path, notice: I18n.t(".user_deleted",scope: @i18n_scope)
   end
 
   private

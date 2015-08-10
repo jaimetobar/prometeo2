@@ -1,0 +1,26 @@
+es:
+  plan:
+    step_1_roles:
+      plan_copy: Prometeo te permite crear tus planes de entrenamiento en la comodidad de tu asiento. Te notificaremos la disponibilidad de los cursos y tu camino personalizado que incremente tu valor como profesional.
+      plan_header: Comienza contándonos cuál es tu rol.
+    step_2_accreditations:
+      change_role: Cambiar Rol
+      select_accreditations: Selecciona las acreditaciones que deseas tomar
+      create_plan: Crear plan
+    step_3_schedule:
+      change_accreditations: Cambiar acreditaciones
+      subscribe: Suscribirme a notificaciones
+      suggested_plan: Aquí está el plan que te sugerimos
+      accreditation: Acreditación
+      course: Curso
+      duration: Duración
+      date: Fecha
+      always_available: Siempre disponible
+      not_available: No disponible por ahora
+      at_least_one_accreditation: Selecciona por lo menos una acreditación
+    step_4_subscription:
+      change_accreditations: Cambiar acreditaciones
+      subscription_header: Déjanos tus datos y te notificaremos cuando los cursos estén disponibles
+      subscribe: Suscribirme
+    create:
+      subscribed: Te avisaremos cuando los cursos vayan a comenzar

@@ -8,11 +8,29 @@
   } do |f| %>
 
   <%= f.error_notification %>
-  <%= f.input :role, as: :select,collection: Accreditation.roles.keys, label: "Rol" %>
-  <%= f.input :name, placeholder: "nombre", label: "Nombre" %>
+  <%= f.input :role, as: :select,collection: Accreditation.roles.keys %>
+
+  <div class="form-group">
+    <ul class="nav nav-tabs col-sm-9 col-sm-offset-3">
+      <li class="active"><a href="#accreditation-name-es" data-toggle="tab">Español</a></li>
+      <li><a href="#accreditation-name-en" data-toggle="tab">English</a></li>
+      <li><a href="#accreditation-name-pt" data-toggle="tab">Português</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <%= f.simple_fields_for :translations do |f_translations| %>
+        <div role="tabpanel" class="tab-pane <%= 'active' if f_translations.index == 0 %>" id="accreditation-name-<%= f_translations.object.locale %>">
+          <%= f_translations.input :locale, as: :hidden %>
+          <%= f_translations.input :id, as: :hidden unless f_translations.object.id.nil? %>
+          <%= f_translations.input :name %>
+          <%= f_translations.input :description, as: :text, :input_html => {:rows => 7} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
   <div class="form-group optional accreditations_courses form-inline <% if flash[:accreditations_courses] %>has-error<% end %>">
-    <label class="optional col-sm-3 control-label" for="accreditations_courses">Cursos</label>
+    <label class="optional col-sm-3 control-label" for="accreditations_courses"><%= t(".courses")%></label>
     <div class="col-sm-9">
       <%= f.nested_fields_for :accreditations_courses do |ff| %>
         <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
@@ -21,6 +39,6 @@
       <%= f.add_nested_fields_link :accreditations_courses, content_tag(:span,"Curso",class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
     </div>
   </div>
-  <%= f.input :description, placeholder: "Breve descripción de la acreditación", label: "Descripción" %>
+
   <%= f.button :submit, value: "Guardar", class:"btn btn-success pull-right" %>
 <% end %>

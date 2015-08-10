@@ -5,7 +5,7 @@
           <div class="panel panel-default">
               <div class="panel-heading">
                 <h2>
-                  Administradores
+                  <%= t(".admins") %>
                 </h2>
               </div>
               <!-- /.panel-heading -->
@@ -21,7 +21,7 @@
                     <% end %>
                     <%= f.label :email %>
                     <%= f.text_field :email, required: true,class: "form-control" %>
-                    <%= f.button '<span class="glyphicon glyphicon-plus"></span> Crear admin'.html_safe, class: "btn btn-success" %>
+                    <%= f.button "<span class='glyphicon glyphicon-plus'></span> #{t('.create_admin')}".html_safe, class: "btn btn-success" %>
                   <% end %>
                 </div>
                 <div class="col-xs-12">
@@ -29,7 +29,7 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>Email</th>
+                          <th><%= t(".email")%></th>
                           <th class="actions"></th>
                         </tr>
                       </thead>
@@ -40,11 +40,11 @@
                             <td class="text-right">
                               <% unless admin == current_admin %>
                                 <%= link_to admin_admin_path(admin), method: :delete, class: "btn btn-danger",
-                                  data: { confirm: 'Esta seguro de eliminar este admin?' } do %>
+                                  data: { confirm: t(".admin_deletion_confirmation") } do %>
                                   <span class="glyphicon glyphicon-trash"></span>
                                 <% end %>
 
-                                <%= link_to email_password_reset_admin_admin_path(admin), method: :get, class: "btn btn-info",title: "Enviar correo para configurar contraseña",
+                                <%= link_to email_password_reset_admin_admin_path(admin), method: :get, class: "btn btn-info",title: t(".send_confirmation_email"),
                                   data: { toggle: "tooltip", placement: "top" } do %>
                                   <span class="glyphicon glyphicon-envelope"></span>
                                 <% end %>

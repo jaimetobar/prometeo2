@@ -19,11 +19,12 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>Acreditación</th>
-                  <th>Curso</th>
-                  <th>Categoría</th>
-                  <th>Rol</th>
-                  <th>Finalizado</th>
+                  <th><%= t(".accreditation")%></th>
+                  <th><%= t(".course")%></th>
+                  <th><%= t(".category")%></th>
+                  <th><%= t(".role")%></th>
+                  <th><%= t(".finished")%></th>
+                  <th><%= t(".next_date")%></th>
                 </tr>
               </thead>
               <tbody>
@@ -42,6 +43,7 @@
                         <span class="glyphicon glyphicon-ok"></span>
                       <% end %>
                     </td>
+                    <td><%= next_session(subscription.course) %></td>
                   </tr>
                 <% end %>
               </tbody>

@@ -21,7 +21,7 @@ class PlanController < ApplicationController
   def step_3_schedule
 
     if @accreditations_ids.nil? || @accreditations_ids.empty?
-      flash.now[:alert] = "Selecciona por lo menos una acreditación"
+      flash.now[:alert] = I18n.t("plan.step_3_schedule.at_least_one_accreditation")
       render :step_2_accreditations
     else
       courses = Course.by_accreditations(@accreditations_ids)
@@ -48,7 +48,7 @@ class PlanController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       PlanMailer.delay.plan_greatings_email(@user)
-      redirect_to root_path, notice: "Te avisaremos cuando los cursos vayan a comenzar"
+      redirect_to root_path, notice: I18n.t("plan.create.subscribed")
     else
       render :step_4_subscription
     end

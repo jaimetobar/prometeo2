@@ -2,7 +2,7 @@ class Admin::AccreditationsController < Admin::AdminController
   before_action :set_accreditation, only: [:destroy, :update, :edit]
 
   def index
-    @accreditations = Accreditation.all.order(:name)
+    @accreditations = Accreditation.sort_by_name
 
     if @course = Course.find_by_id(params[:course])
       @accreditations = @accreditations
@@ -13,6 +13,7 @@ class Admin::AccreditationsController < Admin::AdminController
 
   def new
     @accreditation = Accreditation.new
+    @accreditation.initialize_translations!
   end
 
   def create
@@ -37,6 +38,7 @@ class Admin::AccreditationsController < Admin::AdminController
   end
 
   def edit
+    @accreditation.initialize_translations!
   end
 
   def destroy
@@ -53,6 +55,8 @@ class Admin::AccreditationsController < Admin::AdminController
 
   def accreditation_params
     params.require(:accreditation).permit(:name,:role,:description,
-      accreditations_courses_attributes:[ :course_id, :_destroy, :id ])
+      accreditations_courses_attributes:[ :course_id, :_destroy, :id ],
+      translations_attributes: [:id, :locale, :name, :description]
+    )
   end
 end

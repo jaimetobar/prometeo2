@@ -76,3 +76,4 @@ gem 'sidekiq'
 gem 'devise-async'
 gem 'devise-i18n'
 gem 'sinatra', :require => false
+gem 'globalize', '~> 4.0.3'

@@ -6,48 +6,52 @@
         <div class="col-md-4">
           <center>
             <h1 class="glyphicon glyphicon-pencil" style="font-size:5em;color:#cc0000"></h1>
-            <h2><b>Entrénate</b></h2>
+            <h2><%= t(".train") %></h2>
           </center>
           <hr>
-          <p class="lead">Tenemos un plan personalizado para ti según tu rol y los productos que te ayudan a realizar tu trabajo. Obtén tu acreditación en línea.</p>
+          <p class="lead">
+            <%= t(".train_copy") %>
+          </p>
           <hr>
-          <a href="<%= plan_path %>" class="btn btn-success btn-block" style="font-size:20px"><strong>Crear mi plan</strong></a>
+          <a href="<%= plan_path %>" class="btn btn-success btn-block" style="font-size:20px"><strong><%= t(".train_btn")%></strong></a>
         </div>
         <div class="col-md-4">
           <center>
             <h1 class="glyphicon glyphicon-play-circle" style="font-size:5em;color:#cc0000"></h1>
-            <h2><b>Presentaciones</b></h2>
+            <h2><b><%= t(".presentations") %></b></h2>
           </center>
           <hr>
-          <p class="lead">Sabemos que tienes mil tareas por cumplir día a día. Te entregamos las presentaciones de producto listas para facilitar tu trabajo y ahorrarte tiempo.</p>
+          <p class="lead"><%= t(".presentations_copy")%></p>
           <hr>
-          <a href="<%= presentations_path %>" class="btn btn-danger btn-block" style="font-size:20px">Obtener presentaciones</a>
+          <a href="<%= presentations_path %>" class="btn btn-danger btn-block" style="font-size:20px"><%= t(".presentations_btn")%></a>
         </div>
         <div class="col-md-4">
           <center>
             <h1 class="glyphicon glyphicon-comment" style="font-size:5em;color:#cc0000"></h1>
-            <h2><b>Demostraciones</b></h2>
+            <h2><b><%= t(".demo")%></b></h2>
           </center>
           <hr>
-          <p class="lead">Una imagen vale más que mil palabras. Un Demo vale más que mil imágenes. Prepara un demo de nuestros productos en menos de 30 minutos.</p>
+          <p class="lead"><%= t(".demo_copy")%></p>
           <hr>
-          <a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#configurarDemo" style="font-size:20px">Configurar mi demo</a>
+          <a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#configurarDemo" style="font-size:20px"><%= t(".demo_btn")%></a>
           <!-- Modal -->
           <div class="modal fade" id="configurarDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="configurarDemoLabel">Configurando ambiente</h4>
+                  <h4 class="modal-title" id="configurarDemoLabel"><%= t(".demo_modal_title")%></h4>
                 </div>
                 <div class="modal-body">
-                  Los ambientes de demostración que te ofrecemos se ejecutan sobre <strong>Red Hat Partner Demo System (RHPDS)</strong>. Allí tendrás el catálogo de la gran mayoría de productos donde al seleccionarlos dispones de (1) un script explicando paso a paso el demo, (2) dos días calendario para usar el ambiente y (3) un correo electrónico con instrucciones de manejo.
+                  <%= t(".demo_modal_body_html")%>
                 </div>
-                <div class="alert alert-warning" role="alert">Recuerda que <strong>este acceso es diferente a tu Red Hat Login.</strong> Deberas completar al menos una acreditación de Sales Engineer o Delivery y escribirnos a: <a href="mailto:enablement-latam@redhat.com?Subject=Solicitud de cuenta en RHPDS" target="_top">enablement-latam@redhat.com</a> solicitando tu usuario y contraseña.</div>
+                <div class="alert alert-warning" role="alert">
+                  <%= t(".demo_modal_footer_html")%>
+                </div>
                 <div class="modal-footer">
-                  <a href="https://www.youtube.com/watch?v=pswrMbx7UV0" target="_blank" class="btn btn-info">Ver video guía</a>
-                  <a href="https://www.dropbox.com/s/uh8po6ej039u1al/Gu%C3%ADa%20RHPDS%20V1.0.pdf?dl=0" target="_blank" class="btn btn-info">Descargar guía</a>
-                  <a href="http://rhpds.redhat.com" target="_blank" class="btn btn-success" style="font-size:18px"><strong>Ir a RHPDS</strong></a>
+                  <a href="https://www.youtube.com/watch?v=pswrMbx7UV0" target="_blank" class="btn btn-info"><%= t(".demo_watch_video")%></a>
+                  <a href="https://www.dropbox.com/s/uh8po6ej039u1al/Gu%C3%ADa%20RHPDS%20V1.0.pdf?dl=0" target="_blank" class="btn btn-info"><%= t(".demo_download_guide") %></a>
+                  <a href="http://rhpds.redhat.com" target="_blank" class="btn btn-success" style="font-size:18px"><strong><%= t(".demo_go_to_rhpds") %></strong></a>
                 </div>
               </div>
             </div>
@@ -63,12 +67,12 @@
   <section class="container-fluid" id="section2">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1><strong>PREGUNTAS FRECUENTES (FAQ)</strong></h1>
+        <h1><strong><%= t(".faq")%></strong></h1>
         <br>
-        <p class="lead">Te haz preguntado, ¿Cómo crear mi usuario? ¿Cómo ingresar al portal? ¿Cómo registrar mis certificaciones o acceder a entrenamiento? ¿Cómo pedir una NFR? ¿Qué es una NFR?. Tenemos estas respuestas y algunas más disponibles para que las descargues aquí:</p>
+        <p class="lead"><%= t(".faq_copy")%></p>
         <br>
         <a href="http://bit.ly/partner_sac_faq"><i class="glyphicon glyphicon-download" style="font-size:5em;color:#fff"></i></a>
-        <p>Descargar</p>
+        <p><%= t(".faq_download")%></p>
       </div>
     </div>
   </section>
@@ -78,13 +82,16 @@
   <section class="container-fluid" id="section3">
     <div class="container v-center">
       <center>
-        <h1><strong>CÓMO USAR OPEN</strong></h1>
+        <h1><strong><%= t(".how_to_use_open")%></strong></h1>
       </center>
       <br/>
       <div class="row">
         <div class="col-md-6">
-          <p class="lead"><strong>Online Partner Enablement Network</strong> enmarca el ecosistema de cursos de Red Hat disponible para nuestros Partners enfocado a los distintos roles presentes en ellos: <strong>Ventas, Preventas y Delivery.</strong> <br/><br/>Cada camino esta diseñado para un conjunto específico de soluciones: <strong>Infraestructura, Middleware y Cloud</strong>. Todos ellos podrás accederlos con tu Red Hat Login e inscribirte como lo indica el vídeo.</p>
-          <a href="http://bit.ly/OPEN_cal" class="btn btn-danger" target="_blank" style="font-size:18px"><i class="glyphicon glyphicon-calendar" style="color:#fff"></i> Ver calendario de laboratorios técnicos</a>
+          <p class="lead">
+            <%= t(".how_to_use_open_copy_html") %>
+          </p>
+
+          <a href="http://bit.ly/OPEN_cal" class="btn btn-danger" target="_blank" style="font-size:18px"><i class="glyphicon glyphicon-calendar" style="color:#fff"></i> <%= t(".see_labs_calendar")%></a>
         </div>
         <div class="col-md-6">
           <div class="embed-responsive embed-responsive-16by9">
@@ -100,9 +107,11 @@
   <section class="container-fluid" id="section4">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1><strong>EL EQUIPO</strong></h1>
+        <h1><strong><%= t(".the_team") %></strong></h1>
         <br>
-        <p class="lead">Si tus dudas no fueron resueltas, si tienes sugerencias para nosotros o simplemente nos quieres saludar, ¡escríbenos!: <a href="mailto:enablement-latam@redhat.com?Subject=Pregunta/Sugerencia/Saludo" target="_top">enablement-latam@redhat.com</a></p>
+        <p class="lead">
+          <%= t(".contact_html") %>
+        </p>
         <br>
         <i class="glyphicon glyphicon-envelope" style="font-size:5em;color:#fff"></i>
       </div>

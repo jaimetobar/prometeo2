@@ -1,20 +1,21 @@
 <div class="container">
   <%= form_tag(step_3_schedule_plan_path, method: "get") do %>
+    <%= hidden_field_tag :locale, params[:locale] %>
     <%= hidden_field_tag :role, @role %>
     <div class="row">
       <div class="col-xs-12 text-center title-row">
         <%= link_to(step_1_roles_plan_path, class: "link pull-left") do %>
           <span class="glyphicon glyphicon-chevron-left"></span>
           <span class="hidden-xs hidden-sm">
-            Cambiar Rol
+            <%= t(".change_role")%>
           </span>
         <% end %>
 
         <%= button_tag :submit, class: "btn btn-default btn-success btn-lg pull-right" do %>
-          <span class="hidden-xs hidden-sm">Crear Plan</span>
+          <span class="hidden-xs hidden-sm"><%= t(".create_plan")%></span>
           <span class="glyphicon glyphicon-chevron-right"></span>
         <% end %>
-        <h4>Selecciona las acreditaciones que deseas tomar</h4>
+        <h4><%= t(".select_accreditations")%></h4>
       </div>
     </div>
 

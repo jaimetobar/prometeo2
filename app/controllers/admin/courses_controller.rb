@@ -2,7 +2,7 @@ class Admin::CoursesController < Admin::AdminController
   before_action :set_course, only: [:destroy, :update, :edit]
 
   def index
-    @courses = Course.all.order(:name)
+    @courses = Course.sort_by_name
     if @accreditation = Accreditation.find_by_id(params[:accreditation])
       @courses = @courses
         .joins(:accreditations_courses)
@@ -12,12 +12,13 @@ class Admin::CoursesController < Admin::AdminController
 
   def new
     @course = Course.new
+    @course.initialize_translations!
   end
 
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash[:notice] = "Curso creado"
+      flash[:notice] = I18n.t(".course_created",scope: @i18n_scope)
       redirect_to admin_courses_path
     else
       flash[:roles] = @course.errors[:roles][0]
@@ -26,13 +27,13 @@ class Admin::CoursesController < Admin::AdminController
   end
 
   def edit
+    @course.initialize_translations!
   end
 
   def update
     if @course.update(course_params)
       redirect_to admin_courses_path
     else
-      flash[:roles] = @course.errors[:roles][0]
       render :edit
     end
   end
@@ -44,14 +45,15 @@ class Admin::CoursesController < Admin::AdminController
 
 
   private
-  def set_course
-    @course = Course.find(params[:id])
-  end
-  def course_params
-    params.require(:course).permit(
-      :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration,
-      accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ],
-      course_sessions_attributes:[ :start_date, :end_date, :_destroy, :id ]
-    )
-  end
+    def set_course
+      @course = Course.find(params[:id])
+    end
+    def course_params
+      params.require(:course).permit(
+        :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration,
+        accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ],
+        course_sessions_attributes:[ :start_date, :end_date, :_destroy, :id ],
+        translations_attributes: [:id, :locale, :name, :description]
+      )
+    end
 end

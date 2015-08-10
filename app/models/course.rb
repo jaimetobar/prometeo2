@@ -19,6 +19,8 @@ class Course < ActiveRecord::Base
   enum category: [:platform,:middleware,:cloud]
   enum session_type: [:always_available,:per_session]
 
+  translates :name, :description
+
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :category, presence: true
   validates :session_type, presence: true
@@ -36,6 +38,7 @@ class Course < ActiveRecord::Base
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
+  accepts_nested_attributes_for :translations
 
   def self.by_accreditations(accreditations_ids)
     joins(:accreditations_courses)
@@ -57,6 +60,10 @@ class Course < ActiveRecord::Base
     sessions_per_course
   end
 
+  def self.sort_by_name
+    where(id: all.sort_by { |c| (c.name || '').downcase }.map(&:id))
+  end
+
   def roles
     rs = []
     rs << :sales_engineer if self.for_sales_engineer
@@ -73,9 +80,15 @@ class Course < ActiveRecord::Base
     self.sessions.where("start_date > ?",DateTime.now).first
   end
 
-  protected
-  def validate_presence_of_roles
-    errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
+  def initialize_translations!
+    ["es","en","pt"].each do |locale|
+      self.translations.build(locale: locale) unless self.translations.exists?(locale: locale)
+    end
   end
+
+  protected
+    def validate_presence_of_roles
+      errors.add(:roles,"You must fill in at least one role") if self.roles.empty?
+    end
 
 end

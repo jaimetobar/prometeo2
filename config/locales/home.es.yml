@@ -1,0 +1,43 @@
+es:
+  pages:
+    home:
+      train: Entrénate
+      train_copy: Tenemos un plan personalizado para ti según tu rol y los productos que te ayudan a realizar tu trabajo. Obtén tu acreditación en línea.
+      train_btn: Crear mi plan
+      presentations: Presentaciones
+      presentations_copy: Sabemos que tienes mil tareas por cumplir día a día. Te entregamos las presentaciones de producto listas para facilitar tu trabajo y ahorrarte tiempo.
+      presentations_btn: Obtener presentaciones
+      demo: Demostraciones
+      demo_copy: Una imagen vale más que mil palabras. Un Demo vale más que mil imágenes. Prepara un demo de nuestros productos en menos de 30 minutos.
+      demo_btn: Configurar mi demo
+      demo_modal_title: Configurando ambiente
+      demo_modal_body_html: Los ambientes de demostración que te ofrecemos se ejecutan sobre <strong>Red Hat Partner Demo System (RHPDS)</strong>. Allí tendrás el catálogo de la gran mayoría de productos donde al seleccionarlos dispones de (1) un script explicando paso a paso el demo, (2) dos días calendario para usar el ambiente y (3) un correo electrónico con instrucciones de manejo.
+      demo_modal_footer_html: |
+        Recuerda que <strong>este acceso es diferente a tu Red Hat Login.</strong>
+        Deberás completar al menos una acreditación de Sales Engineer o Delivery
+        y escribirnos a: <a href="mailto:enablement-latam@redhat.com?Subject=Solicitud de cuenta en RHPDS" target="_top">enablement-latam@redhat.com</a>
+        solicitando tu usuario y contraseña.
+      demo_watch_video: Ver video guía
+      demo_download_guide: Descargar guía
+      demo_go_to_rhpds: Ir a RHPDS
+      faq: PREGUNTAS FRECUENTES (FAQ)
+      faq_copy: |
+        Te haz preguntado, ¿Cómo crear mi usuario? ¿Cómo ingresar al portal?
+        ¿Cómo registrar mis certificaciones o acceder a entrenamiento?
+        ¿Cómo pedir una NFR? ¿Qué es una NFR?.
+        Tenemos estas respuestas y algunas más disponibles para que las descargues aquí:
+      faq_download: Descargar
+      how_to_use_open: CÓMO USAR OPEN
+      how_to_use_open_copy_html: |
+        <strong>Online Partner Enablement Network</strong> enmarca el ecosistema
+        de cursos de Red Hat disponible para nuestros Partners enfocado a los distintos
+        roles presentes en ellos: <strong>Ventas, Preventas y Delivery.</strong> <br/><br/>
+        Cada camino esta diseñado para un conjunto específico de soluciones:
+        <strong>Infraestructura, Middleware y Cloud</strong>.
+        Todos ellos podrás accederlos con tu Red Hat Login e inscribirte como lo indica el vídeo.
+      see_labs_calendar: Ver calendario de laboratorios técnicos
+      the_team: El equipo
+      contact_html: |
+        Si tus dudas no fueron resueltas, si tienes sugerencias para nosotros o
+        simplemente nos quieres saludar, ¡escríbenos!:
+        <a href="mailto:enablement-latam@redhat.com?Subject=Pregunta/Sugerencia/Saludo" target="_top">enablement-latam@redhat.com</a>

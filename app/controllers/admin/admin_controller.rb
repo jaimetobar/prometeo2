@@ -1,6 +1,10 @@
 class Admin::AdminController < ApplicationController
   before_action :set_navigation
 
+  def index
+    redirect_to admin_courses_path
+  end
+
   protected
 
   def set_navigation

@@ -1,10 +1,11 @@
 # rake db:seed:seed_file_name # Name of the file EXCLUDING the .rb extension
 case Rails.env
 when "development"
-  300.times do
+  30.times do
     User.create(
+      name: Faker::Name.name,
       email: Faker::Internet.email,
-      country: Faker::Address.country,
+      country: ISO3166::Country.all.map{ |name, code| code }.sample,
       partner: Faker::Name.title,
       role: rand(3)
     )

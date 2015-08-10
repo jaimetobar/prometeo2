@@ -4,7 +4,7 @@
       <%= link_to(step_2_accreditations_plan_path(role: @role), class: "link pull-left") do %>
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="hidden-xs hidden-sm">
-          Cambiar acreditaciones
+          <%= t(".change_accreditations")%>
         </span>
       <% end %>
     </div>
@@ -12,21 +12,21 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <%= link_to step_4_subscription_plan_path(role: @role,accreditations: @accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
-        <span class="hidden-xs hidden-sm">Suscribirme a notificaciones</span>
+        <span class="hidden-xs hidden-sm"><%= t(".subscribe") %></span>
         <span class="glyphicon glyphicon-chevron-right"></span>
       <% end %>
 
       <div class="table-responsive text-left table-schedule">
         <div class="text-center title-row">
-          <h4>Aquí está el plan que te sugerimos</h4>
+          <h4><%= t(".suggested_plan")%></h4>
         </div>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Acreditación</th>
-              <th>Curso</th>
-              <th>Duración</th>
-              <th>Fecha</th>
+              <th><%= t(".accreditation")%></th>
+              <th><%= t(".course")%></th>
+              <th><%= t(".duration")%></th>
+              <th><%= t(".date")%></th>
             </tr>
           </thead>
           <tbody>
@@ -41,11 +41,11 @@
                 <td><%= s.course.duration %></td>
                 <td>
                   <% if s.course.always_available? %>
-                    Siempre disponible
+                    <%= t(".always_available") %>
                   <% elsif next_session = @sessions_per_course[s.course] %>
                     <%= next_session.start_date %> - <%= next_session.end_date %>
                   <% else %>
-                    No disponible por ahora
+                    <%= t(".not_available") %>
                   <% end %>
                 </td>
               </tr>

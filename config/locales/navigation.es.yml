@@ -1,0 +1,12 @@
+es:
+  layouts:
+    navigation:
+      admins: Admins
+      courses: Cursos
+      people: People
+      accreditations: Acreditaciones
+      change_password: Cambiar contraseña
+      sign_out: Cerrar Sesión
+      trainings: Entrenamientos
+      docs: Documentos
+      presentations: Presentaciones
