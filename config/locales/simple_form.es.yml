@@ -16,10 +16,12 @@ es:
         country: País
         partner: Partner
         role: Rol
-        new:
-          email: 'email'
-        edit:
-          email: 'email'
+      course:
+        category: Categoría
+        duration: Duración
+      translations:
+        name: Nombre
+        description: Descripción
     hints:
       defaults:
         username: 'Usuario'

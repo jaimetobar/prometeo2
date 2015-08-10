@@ -1,0 +1,47 @@
+es:
+  devise:
+    sessions:
+      new:
+        login_header: Ingresar usuario y contraseña
+        email: Email
+        password: Contraseña
+        login: Ingresar
+        remember_me: Recuerdame
+    shared:
+      links:
+        login: Iniciar sesión
+        signup: Crear cuenta
+        forgot_password: ¿Olvidaste la contraseña?
+        didnt_receive_confirmation_instructions: "¿No recibiste instrucciones de confirmación?"
+        didnt_receive_unlock_instructions: "¿No recibiste instrucciones para desbloquear la cuenta?"
+        omnioauth_login: "Inicia sesión usando %{provider}"
+  admin:
+    courses:
+      index:
+        courses: Cursos
+        add_course: Agregar curso
+        for_accreditation_html: para la acreditación <strong>%{accreditation}</strong>
+        name: Nombre
+        accreditations: Acreditaciones
+        roles: Roles
+        category: Categoría
+        description: Descripción
+        sessions: Sesiones
+      edit:
+        edit_course: Edición de curso
+      new:
+        create_course: Crear curso
+      form:
+        duration_example: 5 horas
+        roles: Roles
+        accreditations: Acreditaciones
+        accreditation: Acreditación
+        sessions: Sesiones
+        start_date: Fecha de inicio
+        end_date: Fecha de finalización
+        session: Sesión
+        save: Guardar
+        always_available: Siempre disponible
+        per_session: Por sesión
+      create:
+        course_created: Curso creado

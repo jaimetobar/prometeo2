@@ -4,14 +4,14 @@
           <div class="panel panel-default">
               <div class="panel-heading">
                   <h2>
-                    Cursos
+                    <%= t(".courses") %>
                     <%= link_to new_admin_course_path,class: "btn btn-success btn-md pull-right" do %>
                         <span class="glyphicon glyphicon-plus"></span>
-                        Agregar curso
+                        <%= t(".add_course") %>
                     <% end %>
                   </h2>
                   <% if @accreditation %>
-                    <h4>para la acreditación <strong><%= @accreditation.id %> - <%= @accreditation.name %></strong></h4>
+                    <%= t(".for_accreditation_html",accreditation: "#{@accreditation.id} - #{@accreditation.name}") %>
                   <% end %>
               </div>
               <!-- /.panel-heading -->
@@ -20,12 +20,12 @@
                       <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th>Name</th>
-                              <th>Acreditaciones</th>
-                              <th>Roles</th>
-                              <th>Categoría</th>
-                              <th>Descripción</th>
-                              <th>Sesiones</th>
+                              <th><%= t(".name") %></th>
+                              <th><%= t(".accreditations") %></th>
+                              <th><%= t(".roles") %></th>
+                              <th><%= t(".category") %></th>
+                              <th><%= t(".description") %></th>
+                              <th><%= t(".sessions") %></th>
                               <th class="actions"></th>
                             </tr>
                           </thead>
