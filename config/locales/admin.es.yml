@@ -75,3 +75,51 @@ es:
         create_accreditation: Nueva acreditación
       form:
         courses: Cursos
+    users:
+      index:
+        people: People
+        create_partner: Crear partner
+        export_to_csv: Exportar a CSV
+        email_name_or_partner: Email, nombre o partner
+        country: País
+        search: Buscar
+        email: Email
+        name: Nombre
+        country: País
+        partner: Partner
+        roles: Roles
+        subscriptions_edit: Subscripciones para editar
+        user_deletion_confirmation: ¿Esta seguro de eliminar el usuario?
+        status: Estado
+        accreditations: Acreditaciones
+        course: Curso
+        course_finished: Finalizado
+        course_not_finished: En curso
+        next_date: Siguiente fecha
+      new:
+        create_user: Registrar usuario
+      edit:
+        edit_user: Editar usuario
+      create:
+        user_created: Usuario creado
+      update:
+        user_updated: Usuario actualizado
+      destroy:
+        user_deleted: Usuario borrado
+
+    subscriptions:
+      index:
+        all_users: Todos los usuarios
+        accreditations: Acreditaciones
+        course: Curso
+        category: Categoría
+        role: Rol
+        finished: Finalizado
+        receive_notifications: Recibir notificaciones
+        save: Guardar
+      print:
+        accreditations: Acreditaciones
+        course: Curso
+        category: Categoría
+        role: Rol
+        finished: Finalizado

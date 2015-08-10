@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <%= link_to(admin_users_path, class: "btn btn-warning btn-back") do %>
         <span class="glyphicon glyphicon-chevron-left"></span>
-        Todos los usuarios
+        <%= t(".all_users") %>
       <% end %>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -21,12 +21,12 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Acreditación</th>
-                    <th>Curso</th>
-                    <th>Categoría</th>
-                    <th>Rol</th>
-                    <th>Finalizado</th>
-                    <th>Recibir Notificaciones</th>
+                    <th><%= t(".accreditations")%></th>
+                    <th><%= t(".course")%></th>
+                    <th><%= t(".category")%></th>
+                    <th><%= t(".role")%></th>
+                    <th><%= t(".finished")%></th>
+                    <th><%= t(".receive_notifications")%></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@
                   <% end %>
                 </tbody>
               </table>
-              <%= f.submit "Guardar", class:"btn btn-success pull-right" %>
+              <%= f.submit t(".save"), class:"btn btn-success pull-right" %>
           <% end %>
           </div>
           <!-- /.table-responsive -->
