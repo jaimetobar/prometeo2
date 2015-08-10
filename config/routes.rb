@@ -29,10 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/admin', to: redirect("/admin/courses")
 
   authenticate :admin do
     namespace :admin do
+      get '/', to: 'admin#index'
       # Sidekiq admin console
       require 'sidekiq/web'
       mount Sidekiq::Web => '/sidekiq'
