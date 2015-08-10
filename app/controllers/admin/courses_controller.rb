@@ -18,7 +18,7 @@ class Admin::CoursesController < Admin::AdminController
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash[:notice] = I18n.t(".course_created")
+      flash[:notice] = I18n.t(".course_created",scope: @i18n_scope)
       redirect_to admin_courses_path
     else
       flash[:roles] = @course.errors[:roles][0]
