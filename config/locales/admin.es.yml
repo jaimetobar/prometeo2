@@ -96,6 +96,8 @@ es:
         course_finished: Finalizado
         course_not_finished: En curso
         next_date: Siguiente fecha
+        not_available: No disponible
+        always_available: Siempre disponible
       new:
         create_user: Registrar usuario
       edit:
