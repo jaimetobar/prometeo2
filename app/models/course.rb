@@ -61,7 +61,7 @@ class Course < ActiveRecord::Base
   end
 
   def self.sort_by_name
-    all.sort_by { |c| (c.name || '').downcase }
+    where(id: all.sort_by { |c| (c.name || '').downcase }.map(&:id))
   end
 
   def roles

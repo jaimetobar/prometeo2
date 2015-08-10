@@ -26,7 +26,7 @@ class Accreditation < ActiveRecord::Base
   validates :role, presence: true
 
   def self.sort_by_name
-    all.sort_by { |c| (c.name || '').downcase }
+    where(id: all.sort_by { |c| (c.name || '').downcase }.map(&:id))
   end
 
   def initialize_translations!
