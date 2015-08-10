@@ -22,6 +22,8 @@ es:
       translations:
         name: Nombre
         description: Descripción
+      accreditation:
+        role: Rol
     hints:
       defaults:
         username: 'Usuario'

@@ -59,3 +59,19 @@ es:
         account_deleted: "Cuenta eliminada"
       email_password_reset:
         confirmation_email_sent: "Se ha enviado un correo para que el usuario configure una contraseña"
+    accreditations:
+      index:
+        accreditations: Acreditaciones
+        add_accreditation: Agregar acreditación
+        for_course_html: para el curso <strong>%{course}</strong>
+        name: Nombre
+        description:  Descripción
+        role: Rol
+        courses: Cursos
+        accreditaion_deletion_confirmation: ¿Está seguro de eliminar la acreditación?
+      edit:
+        edit_accreditation: Edición de acreditación
+      new:
+        create_accreditation: Nueva acreditación
+      form:
+        courses: Cursos

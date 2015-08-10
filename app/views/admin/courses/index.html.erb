@@ -34,7 +34,7 @@
                               <% @courses.each do |course|  %>
                                 <tr>
                                   <td><%= course.name %></td>
-                                  <td><%= link_to(pluralize(course.accreditations.count,"acreditación","acreditaciones"), admin_accreditations_path(course: course.id),) %></td>
+                                  <td><%= link_to("#{course.accreditations.count} #{t('.accreditations')}", admin_accreditations_path(course: course.id),) %></td>
                                   <td><%= course.which_roles %></td>
                                   <td><%= course.category %></td>
                                   <td><%= truncate(course.description) %></td>
