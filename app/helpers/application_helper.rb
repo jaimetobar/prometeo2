@@ -5,11 +5,11 @@ module ApplicationHelper
 
   def locale_link(locale)
     uri = URI request.original_url
-    params_hash = {}
-    Rack::Utils.parse_query(uri.query).each do |k,v|
-      params_hash[k.gsub("[]","")] = v
+    if uri.path =~ /^\/(pt|es|en)\/.*/
+      uri.path = URI.escape uri.path.sub($1,locale)
+    else
+      uri.path = URI.escape "/#{locale}#{uri.path}"
     end
-    uri.query = params_hash.merge("locale" => locale).to_query
     uri.to_s
   end
 end
