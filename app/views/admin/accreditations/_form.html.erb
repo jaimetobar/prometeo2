@@ -19,7 +19,7 @@
 
     <div class="tab-content">
       <%= f.simple_fields_for :translations do |f_translations| %>
-        <div role="tabpanel" class="tab-pane <%= 'active' if f_translations.index == 0 %>" id="accreditation-name-<%= f_translations.object.locale %>">
+        <div role="tabpanel" class="tab-pane <%= 'active' if f_translations.object.locale == :es %>" id="accreditation-name-<%= f_translations.object.locale %>">
           <%= f_translations.input :locale, as: :hidden %>
           <%= f_translations.input :id, as: :hidden unless f_translations.object.id.nil? %>
           <%= f_translations.input :name %>
