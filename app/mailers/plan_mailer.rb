@@ -1,6 +1,6 @@
-class PlanMailer < ActionMailer::Base
+class PlanMailer < ApplicationMailer
   default from: "cromero@redhat.com"
-  
+
   def plan_greatings_email(user)
     @user = user
     @sessions_per_course = Course.sessions_per_course(user.courses)
