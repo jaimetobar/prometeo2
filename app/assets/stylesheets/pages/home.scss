@@ -2,6 +2,9 @@
   background:center no-repeat fixed url('http://connect.redhat.com/sites/all/themes/rhc4tp/dist/images/bg-zones.jpg');
   background-size: cover;
 
+  .lead {
+    min-height: 145px;
+  }
 
   .icon-bar {
   	background-color:#fff;

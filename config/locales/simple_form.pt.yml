@@ -1,0 +1,30 @@
+pt:
+  simple_form:
+    "yes": 'sim'
+    "no": 'Não'
+    required:
+      text: 'requerido'
+      mark: '*'
+    error_notification:
+      default_message: "Revise os problemas no formulário."
+    labels:
+      defaults:
+        password:  'Senha'
+      user:
+        name: Nome
+        email: E-mail
+        country: País
+        partner: Partner
+        role: Função
+      course:
+        category: Categoria
+        duration: Duração
+      translations:
+        name: Nome
+        description: Descrição
+      accreditation:
+        role: Função
+    hints:
+      defaults:
+        username: 'Usuário'
+        password: 'Não são admitidos caracteres especiais'

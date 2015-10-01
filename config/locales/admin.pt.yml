@@ -1,0 +1,127 @@
+pt:
+  devise:
+    sessions:
+      new:
+        login_header:  Digitar usuário e senha
+        email: E-mail
+        password: Senha
+        login: Acessar
+        remember_me: Lembre-me
+    shared:
+      links:
+        login:  Fazer login
+        signup: Criar conta
+        forgot_password: Esqueceu a senha?
+        didnt_receive_confirmation_instructions: "Não recebeu instruções de confirmação?"
+        didnt_receive_unlock_instructions: "Não recebeu instruções para desbloquear a conta?"
+        omnioauth_login: "Faça login usando %{provider}"
+  admin:
+    courses:
+      index:
+        courses: Cursos
+        add_course: Adicionar curso
+        for_accreditation_html:  para a acreditação <strong>%{accreditation}</strong>
+        name: Nome
+        accreditations: Acreditações
+        roles: Funções
+        category: Categoria
+        description: Descrição
+        sessions: Sessões
+      edit:
+        edit_course:  Edição de curso
+      new:
+        create_course:  Criar curso
+      form:
+        duration_example: 5 horas
+        roles: Funções
+        accreditations: Acreditações
+        accreditation: Acreditação
+        sessions: Sessões
+        start_date: Data de início
+        end_date: Data de conclusão
+        session: Sessão
+        save: Salvar
+        always_available: Sempre disponível
+        per_session: Por sessão
+      create:
+        course_created: Curso criado
+    admins:
+      index:
+        admins:  Administradores
+        admin_created: Criar admin
+        email: E-mail
+        admin_deletion_confirmation: Tem certeza que quer eliminar este admin?
+        send_confirmation_email: Enviar correio para configurar senha
+      create:
+        admin_created: Admin criado. Será notificado por e-mail para ativar sua conta
+      destroy:
+        cant_delete_self_account: "Não pode eliminar sua própria conta"
+        account_deleted: "Conta eliminada"
+      email_password_reset:
+        confirmation_email_sent: "Foi enviado um e-mail para que o usuário configure uma senha"
+    accreditations:
+      index:
+        accreditations: Acreditações
+        add_accreditation: Adicionar certificação
+        for_course_html: para o curso <strong>%{course}</strong>
+        name: Nome
+        description:  Descrição
+        role: Função
+        courses: Cursos
+        accreditaion_deletion_confirmation: Tem certeza que quer eliminar a acreditação?
+      edit:
+        edit_accreditation: Edição de acreditação
+      new:
+        create_accreditation: Nova acreditação
+      form:
+        courses: Cursos
+    users:
+      index:
+        people: People
+        create_partner: Criar partner
+        export_to_csv: Exportar para CSV
+        email_name_or_partner: E-mail, nome ou partner
+        country: País
+        search: Pesquisar
+        email: E-mail
+        name: Nome
+        country: País
+        partner: Partner
+        roles: Funções
+        subscriptions_edit: Assinaturas para editar
+        user_deletion_confirmation: Tem certeza que quer eliminar o usuário?
+        status: Estado
+        accreditations: Acreditações
+        course: Curso
+        course_finished: Concluído
+        course_not_finished: Em andamento
+        next_date: Seguinte data
+        not_available: Não disponível
+        always_available: Sempre disponível
+      new:
+        create_user: Registrar usuário
+      edit:
+        edit_user: Editar usuário
+      create:
+        user_created: Usuário criado
+      update:
+        user_updated: Usuário atualizado
+      destroy:
+        user_deleted: Usuário excluído
+
+    subscriptions:
+      index:
+        all_users: Todos os usuários
+        accreditations: Acreditações
+        course: Curso
+        category: Categoria
+        role: Função
+        finished: Concluído
+        receive_notifications: Receber notificações
+        save: Salvar
+      print:
+        accreditations: Acreditações
+        course: Curso
+        category: Categoria
+        role: Função
+        finished: Concluído
