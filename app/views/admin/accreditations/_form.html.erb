@@ -9,6 +9,10 @@
 
   <%= f.error_notification %>
   <%= f.input :role, as: :select,collection: Accreditation.roles.keys %>
+  <%= f.input :tags %>
+  <div class="form-group">
+    <div class="col-sm-9 col-sm-offset-3"><small>(Los tags deben estar separados por comas ",")</small></div>
+  </div>
 
   <div class="form-group">
     <ul class="nav nav-tabs col-sm-9 col-sm-offset-3">

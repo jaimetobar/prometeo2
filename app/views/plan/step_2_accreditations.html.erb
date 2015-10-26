@@ -30,6 +30,11 @@
                 </a>
               </div>
               <h3><%= a.name %></h3>
+              <div class="tags">
+                <% a.tag_list.each do |tag| %>
+                  <span class="label label-default"><%= tag %></span>
+                <% end %>
+              </div>
               <p>
                 <%= a.description %>
               </p>

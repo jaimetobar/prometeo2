@@ -20,7 +20,10 @@ es:
       at_least_one_accreditation: Selecciona por lo menos una acreditación
     step_4_subscription:
       change_accreditations: Cambiar acreditaciones
-      subscription_header: Déjanos tus datos y te notificaremos cuando los cursos estén disponibles
+      subscription_header_html: |
+        Invirtiendo <span class="label label-info">%{hours_count} horas</span>
+        obtendrás <span class="label label-info">%{accreditations_count} acreditaciones</span>.
+        Permítenos contarte cómo y ayudarte a alcanzarlas.
       subscribe: Suscribirme
     create:
       subscribed: Te avisaremos cuando los cursos vayan a comenzar

@@ -2,12 +2,11 @@
 #
 # Table name: accreditations
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  role        :integer
-#  description :text
+#  id         :integer          not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  role       :integer
+#  tags       :string(255)
 #
 
 class Accreditation < ActiveRecord::Base
@@ -25,6 +24,8 @@ class Accreditation < ActiveRecord::Base
   validates :name, presence: true
   validates :role, presence: true
 
+  after_initialize :defaults
+
   def self.sort_by_name
     where(id: all.sort_by { |c| (c.name || '').downcase }.map(&:id))
   end
@@ -35,4 +36,12 @@ class Accreditation < ActiveRecord::Base
     end
   end
 
+  def tag_list
+    self.tags.split(",").map(&:strip)
+  end
+
+  private
+    def defaults
+      self.tags ||= ""
+    end
 end
