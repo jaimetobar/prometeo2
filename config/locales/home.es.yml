@@ -19,6 +19,7 @@ es:
         solicitando tu usuario y contraseña.
       demo_watch_video: Ver video guía
       demo_download_guide: Descargar guía
+      demo_download_guide_url: "https://www.dropbox.com/s/uh8po6ej039u1al/Gu%C3%ADa%20RHPDS%20V1.0.pdf?dl=0"
       demo_go_to_rhpds: Ir a RHPDS
       faq: PREGUNTAS FRECUENTES (FAQ)
       faq_copy: |

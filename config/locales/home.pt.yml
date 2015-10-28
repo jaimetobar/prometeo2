@@ -19,6 +19,7 @@ pt:
         solicitando seu usuário e senha.
       demo_watch_video: Ver vídeo-guia
       demo_download_guide: Fazer download de guia
+      demo_download_guide_url: "http://lrd.to/RHPDS_guide_BR"
       demo_go_to_rhpds: Ir para RHPDS
       faq: PERGUNTAS FREQUENTES (FAQ)
       faq_copy: |
@@ -27,7 +28,7 @@ pt:
         Como solicitar uma NFR? O que é uma NFR?
         Temos estas e outras respostas disponíveis para que você faça download aqui:
       faq_download: Fazer download
-      faq_download_url: "https://www.dropbox.com/s/tgjt4h60ospch8y/FAQ%20BR.pdf?dl=0"
+      faq_download_url: "http://lrd.to/partner_br_faq"
       how_to_use_open: COMO USAR OPEN
       how_to_use_open_copy_html: |
         <strong>Online Partner Enablement Network</strong> enquadra o ecossistema
