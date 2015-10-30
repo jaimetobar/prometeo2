@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get '/:locale', to: 'pages#home', locale: /es|en|pt/
+  get '/:locale', to: 'pages#home', locale: /#{Settings.locales.join('|')}/
   root "pages#home"
 
-  scope "(:locale)", locale: /es|en|pt/ do
+  scope "(:locale)", locale: /#{Settings.locales.join('|')}/ do
 
     get '/documentos', to: "pages#docs", as: :docs
     get '/presentaciones', to: "pages#presentations", as: :presentations

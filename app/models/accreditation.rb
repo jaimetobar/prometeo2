@@ -30,7 +30,7 @@ class Accreditation < ActiveRecord::Base
   end
 
   def initialize_translations!
-    ["es","en","pt"].each do |locale|
+    Settings.locales.each do |locale|
       self.translations.build(locale: locale) unless self.translations.exists?(locale: locale)
     end
   end
