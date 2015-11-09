@@ -13,6 +13,8 @@ class Accreditation < ActiveRecord::Base
 
   translates :name, :description
 
+  enum category: [:platform,:middleware,:cloud]
+
   has_many :accreditations_courses, dependent: :delete_all
   has_many :courses, through: :accreditations_courses
 

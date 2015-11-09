@@ -10,7 +10,7 @@
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
-#  duration           :integer
+#  duration           :decimal(, )
 #
 
 require 'rails_helper'

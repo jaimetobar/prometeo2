@@ -7,6 +7,7 @@
 #  updated_at :datetime
 #  role       :integer
 #  tags       :string(255)
+#  category   :integer
 #
 
 require 'rails_helper'
