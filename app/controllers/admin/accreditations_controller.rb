@@ -54,7 +54,7 @@ class Admin::AccreditationsController < Admin::AdminController
   end
 
   def accreditation_params
-    params.require(:accreditation).permit(:name,:role,:description,
+    params.require(:accreditation).permit(:name,:role,:description,:tags,
       accreditations_courses_attributes:[ :course_id, :_destroy, :id ],
       translations_attributes: [:id, :locale, :name, :description]
     )

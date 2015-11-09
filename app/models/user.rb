@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
 
   enum role: [:sales_engineer,:sales,:delivery]
   has_many :subscriptions
-  has_many :courses, through: :subscriptions
+  has_many :courses, -> { uniq }, through: :subscriptions
+  has_many :accreditations, -> { uniq }, through: :subscriptions
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
   validates :country, presence: true, inclusion: { in: ISO3166::Country.all.map { |name, code| code } }
   validates :partner, presence: true

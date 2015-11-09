@@ -20,7 +20,6 @@ pt:
       at_least_one_accreditation: Selecione pelo menos uma acreditação
     step_4_subscription:
       change_accreditations: Alterar acreditações
-      subscription_header: Deixe seus dados e notificaremos você quando os cursos estiverem disponíveis
       subscribe: Inscrever-me
     create:
       subscribed: Você será informado sobre a data da início dos cursos
