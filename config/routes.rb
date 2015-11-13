@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
     get '/documentos', to: "pages#docs", as: :docs
     get '/presentaciones', to: "pages#presentations", as: :presentations
-    get '/start', to: "pages#start", as: :start
+    get '/esenciales', to: "pages#start", as: :essentials
+    get '/start' => redirect('/esenciales'), as: :start
 
     devise_for :admins, skip: [:registrations]
     as :admin do
