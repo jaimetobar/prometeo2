@@ -29,6 +29,9 @@
 
 .navbar-nav {
   >li {
+    border-bottom-style: solid;
+    border-bottom-color: #fff;
+    border-bottom-width: 3px;
     &.active {
       @include active;
     }
