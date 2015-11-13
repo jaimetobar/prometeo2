@@ -5,8 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1>¿Qué es Red Hat?</h1>
-          <p>Ayudamos a <a href="https://www.redhat.com/en/about" target="_blank">más del 90% de las compañías Fortune 500 a solucionar sus necesidades de negocio</a>, alineando sus estrategias de IT y de negocio, preparándolas para el futuro de la tecnología. Hacemos esto ofreciendo soluciones con un modelo de negocio OPEN: seguras, costo-efecivas y con suscripciones predictivas.</p>
+          <%= t(".intro_html") %>
         </div>
         <div class="col-md-6">
           <div class="embed-responsive embed-responsive-16by9">
@@ -26,15 +25,14 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Nosotros</h2>
+          <h2 class="section-heading"><%= t(".about_title") %></h2>
         </div>
         <div class="col-md-6">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Trabajamos con Partners</h4>
-          <p class="text-muted">Nuestro modelo de negocio funciona gracias a las <a href="https://www.redhat.com/en/partners" target="_blank">comunidades de clientes, desarrolladores y partners</a>. Son parte fundamental de nuestra misión y queremos entregar las herramientas necesarias para evolucionar juntos en el mercado.</p>
+          <%= t(".about_partners_html") %>
         </div>
 
         <div class="col-md-6">
@@ -42,8 +40,7 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Open Organization</h4>
-          <p class="text-muted">La tecnología Open Source es parte de nuestra cultura y soluciones. Así mismo un <a href="https://www.youtube.com/watch?v=rvyFYFXCj5c" target="_blank">modelo de trabajo Open en nuestra compañía</a>, construyendo comunidades, respondiendo rápido a las oportunidades, apalancando recursos y talento, inspirando y motivando equipos que actúen con proactividad.</p>
+          <%= t(".about_organization_html") %>
         </div>
         
         
@@ -57,8 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="section-heading">Suscripciones</h2>
-          <p class="text-muted">Nuestro modelo de suscripciones trae beneficios a Partners y Clientes. Entiende los principales beneficios, el por qué son beneficios y cómo explicarlos en un Whiteboard.</p>
+          <%= t(".subscriptions_title_html") %>
         </div>
         <div class="col-md-6">
           <div class="embed-responsive embed-responsive-16by9">
@@ -76,8 +72,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Portafolio</h2>
-          <h3 class="section-subheading text-muted">Con tres grandes agrupaciones: Plataforma, Middleware y Cloud se pueden cubrir necesidades de negocio críticas y demandantes de innovación. Conoce nuestras soluciones y la visión de negocio que proyectamos con cada una de ellas.</h3>
+          <%= t(".portfolio_title_html") %>
         </div>
       </div>
       <div class="row">
@@ -87,7 +82,7 @@
 
         <div class="col-md-4">
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/linux-platforms" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_os_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -96,13 +91,13 @@
             <%= image_tag "start/sistema_operativo.png", class: "img-responsive" %>
             </a>
             <div class="portfolio-caption">
-              <h4>Sistema Operativo</h4>
+              <h4><%= t(".portfolio_os") %></h4>
               <p class="text-muted">Red Hat Enterprise Linux</p>
             </div>
           </div>
 
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/virtualization" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_virtualizacion_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -111,13 +106,13 @@
               <%= image_tag "start/virtualization.png", class: "img-responsive" %>
             </a>
             <div class="portfolio-caption">
-              <h4>Virtualización</h4>
+              <h4><%= t(".portfolio_virtualizacion") %></h4>
               <p class="text-muted">Red Hat Enterprise Virtualization</p>
             </div>
           </div>
 
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/cloud-computing" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_cloud_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -132,7 +127,7 @@
           </div>
 
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/jboss-middleware/accelerate" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_acelerar_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -141,14 +136,14 @@
               <%= image_tag "start/agilizar.png", class: "img-responsive" %>
             </a>
             <div class="portfolio-caption">
-              <h4>Acelerar</h4>
+              <h4><%= t(".portfolio_acelerar") %></h4>
               <p class="text-muted">Red Hat EAP, Red Hat JON, Red Hat JDS</p>
             </div>
           </div>
 
 
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/jboss-middleware/integrate" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="portfolio_aplicaciones_link_html" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -157,13 +152,13 @@
               <%= image_tag "start/integrar_apps.png", class: "img-responsive" %>
             </a>
             <div class="portfolio-caption">
-              <h4>Integrar aplicaciones</h4>
+              <h4><%= t(".portfolio_applicaciones") %></h4>
               <p class="text-muted">Red Hat JBoss Fuse, Red Hat JBoss Data Virtualization</p>
             </div>
           </div>
 
           <div class="portfolio-item">
-            <a href="http://www.redhat.com/es/technologies/jboss-middleware/automate" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_automatizar_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -172,7 +167,7 @@
               <%= image_tag "start/integrar_procesos.png", class: "img-responsive" %>
             </a>
             <div class="portfolio-caption">
-              <h4>Automatizar</h4>
+              <h4><%= t(".portfolio_automatizar") %></h4>
               <p class="text-muted">Red Hat JBoss BPM Suite</p>
             </div>
           </div>
@@ -253,6 +248,7 @@
 
   <!-- Section about Team -->
   <section class="team">
+    <div class="bg"></div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
