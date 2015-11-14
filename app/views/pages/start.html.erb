@@ -1,10 +1,12 @@
 
+<div class="start">
   <!-- what is redhat section -->
   <section class="intro">
     <div class="bg"></div>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
+          <h1><%= t(".intro_title") %></h1>
           <%= t(".intro_html") %>
         </div>
         <div class="col-md-6">
@@ -31,6 +33,9 @@
           <span class="fa-stack fa-4x">
             <%= image_tag "essentials/partners_circle.png", class: "img-responsive" %>
           </span>
+          <h4 class="service-heading">
+            <%= t(".about_partners_title") %>
+          </h4>
           <%= t(".about_partners_html") %>
         </div>
 
@@ -38,6 +43,9 @@
           <span class="fa-stack fa-4x">
             <%= image_tag "essentials/opensource_circle.png", class: "img-responsive" %>
           </span>
+          <h4 class="service-heading">
+            <%= t(".about_organization_title") %>
+          </h4>
           <%= t(".about_organization_html") %>
         </div>
       </div>
@@ -50,7 +58,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <%= t(".subscriptions_title_html") %>
+          <h2 class="section-heading"><%= t(".subscriptions_title") %></h2>
+          <p class="text-muted"><%= t(".subscriptions_text") %></p>
         </div>
         <div class="col-md-6">
           <div class="embed-responsive embed-responsive-16by9">
@@ -68,7 +77,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <%= t(".portfolio_title_html") %>
+          <h2 class="section-heading">
+            <%= t(".portfolio_title") %>
+          </h2>
+          <h3 class="section-subheading text-muted">
+            <%= t(".portfolio_subtitle") %>
+          </h3>
         </div>
       </div>
       <div class="row">
@@ -78,7 +92,7 @@
 
         <div class="col-md-4">
           <div class="portfolio-item">
-            <a href="<%= t(".portfolio_os_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_os_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -93,7 +107,7 @@
           </div>
 
           <div class="portfolio-item">
-            <a href="<%= t(".portfolio_virtualizacion_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_virtualizacion_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -108,7 +122,7 @@
           </div>
 
           <div class="portfolio-item">
-            <a href="<%= t(".portfolio_cloud_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_cloud_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -123,7 +137,7 @@
           </div>
 
           <div class="portfolio-item">
-            <a href="<%= t(".portfolio_acelerar_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_acelerar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -139,7 +153,7 @@
 
 
           <div class="portfolio-item">
-            <a href="portfolio_aplicaciones_link_html" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="portfolio_aplicaciones_link" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -154,7 +168,7 @@
           </div>
 
           <div class="portfolio-item">
-            <a href="<%= t(".portfolio_automatizar_link_html") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+            <a href="<%= t(".portfolio_automatizar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
@@ -191,7 +205,8 @@
         </div>
 
         <div class="col-md-6">
-          <%= t(".text_presentaciones_html") %>
+          <p class="text-muted"><%= t(".text_presentaciones") %></p>
+          <a href="<%= t(".text_presentaciones_link") %>" class="btn cta-primary btn-lg" target="_blank">Go!</a>
         </div>
 
       </div>
@@ -210,7 +225,15 @@
         </div>
 
         <div class="col-md-6">
-          <%= t(".text_registro_html") %>
+          <p class="text-muted"><%= t(".text_one_registro") %></p>
+          <p class="text-muted"><%= t(".text_two_registro") %></p>
+          <ul class="text-muted">
+            <li><%= t(".list_item_one_registro") %></li>
+            <li><%= t(".list_item_two_registro") %></li>
+            <li><%= t(".list_item_three_registro") %></li>
+          </ul>
+          <%= t(".caption_registro_html") %>
+          <%= t(".text_link_html") %>
         </div>
 
         <div class="col-md-6">
@@ -234,8 +257,9 @@
             <%= t(".title_training") %>
           </h2>
           <p class="text-muted">
-            <%= t(".text_training_html") %>
+            <%= t(".text_training") %>
           </p>
+          <%= t(".text_training_link_html") %>
         </div>
 
       </div>
@@ -251,11 +275,15 @@
           <h1><strong><%= t(".the_team") %></strong></h1>
           <br>
           <p class="lead">
-            <%= t(".contact_html") %>
+            <%= t(".contact_text") %>
+            <%= t(".contact_link_html") %>
           </p>
           <br>
-          <i class="glyphicon glyphicon-envelope" style="font-size:5em;color:#fff"></i>
+          <%= image_tag "home/email_circle.png", class: "main-icon" %>
         </div>
       </div>
     </div>
   </section><!-- /team -->
+
+
+</div><!-- /start -->
