@@ -57,6 +57,20 @@
     }
     margin-bottom: 10px;
   }
+  h4 {
+    font-family: "Overpass Light";
+    font-size: 34px;
+    font-weight: normal;
+    text-transform: none;
+  }
+  .roles {
+    .btn-role {
+      p {
+        font-size: 1em;
+        line-height: 1em;
+      }
+    }
+  }
 }
 .accreditations {
   width: 100%;
