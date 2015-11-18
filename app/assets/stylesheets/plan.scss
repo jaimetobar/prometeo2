@@ -132,16 +132,44 @@ TODO: add in and out animtations
   padding-top: 50px;
 }
 .title-row {
-  margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
+  h2 {
+    font-weight: 400;
+    color: #777;
+  }
 }
 
 .step-3 {
+  margin-top: 50px;
+  .accreditation-name {
+    font-weight: 400;
+    color: #cc0000;
+    margin-top: 40px;
+  }
+  .accreditation-description {
+    margin: 20px 0;
+  }
+  .tags {
+    margin: 15px 0;
+    .label-default {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      background: #e2e2e2;
+      color: #7c7c7c;
+    }
+  }
   .course {
     border-style: solid;
-    padding: 20px 10px;
+    padding: 30px;
     border-radius: 0px;
     margin-bottom: 20px;
+    border-color: #e2e2e2;
+    h4 {
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .label {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
   }
 }
 
