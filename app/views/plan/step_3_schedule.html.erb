@@ -37,7 +37,7 @@
               <% @courses.each do |c| %>
                 <% next unless c.accreditations.exists?(id: a.id) %>
                 <div class="row">
-                  <div class="col-xs-12 col-md-12">
+                  <div class="col-xs-11 col-xs-offset-1">
                     <div class="course">
                       <h4><%= c.name %></h4>
                       <p><%= c.description %></p>
