@@ -140,8 +140,16 @@ TODO: add in and out animtations
 }
 
 .step-3 {
-  margin-top: 50px;
-  margin-bottom: 100px;
+  background-color: #F4F6F6;
+  padding-bottom: 50px;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  .container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
   .accreditation-name {
     font-weight: 400;
     color: #cc0000;
@@ -159,6 +167,7 @@ TODO: add in and out animtations
     }
   }
   .course {
+    background-color: white;
     padding: 30px 50px;
     border-radius: 30px 5px 5px 30px;
     margin-bottom: 20px;
