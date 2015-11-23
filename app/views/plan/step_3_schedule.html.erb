@@ -1,4 +1,4 @@
-<div class="step-3">  
+<div class="step-3">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -42,7 +42,7 @@
                       <div class="course">
                         <h4><%= c.name %></h4>
                         <p><%= c.description %></p>
-                        <span class="label label-success glyphicon glyphicon-time"><%= " #{c.duration} #{t('common.hours')}" %></span>
+                        <span class="label label-success"><div class="glyphicon glyphicon-time"></div>&nbsp;<%= " #{c.duration} #{t('common.hours')}" %></span>
                         <span class="label label-info">
                           <% if c.always_available? %>
                             <%= t(".always_available") %>
