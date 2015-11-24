@@ -39,6 +39,7 @@ es:
       title_presentaciones: Presentaciones listas
       text_presentaciones: ¿Necesitas presentaciones listas para mostrar a clientes? Ya las hicimos por tí, puedes modificarlas e incluso facilitamos la búsqueda de contenido complementario. ¿Necesitas demos? ¡Ya estan listos también!, asegurate de entrenarte como Sales Engineer, nos escríbes y te asignamos una cuenta.
       text_presentaciones_link: /es/entrenamiento
+      text_presentaciones_link_text: Ver lista de presentaciones
 
       
       title_registro: Registro de Deals
@@ -55,7 +56,7 @@ es:
       title_training: Entrenarme
       text_training: Hemos creado una herramienta para que de acuerdo a tu trabajo te podamos sugerir el mejor camino para mejorar tus skills profesionales relacionados con Red Hat. Recuerda siempre tener tu cuenta de Partner Center para acceder a los recursos propuestos.
       text_training_link_html: |
-        <a class="btn cta-primary btn-lg" target="_blank" href="/es/entrenamiento">Más información</a>
+        <a class="btn cta-primary btn-lg" target="_blank" href="/es/entrenamiento">Crear mi plan de acreditaciones</a>
       
       the_team: El equipo
       contact_text: Si tus dudas no fueron resueltas, si tienes sugerencias para nosotros o simplemente nos quieres saludar, ¡escríbenos!

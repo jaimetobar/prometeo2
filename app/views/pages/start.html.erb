@@ -57,11 +57,11 @@
   <section class="subscriptions">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2 text-center">
           <h2 class="section-heading"><%= t(".subscriptions_title") %></h2>
           <p class="text-muted"><%= t(".subscriptions_text") %></p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2 text-center">
           <div class="embed-responsive embed-responsive-16by9">
              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2geMqjYssm8"></iframe>
           </div>
@@ -80,113 +80,121 @@
           <h2 class="section-heading">
             <%= t(".portfolio_title") %>
           </h2>
-          <h3 class="section-subheading text-muted">
+        </div>
+        <div class="col-md-7 vector-portfolio">
+          <p class="text-muted">
             <%= t(".portfolio_subtitle") %>
-          </h3>
+          </p>
+          <div class="embed-responsive embed-responsive-16by9">
+             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/y1XBxo07vSo"></iframe>
+          </div>
         </div>
+
+        <div class="col-md-5">
+          <div class="portfolio-item">
+                <a href="<%= t(".portfolio_os_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <%= image_tag "start/sistema_operativo.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4><%= t(".portfolio_os") %></h4>
+                  <p class="text-muted">Red Hat Enterprise Linux</p>
+                </div>
+              </div>
+
+              <div class="portfolio-item">
+                <a href="<%= t(".portfolio_virtualizacion_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <%= image_tag "start/virtualization.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4><%= t(".portfolio_virtualizacion") %></h4>
+                  <p class="text-muted">Red Hat Enterprise Virtualization</p>
+                </div>
+              </div>
+
+              <div class="portfolio-item">
+                <a href="<%= t(".portfolio_cloud_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <%= image_tag "start/cloud.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4>Cloud</h4>
+                  <p class="text-muted">Red Hat OpenStack, Red Hat OpenShift, Red Hat Cloudforms</p>
+                </div>
+              </div>
+       
+
+            
+
+              <div class="portfolio-item">
+                <a href="<%= t(".portfolio_acelerar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <%= image_tag "start/agilizar.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4><%= t(".portfolio_acelerar") %></h4>
+                  <p class="text-muted">Red Hat EAP, Red Hat JON, Red Hat JDS</p>
+                </div>
+              </div>
+
+
+              <div class="portfolio-item">
+                <a href="portfolio_aplicaciones_link" class="portfolio-link" data-toggle="modal" target="_blank">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <%= image_tag "start/integrar_apps.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4><%= t(".portfolio_applicaciones") %></h4>
+                  <p class="text-muted">Red Hat JBoss Fuse, Red Hat JBoss Data Virtualization</p>
+                </div>
+              </div>
+
+              <div class="portfolio-item">
+                <a href="<%= t(".portfolio_automatizar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <%= image_tag "start/integrar_procesos.png", class: "img-responsive" %>
+                </a>
+                <div class="portfolio-caption">
+                  <h4><%= t(".portfolio_automatizar") %></h4>
+                  <p class="text-muted">Red Hat JBoss BPM Suite</p>
+                </div>
+              </div>
+              
+       
+          </div>
+
+          
+
+
+        </div>
+
       </div>
-      <div class="row">
-        <div class="col-md-8 vector-portfolio">
-          ¿imagen?
-        </div>
 
-        <div class="col-md-4">
-          <div class="portfolio-item">
-            <a href="<%= t(".portfolio_os_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <%= image_tag "start/sistema_operativo.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4><%= t(".portfolio_os") %></h4>
-              <p class="text-muted">Red Hat Enterprise Linux</p>
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <a href="<%= t(".portfolio_virtualizacion_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <%= image_tag "start/virtualization.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4><%= t(".portfolio_virtualizacion") %></h4>
-              <p class="text-muted">Red Hat Enterprise Virtualization</p>
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <a href="<%= t(".portfolio_cloud_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <%= image_tag "start/cloud.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4>Cloud</h4>
-              <p class="text-muted">Red Hat OpenStack, Red Hat OpenShift, Red Hat Cloudforms</p>
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <a href="<%= t(".portfolio_acelerar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <%= image_tag "start/agilizar.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4><%= t(".portfolio_acelerar") %></h4>
-              <p class="text-muted">Red Hat EAP, Red Hat JON, Red Hat JDS</p>
-            </div>
-          </div>
-
-
-          <div class="portfolio-item">
-            <a href="portfolio_aplicaciones_link" class="portfolio-link" data-toggle="modal" target="_blank">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <%= image_tag "start/integrar_apps.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4><%= t(".portfolio_applicaciones") %></h4>
-              <p class="text-muted">Red Hat JBoss Fuse, Red Hat JBoss Data Virtualization</p>
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <a href="<%= t(".portfolio_automatizar_link") %>" class="portfolio-link" data-toggle="modal" target="_blank">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <%= image_tag "start/integrar_procesos.png", class: "img-responsive" %>
-            </a>
-            <div class="portfolio-caption">
-              <h4><%= t(".portfolio_automatizar") %></h4>
-              <p class="text-muted">Red Hat JBoss BPM Suite</p>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-    </div>
   </section><!-- /portfolio -->
 
 
@@ -200,13 +208,10 @@
           </h2>
         </div>
 
-        <div class="col-md-6">
-          ¿imagen?
-        </div>
 
-        <div class="col-md-6">
+        <div class="col-md-8 col-md-offset-2 text-center">
           <p class="text-muted"><%= t(".text_presentaciones") %></p>
-          <a href="<%= t(".text_presentaciones_link") %>" class="btn cta-primary btn-lg" target="_blank">Go!</a>
+          <a href="<%= t(".text_presentaciones_link") %>" class="btn cta-primary btn-lg" target="_blank"><%= t(".text_presentaciones_link_text") %></a>
         </div>
 
       </div>
