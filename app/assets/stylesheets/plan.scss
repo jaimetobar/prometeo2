@@ -99,7 +99,12 @@
     background-color: white;
     border-color: #6B6B6B;
     border-style: solid;
+    border-width: 1px;
     transition: all 0.3s;
+    position: relative;
+    h3 {
+      font-size: 20px;
+    }
     .btn-select-accreditation {
       span {
         color: #777777;
@@ -115,6 +120,26 @@
     &:hover {
       transform: scale(1.1);
     }
+    .tag {
+      background: #cc0000;
+      bottom: 0;
+      color: #fff;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 15px;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .accreditation-category-title {
+    color: #cc0000;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .accreditations .col-xs-4:nth-child(2) {
+    border-right: 1px solid;
+    border-left: 1px solid;
   }
 }
 .table-schedule {
@@ -185,7 +210,12 @@ TODO: add in and out animtations
 }
 
 .step-4 {
+  margin-bottom: 100px;
   .subscription-header {
     line-height: 60px;
+  }
+  .btn-success {
+    display: block;
+    margin: 30px auto 15px;
   }
 }

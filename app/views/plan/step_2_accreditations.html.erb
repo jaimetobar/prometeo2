@@ -27,7 +27,7 @@
         <% Accreditation.categories.each do |category,value| %>
           <div class="col-xs-4">
             <div class="text-center">
-              <h3><%= category.titleize %></h3>
+              <h3 class="accreditation-category-title"><%= category.titleize %></h3>
             </div>
             <% @accreditations.send(category).each_with_index do |a,i| %>
               <div class="col-xs-12">
@@ -46,6 +46,7 @@
                   <p>
                     <%= a.description %>
                   </p>
+                  <span class="tag"><%= category.titleize %></span>
                 </div>
               </div>
             <% end %>
