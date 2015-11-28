@@ -1,0 +1,127 @@
+ja:
+  devise:
+    sessions:
+      new:
+        login_header:  証券取引等監視委員会やっぱり犬が好き。種無理が通れば道理が引っ込む
+        email:  カンプトナイト
+        password:  山椒は小粒でもぴりりと辛い
+        login:  朱に交われば赤くなる
+        remember_me:  柳の下にいつも泥鰌はおらぬ
+    shared:
+      links:
+        login: Iniciar sesión
+        signup: Crear cuenta
+        forgot_password: ¿Olvidaste la contraseña?
+        didnt_receive_confirmation_instructions: "¿No recibiste instrucciones de confirmación?"
+        didnt_receive_unlock_instructions: "¿No recibiste instrucciones para desbloquear la cuenta?"
+        omnioauth_login: "Inicia sesión usando %{provider}"
+  admin:
+    courses:
+      index:
+        courses: Cursos
+        add_course: Agregar curso
+        for_accreditation_html: para la acreditación <strong>%{accreditation}</strong>
+        name: Nombre
+        accreditations: Acreditaciones
+        roles: Roles
+        category: Categoría
+        description: Descripción
+        sessions: Sesiones
+      edit:
+        edit_course: Edición de curso
+      new:
+        create_course: Crear curso
+      form:
+        duration_example: 5 horas
+        roles: Roles
+        accreditations: Acreditaciones
+        accreditation: Acreditación
+        sessions: Sesiones
+        start_date: Fecha de inicio
+        end_date: Fecha de finalización
+        session: Sesión
+        save: Guardar
+        always_available: Siempre disponible
+        per_session: Por sesión
+      create:
+        course_created: Curso creado
+    admins:
+      index:
+        admins: Administradores
+        admin_created: Crear admin
+        email: Email
+        admin_deletion_confirmation: ¿Esta seguro de eliminar este admin?
+        send_confirmation_email: Enviar correo para configurar contraseña
+      create:
+        admin_created: Admin creado. Se le notificará por correo para que active su cuenta
+      destroy:
+        cant_delete_self_account: "No puedes eliminar tu propia cuenta"
+        account_deleted: "Cuenta eliminada"
+      email_password_reset:
+        confirmation_email_sent: "Se ha enviado un correo para que el usuario configure una contraseña"
+    accreditations:
+      index:
+        accreditations: Acreditaciones
+        add_accreditation: Agregar acreditación
+        for_course_html: para el curso <strong>%{course}</strong>
+        name: Nombre
+        description:  Descripción
+        role: Rol
+        courses: Cursos
+        accreditaion_deletion_confirmation: ¿Está seguro de eliminar la acreditación?
+      edit:
+        edit_accreditation: Edición de acreditación
+      new:
+        create_accreditation: Nueva acreditación
+      form:
+        courses: Cursos
+    users:
+      index:
+        people: People
+        create_partner: Crear partner
+        export_to_csv: Exportar a CSV
+        email_name_or_partner: Email, nombre o partner
+        country: País
+        search: Buscar
+        email: Email
+        name: Nombre
+        country: País
+        partner: Partner
+        roles: Roles
+        subscriptions_edit: Subscripciones para editar
+        user_deletion_confirmation: ¿Esta seguro de eliminar el usuario?
+        status: Estado
+        accreditations: Acreditaciones
+        course: Curso
+        course_finished: Finalizado
+        course_not_finished: En curso
+        next_date: Siguiente fecha
+        not_available: No disponible
+        always_available: Siempre disponible
+      new:
+        create_user: Registrar usuario
+      edit:
+        edit_user: Editar usuario
+      create:
+        user_created: Usuario creado
+      update:
+        user_updated: Usuario actualizado
+      destroy:
+        user_deleted: Usuario borrado
+
+    subscriptions:
+      index:
+        all_users: Todos los usuarios
+        accreditations: Acreditaciones
+        course: Curso
+        category: Categoría
+        role: Rol
+        finished: Finalizado
+        receive_notifications: Recibir notificaciones
+        save: Guardar
+      print:
+        accreditations: Acreditaciones
+        course: Curso
+        category: Categoría
+        role: Rol
+        finished: Finalizado

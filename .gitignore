@@ -19,3 +19,7 @@
 /tmp
 db_credentials.txt
 rhc_env.sh
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-4">
           <center>
-            <h1 class="glyphicon glyphicon-pencil" style="font-size:5em;color:#cc0000"></h1>
+            <%= image_tag "home/train_circle.png", class: "img-responsive main-icon" %>
             <h2><%= t(".train") %></h2>
           </center>
           <hr>
@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-4">
           <center>
-            <h1 class="glyphicon glyphicon-play-circle" style="font-size:5em;color:#cc0000"></h1>
+            <%= image_tag "home/presentations_circle.png", class: "img-responsive main-icon" %>
             <h2><b><%= t(".presentations") %></b></h2>
           </center>
           <hr>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-4">
           <center>
-            <h1 class="glyphicon glyphicon-comment" style="font-size:5em;color:#cc0000"></h1>
+            <%= image_tag "home/demos_circle.png", class: "img-responsive main-icon" %>
             <h2><b><%= t(".demo")%></b></h2>
           </center>
           <hr>
@@ -71,7 +71,9 @@
         <br>
         <p class="lead"><%= t(".faq_copy")%></p>
         <br>
-        <a href="<%= t('.faq_download_url') %>"><i class="glyphicon glyphicon-download" style="font-size:5em;color:#fff"></i></a>
+        <a href="<%= t('.faq_download_url') %>">
+          <%= image_tag "home/download_circle.png", class: "download main-icon" %>
+        </a>
         <p><%= t(".faq_download")%></p>
       </div>
     </div>
@@ -112,7 +114,7 @@
           <%= t(".contact_html") %>
         </p>
         <br>
-        <i class="glyphicon glyphicon-envelope" style="font-size:5em;color:#fff"></i>
+        <%= image_tag "home/email_circle.png", class: "main-icon" %>
       </div>
     </div>
   </section>

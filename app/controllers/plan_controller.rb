@@ -24,13 +24,13 @@ class PlanController < ApplicationController
       flash.now[:alert] = I18n.t("plan.step_3_schedule.at_least_one_accreditation")
       render :step_2_accreditations
     else
-      courses = Course.by_accreditations(@accreditations_ids)
+      @courses = Course.by_accreditations(@accreditations_ids)
 
-      subscription_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
+      subscription_attributes = Subscription.attributes_from_courses_and_role(@courses,@role)
 
       @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
 
-      @sessions_per_course = Course.sessions_per_course(courses)
+      @sessions_per_course = Course.sessions_per_course(@courses)
 
     end
   end
@@ -38,6 +38,8 @@ class PlanController < ApplicationController
   def step_4_subscription
 
     courses = Course.by_accreditations(@accreditations_ids)
+    @hours_count = courses.uniq.sum(:duration)
+    @accreditations_count = @accreditations_ids.length
 
     subscription_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
     @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)

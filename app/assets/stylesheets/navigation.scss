@@ -20,7 +20,7 @@
   a {
     cursor: pointer;
   }
-  @each $tab in plan, docs, presentations, admin-users, admin-admins, admin-courses, admin-accreditations {
+  @each $tab in plan, docs, presentations, start, admin-users, admin-admins, admin-courses, admin-accreditations {
     &.active-#{$tab} {
       .#{$tab} { @include active; }
     }
@@ -29,6 +29,9 @@
 
 .navbar-nav {
   >li {
+    border-bottom-style: solid;
+    border-bottom-color: #fff;
+    border-bottom-width: 3px;
     &.active {
       @include active;
     }
@@ -37,5 +40,9 @@
       border-bottom-color: #CC0000;
       border-bottom-width: 3px;
     }
+  }
+  .esentials-link {
+    color: $brand-primary !important;
+    font-weight: bolder;
   }
 }

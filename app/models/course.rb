@@ -3,16 +3,14 @@
 # Table name: courses
 #
 #  id                 :integer          not null, primary key
-#  name               :string(255)
 #  category           :integer
 #  created_at         :datetime
 #  updated_at         :datetime
-#  description        :text
 #  for_sales_engineer :boolean
 #  for_sales          :boolean
 #  for_delivery       :boolean
 #  session_type       :integer
-#  duration           :string(255)
+#  duration           :decimal(, )
 #
 
 class Course < ActiveRecord::Base
@@ -81,7 +79,7 @@ class Course < ActiveRecord::Base
   end
 
   def initialize_translations!
-    ["es","en","pt"].each do |locale|
+    Settings.locales.each do |locale|
       self.translations.build(locale: locale) unless self.translations.exists?(locale: locale)
     end
   end

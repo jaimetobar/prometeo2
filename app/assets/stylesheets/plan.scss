@@ -1,5 +1,6 @@
 .btn-group.roles {
   width: 100%;
+  margin-bottom: 75px;
   .btn-role {
     font-family: "Overpass Bold";
     height: 216px;
@@ -55,6 +56,20 @@
       margin-top: 10px;
     }
     margin-bottom: 10px;
+  }
+  h4 {
+    font-family: "Overpass Light";
+    font-size: 34px;
+    font-weight: normal;
+    text-transform: none;
+  }
+  .roles {
+    .btn-role {
+      p {
+        font-size: 1em;
+        line-height: 1em;
+      }
+    }
   }
 }
 .accreditations {
@@ -117,6 +132,60 @@ TODO: add in and out animtations
   padding-top: 50px;
 }
 .title-row {
-  margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
+  h2 {
+    font-weight: 400;
+    color: #777;
+  }
+}
+
+.step-3 {
+  background-color: #F4F6F6;
+  padding-bottom: 50px;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  .container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  .accreditation-name {
+    font-weight: 400;
+    color: #cc0000;
+    margin-top: 40px;
+  }
+  .accreditation-description {
+    margin: 20px 0;
+  }
+  .tags {
+    margin: 15px 0;
+    .label-default {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      background: #e2e2e2;
+      color: #7c7c7c;
+    }
+  }
+  .course {
+    background-color: white;
+    padding: 30px 50px;
+    border-radius: 30px 5px 5px 30px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.35);
+    h4 {
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .label {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+  }
+}
+
+.step-4 {
+  .subscription-header {
+    line-height: 60px;
+  }
 }

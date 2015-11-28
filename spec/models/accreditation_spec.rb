@@ -2,12 +2,12 @@
 #
 # Table name: accreditations
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  role        :integer
-#  description :text
+#  id         :integer          not null, primary key
+#  created_at :datetime
+#  updated_at :datetime
+#  role       :integer
+#  tags       :string(255)
+#  category   :integer
 #
 
 require 'rails_helper'

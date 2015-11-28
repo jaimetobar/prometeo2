@@ -11,7 +11,6 @@ class PagesController < ApplicationController
   end
 
   def start
-    render layout: false
   end
 
   protected
