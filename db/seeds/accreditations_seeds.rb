@@ -31,7 +31,7 @@ when "development"
     { name: "Cloud - Plataforma como Servicio (PaaS)", role: "delivery", description: Faker::Lorem.paragraph }
   ]
   accreditations = accreditations_data.map do |accreditation_data|
-    Accreditation.create(accreditation_data)
+    Accreditation.create(accreditation_data.merge(category: rand(3)))
   end
 
   10.times do

@@ -8,6 +8,7 @@
   } do |f| %>
 
   <%= f.error_notification %>
+  <%= f.input :category, as: :select,collection: Accreditation.categories.keys %>
   <%= f.input :role, as: :select,collection: Accreditation.roles.keys %>
   <%= f.input :tags %>
   <div class="form-group">
