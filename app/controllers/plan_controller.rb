@@ -50,7 +50,7 @@ class PlanController < ApplicationController
     @hours_count = courses.uniq.sum(:duration)
     @accreditations_count = @accreditations_ids.length
 
-    @user = User.find_by_email(params[:user][:email])
+    @user = User.find_by_email(email)
     if @user
       courses = courses.where.not(id: @user.subscriptions.pluck(:course_id))
       subscriptions_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
@@ -59,10 +59,14 @@ class PlanController < ApplicationController
       flash.keep(:notice)
       render :updated
       PlanMailer.delay.plan_greatings_email(@user)
-    else
+    elsif EmailValidator.valid?(email)
       subscriptions_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
       @user = User.new(role: @role, subscriptions_attributes: subscriptions_attributes, email: email)
       render :new
+    else
+      @user = User.new(email: email)
+      @user.valid?
+      render :invalid_email
     end
   end
 
@@ -77,17 +81,6 @@ class PlanController < ApplicationController
       render :step_4_subscription
     end
   end
-
-
-#  def update
-#    @user = User.find(params[:id])
-#    if @user.update(subscriptions_attributes: )
-#      PlanMailer.delay.plan_greatings_email(@user)
-#      redirect_to root_path, notice: I18n.t("plan.create.subscribed")
-#    else
-#      render :step_4_subscription
-#    end
-#  end
 
   protected
 

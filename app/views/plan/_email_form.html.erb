@@ -1,0 +1,13 @@
+<%= simple_form_for @user, url: new_or_update_form_plan_path(role: @role,accreditations: @accreditations_ids),
+  method: :patch,
+  remote: true,
+  html: { class: "form-horizontal" },
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    boolean: :horizontal_boolean
+  } do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :email %>
+    <%= f.button :submit, value: t("plan.step_4_subscription.next"), class: "btn btn-success btn-lg" %>
+ <% end %>
