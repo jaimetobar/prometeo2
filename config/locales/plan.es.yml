@@ -25,5 +25,6 @@ es:
         obtendrás <span class="label label-info">%{accreditations_count} acreditaciones</span>.
         Permítenos contarte cómo y ayudarte a alcanzarlas.
       subscribe: Suscribirme
+      next: Siguiente
     create:
       subscribed: Te avisaremos cuando los cursos vayan a comenzar

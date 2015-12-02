@@ -16,13 +16,15 @@ Rails.application.routes.draw do
       patch 'admins/:id' => 'devise/registrations#update', :as => 'admin_registration'
     end
 
-    resource :plan, only:[:index,:create], controller: :plan, path: :entrenamiento do
+    resource :plan, only:[:index,:create,:update], controller: :plan, path: :entrenamiento do
       get '/', action: 'index'
+
       collection do
         get :step_1_roles
         get :step_2_accreditations
         get :step_3_schedule
         get :step_4_subscription
+        patch :new_or_update_form
       end
     end
 

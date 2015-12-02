@@ -28,11 +28,11 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  protected
-  def defaults
-    self.finished ||= false
-    self.notifications_on = true if self.notifications_on.nil?
-    true
-  end
+  private
+    def defaults
+      self.finished ||= false
+      self.notifications_on = true if self.notifications_on.nil?
+      true
+    end
 
 end

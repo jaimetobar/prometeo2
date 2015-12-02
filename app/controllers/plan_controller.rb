@@ -1,7 +1,7 @@
 class PlanController < ApplicationController
 
-  before_action :set_role_and_accreditations, only: [:step_2_accreditations,:step_3_schedule,:step_4_subscription,:create]
-  before_action :set_accreditations_ids, only: [:step_3_schedule,:step_4_subscription,:create]
+  before_action :set_role_and_accreditations, only: [:step_2_accreditations,:step_3_schedule,:step_4_subscription,:new_or_update_form,:create]
+  before_action :set_accreditations_ids, only: [:step_3_schedule,:step_4_subscription,:new_or_update_form,:create]
   before_action :set_navigation
 
   # GET /plan
@@ -36,7 +36,6 @@ class PlanController < ApplicationController
   end
 
   def step_4_subscription
-
     courses = Course.by_accreditations(@accreditations_ids)
     @hours_count = courses.uniq.sum(:duration)
     @accreditations_count = @accreditations_ids.length
@@ -44,6 +43,33 @@ class PlanController < ApplicationController
     subscription_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
     @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
   end
+
+  def new_or_update_form
+    email = params[:user][:email]
+    courses = Course.by_accreditations(@accreditations_ids)
+    @hours_count = courses.uniq.sum(:duration)
+    @accreditations_count = @accreditations_ids.length
+
+    @user = User.find_by_email(email)
+    if @user
+      courses = courses.where.not(id: @user.subscriptions.pluck(:course_id))
+      subscriptions_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
+      @user.update(subscriptions_attributes: subscriptions_attributes)
+      flash[:notice] = I18n.t('plan.create.subscribed')
+      flash.keep(:notice)
+      render :updated
+      PlanMailer.delay.plan_greatings_email(@user)
+    elsif EmailValidator.valid?(email)
+      subscriptions_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
+      @user = User.new(role: @role, subscriptions_attributes: subscriptions_attributes, email: email)
+      render :new
+    else
+      @user = User.new(email: email)
+      @user.valid?
+      render :invalid_email
+    end
+  end
+
 
   # POST /plan
   def create
@@ -58,31 +84,31 @@ class PlanController < ApplicationController
 
   protected
 
-  def plan_params
-    params
-      .require(:plan)
-      .permit(courses:[])
-  end
+    def plan_params
+      params
+        .require(:plan)
+        .permit(courses:[])
+    end
 
-  def user_params
-    params.require(:user).permit(
-      :email,:country,:partner,:role,:name,
-      subscriptions_attributes: [:course_id,:accreditation_id]
-    )
-  end
+    def user_params
+      params.require(:user).permit(
+        :email,:country,:partner,:role,:name,
+        subscriptions_attributes: [:course_id,:accreditation_id]
+      )
+    end
 
-  def set_role_and_accreditations
-    @role = params[:role]
-    @accreditations = Accreditation.where(role: Accreditation.roles[@role])
-  end
+    def set_role_and_accreditations
+      @role = params[:role]
+      @accreditations = Accreditation.where(role: Accreditation.roles[@role])
+    end
 
-  def set_accreditations_ids
-    @accreditations_ids = params[:accreditations]
-  end
+    def set_accreditations_ids
+      @accreditations_ids = params[:accreditations]
+    end
 
-  def set_navigation
-    @admin_navigation = false
-    @active_menu_tab = "plan"
-  end
+    def set_navigation
+      @admin_navigation = false
+      @active_menu_tab = "plan"
+    end
 
 end

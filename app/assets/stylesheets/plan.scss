@@ -210,12 +210,27 @@ TODO: add in and out animtations
 }
 
 .step-4 {
-  margin-bottom: 100px;
-  .subscription-header {
-    line-height: 60px;
+  background-color: #F4F6F6;
+  &:before {
+    content: " ";
+    display: table;
   }
-  .btn-success {
-    display: block;
-    margin: 30px auto 15px;
+  .container {
+    margin-bottom: 100px;
+    .subscription-header {
+      line-height: 60px;
+    }
+    .btn-success {
+      display: block;
+      margin: 30px auto 15px;
+    }
+    .has-error {
+      .control-label {
+        color: black;
+      }
+      .help-block {
+        color: red;
+      }
+    }
   }
 }

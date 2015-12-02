@@ -1,42 +1,23 @@
-<div class="container step-4">
-  <div class="row">
-    <div class="col-xs-12 title-row">
-      <%= link_to(step_3_schedule_plan_path(role: @role, accreditations: @accreditations_ids), class: "link pull-left") do %>
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="hidden-xs hidden-sm">
-          <%= t(".change_accreditations") %>
-        </span>
-      <% end %>
-    </div>
-    <div class="col-xs-12 text-center title-row">
-      <!--<h4><%= t(".subscription_header") %></h4>-->
-      <h4 class="subscription-header">
-        <%= t(".subscription_header_html",hours_count: @hours_count, accreditations_count: @accreditations_count) %>
-      </h4>
-    </div>
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <%= simple_form_for @user, url: plan_path(role: @role,accreditations: @accreditations_ids), html: { class: "form-horizontal" },
-
-        wrapper_mappings: {
-          check_boxes: :horizontal_radio_and_checkboxes,
-          radio_buttons: :horizontal_radio_and_checkboxes,
-          boolean: :horizontal_boolean
-        } do |f| %>
-
-          <%= f.error_notification %>
-          <%= f.input :name %>
-          <%= f.input :email %>
-          <%= f.input :country, priority: country_priority %>
-          <%= f.input :partner %>
-          <%= f.input :role, collection: User.roles.keys %>
-          <%= f.fields_for :subscriptions do |ff| %>
-            <%= ff.input :course_id, as: :hidden %>
-            <%= ff.input :accreditation_id, as: :hidden %>
-          <% end %>
-          <%= f.button :submit, value: t(".subscribe"), class: "btn btn-success btn-lg" %>
-       <% end %>
-
-
+<div class="step-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 title-row">
+        <%= link_to(step_3_schedule_plan_path(role: @role, accreditations: @accreditations_ids), class: "link pull-left") do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="hidden-xs hidden-sm">
+            <%= t(".change_accreditations") %>
+          </span>
+        <% end %>
+      </div>
+      <div class="col-xs-12 text-center title-row">
+        <!--<h4><%= t(".subscription_header") %></h4>-->
+        <h4 class="subscription-header">
+          <%= t(".subscription_header_html",hours_count: @hours_count, accreditations_count: @accreditations_count) %>
+        </h4>
+      </div>
+      <div class="col-xs-12 col-md-6 col-md-offset-3 form-container">
+        <%= render "email_form" %>
+      </div>
     </div>
   </div>
 </div>
