@@ -56,7 +56,7 @@
   <div class="form-group optional sessions form-inline" <%= "style='display: none'".html_safe if @course.session_type == "always_available" %> >
     <label class="optional col-sm-3 control-label" for="sessions"><%= t(".sessions")%></label>
     <div class="col-sm-9">
-      <table>
+      <table class="session-table">
         <thead>
           <tr>
             <th></th>
