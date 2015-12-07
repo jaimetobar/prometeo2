@@ -1,0 +1,26 @@
+kr:
+  plan:
+    step_1_roles:
+      plan_copy: Prometeo를 사용하면 어디서든지 교육 계획을 만들 수 있습니다. 저희는 강좌의 등록 가능 여부를 알리고 전문가로서 여러분의 가치를 높일 수 있는 사용자 정의된 계획을 생성합니다.
+      plan_header: 먼저 귀하의 역할이 무엇인지 알려주십시오.
+    step_2_accreditations:
+      change_role: 역할 변경
+      select_accreditations: 원하는 승인서 선택
+      create_plan: 계획 생성
+    step_3_schedule:
+      change_accreditations: 승인서 변경
+      subscribe: 승인서 등록
+      suggested_plan: 다음은 귀하께 추천하는 계획입니다.
+      accreditation: 승인서
+      course: 강좌
+      duration: 수강 기간
+      date: 날짜
+      always_available: 항상 사용 가능
+      not_available: 현재 사용 불가능
+      at_least_one_accreditation: 최소 하나의 승인서를 선택합니다.
+    step_4_subscription:
+      change_accreditations: 승인서 변경
+      subscription_header: 여러분의 데이터를 입력하시면 관련 강좌가 있을 때 알려드리겠습니다.
+      subscribe: 구독
+    create:
+      subscribed: 강좌가 시작되면 알려드리겠습니다.

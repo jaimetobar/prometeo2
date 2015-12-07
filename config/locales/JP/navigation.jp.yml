@@ -1,0 +1,12 @@
+jp:
+  layouts:
+    navigation:
+      admins: 管理者
+      courses: コース
+      people: 人々
+      accreditations: 認定
+      change_password: パスワードの変更
+      sign_out: ログアウト
+      trainings: トレーニングセッション
+      docs: 資料
+      presentations: プレゼンテーション

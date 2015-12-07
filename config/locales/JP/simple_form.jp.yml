@@ -1,0 +1,30 @@
+jp:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '※'
+    error_notification:
+      default_message: "問題についてフォームにご記入ください。"
+    labels:
+      defaults:
+        password: 'パスワード'
+      user:
+        name: 氏名
+        email: メール
+        country: 国
+        partner: パートナー
+        role: 役割
+      course:
+        category: カテゴリー
+        duration: 期間
+      translations:
+        name: 氏名
+        description: 説明
+      accreditation:
+        role: 役割
+    hints:
+      defaults:
+        username: 'ユーザー'
+        password: '特殊記号は使用できません'

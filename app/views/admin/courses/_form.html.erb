@@ -11,9 +11,10 @@
   <%= f.input :category, as: :select,collection: Course.categories.keys %>
   <div class="form-group">
     <ul class="nav nav-tabs col-sm-9 col-sm-offset-3">
-      <li class="active"><a href="#course-name-es" data-toggle="tab">Español</a></li>
-      <li><a href="#course-name-en" data-toggle="tab">English</a></li>
-      <li><a href="#course-name-pt" data-toggle="tab">Português</a></li>
+      <% Settings.locales.each do |locale| %>
+        <li class="<%= 'active' if locale.to_s == 'es' %>"><a href="#course-name-<%= locale.downcase %>" data-toggle="tab"><%= locale %></a></li>
+      <% end %>
+
     </ul>
 
     <div class="tab-content">

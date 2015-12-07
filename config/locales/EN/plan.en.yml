@@ -1,0 +1,26 @@
+en:
+  plan:
+    step_1_roles:
+      plan_copy: Prometeo allows you to create your training plans wherever you are. We will inform you of course availability and create a customized plan to increase your value as a professional.
+      plan_header: Start by telling us what your role is.
+    step_2_accreditations:
+      change_role: Change role
+      select_accreditations: Select the accreditations you want to take
+      create_plan: Create plan
+    step_3_schedule:
+      change_accreditations: Change accreditations
+      subscribe: Subscribe me to accreditations
+      suggested_plan: Here is the plan we suggest to you
+      accreditation: Accreditation
+      course: Course
+      duration: Duration
+      date: Date
+      always_available: Always available
+      not_available: Currently unavailable
+      at_least_one_accreditation: Select at least one accreditation
+    step_4_subscription:
+      change_accreditations: Change accreditations
+      subscription_header: Please, enter your data and we will let you know when the courses become available
+      subscribe: Subscribe
+    create:
+      subscribed: We will let you know when the courses will begin

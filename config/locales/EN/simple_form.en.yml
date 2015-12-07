@@ -1,0 +1,30 @@
+en:
+  simple_form:
+    "yes": 'yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please, review the issues in the form."
+    labels:
+      defaults:
+        password: 'Password'
+      user:
+        name: Name
+        email: Email
+        country: Country
+        partner: Partner
+        role: Role
+      course:
+        category: Category
+        duration: Duration
+      translations:
+        name: No
+        description: Description
+      accreditation:
+        role: Role
+    hints:
+      defaults:
+        username: 'User'
+        password: 'No special characters'
