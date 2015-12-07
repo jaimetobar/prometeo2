@@ -1,0 +1,12 @@
+kr:
+  layouts:
+    navigation:
+      admins: 관리자
+      courses: 강좌
+      people: 사람
+      accreditations: 승인서
+      change_password: 암호 변경
+      sign_out: 로그아웃
+      trainings: 교육 세션
+      docs: 문서
+      presentations: 프레젠테이션

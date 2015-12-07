@@ -1,0 +1,127 @@
+kr:
+  devise:
+    sessions:
+      new:
+        login_header: 사용자 이름과 암호 입력
+        email: 이메일
+        password: 암호
+        login: 입력
+        remember_me: 기억하기
+    shared:
+      links:
+        login: 로그인
+        signup: 계정 생성
+        forgot_password: 암호를 잊으셨습니까?
+        didnt_receive_confirmation_instructions: "확인 지침을 받지 못했습니다."
+        didnt_receive_unlock_instructions: "내 계정의 잠금을 해제하는 지침을 받지 못했습니다."
+        omnioauth_login: "%{provider}로 로그인"
+  admin:
+    courses:
+      index:
+        courses: 강좌
+        add_course: 강좌 추가
+        for_accreditation_html: 승인서 <strong>%{accreditation}</strong>
+        name: 이름
+        accreditations: 승인서
+        roles: 역할
+        category: 카테고리
+        description: 설명
+        sessions: 세션
+      edit:
+        edit_course: 강좌 편집
+      new:
+        create_course: 강좌 생성
+      form:
+        duration_example: 5시간
+        roles: 역할
+        accreditations: 승인서
+        accreditation: 승인서
+        sessions: 세션
+        start_date: 시작일
+        end_date: 종료일
+        session: 세션
+        save: 저장
+        always_available: 항상 사용 가능
+        per_session: 세션별
+      create:
+        course_created: 생성한 강좌
+    admins:
+      index:
+        admins: 관리자
+        admin_created: 관리자 생성
+        email: 이메일
+        admin_deletion_confirmation: 정말로 이 관리자를 삭제하시겠습니까?
+        send_confirmation_email: 이메일을 발송하여 암호 설정
+      create:
+        admin_created: 관리자 생성됨. 메일로 계정을 활성화하라는 메시지가 통보됩니다.
+      destroy:
+        cant_delete_self_account: "자신의 계정을 삭제할 수 없습니다."
+        account_deleted: "계정 삭제됨"
+      email_password_reset:
+        confirmation_email_sent: "암호를 설정하라는 메일이 사용자에게 발송되었습니다."
+    accreditations:
+      index:
+        accreditations: 승인서
+        add_accreditation: 승인서 추가
+        for_course_html: 강좌 <strong>%{course}</strong>용
+        name: 이름
+        description: 설명
+        role: 역할
+        courses: 강좌
+        accreditaion_deletion_confirmation: 정말로 이 승인서를 삭제하시겠습니까?
+      edit:
+        edit_accreditation: 승인서 편집
+      new:
+        create_accreditation: 새 승인서
+      form:
+        courses: 강좌
+    users:
+      index:
+        people: 사람
+        create_partner: 파트너 생성
+        export_to_csv: CSV로 내보내기
+        email_name_or_partner: 이메일, 이름 또는 파트너
+        country: 국가
+        search: 검색
+        email: 이메일
+        name: 이름
+        country: 국가
+        partner: 파트너
+        roles: 역할
+        subscriptions_edit: 편집할 구독
+        user_deletion_confirmation: 정말로 이 사용자를 삭제하시겠습니까?
+        status: 상태
+        accreditations: 승인서
+        course: 강좌
+        course_finished: 종료됨
+        course_not_finished: 진행 중
+        next_date: 다음 날짜
+        not_available: 사용할 수 없음
+        always_available: 항상 사용 가능
+      new:
+        create_user: 사용자 등록
+      edit:
+        edit_user: 사용자 편집
+      create:
+        user_created: 사용자 생성됨
+      update:
+        user_updated: 사용자 업데이트됨
+      destroy:
+        user_deleted: 사용자 삭제됨
+
+    subscriptions:
+      index:
+        all_users: 모든 사용자
+        accreditations: 승인서
+        course: 강좌
+        category: 카테고리
+        role: 역할
+        finished: 종료됨
+        receive_notifications: 통보 받기
+        save: 저장
+      print:
+        accreditations: 승인서
+        course: 강좌
+        category: 카테고리
+        role: 역할
+        finished: 종료됨

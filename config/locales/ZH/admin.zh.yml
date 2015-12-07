@@ -1,0 +1,128 @@
+zh:
+  devise:
+    sessions:
+      new:
+        login_header: 输入用户名和密码
+        email: 电子邮件
+        password: 密码
+        login: 输入
+        remember_me: 记住我
+    shared:
+      links:
+        login: 登录
+        signup: 创建帐户
+        forgot_password: 忘记密码？
+        didnt_receive_confirmation_instructions: "我未收到确认说明"
+        didnt_receive_unlock_instructions: "我未收到帐户解锁说明"
+        omnioauth_login: “使用 %{provider} 登录”
+  admin:
+    courses:
+      index:
+        courses: 课程
+        add_course: 添加课程
+        for_accreditation_html: 用于认证 <strong>%{accreditation}</strong>
+        name: 姓名
+        accreditations: 认证
+        roles: 角色
+        category: 类别
+        description: 说明
+        sessions: 学期
+      edit:
+        edit_course: 编辑课程
+      new:
+        create_course: 创建课程
+      form:
+        duration_example: 5 小时
+        roles: 角色
+        accreditations: 认证
+        accreditation: 认证
+        sessions: 学期
+        start_date: 开始日期
+        end_date: 结束日期
+        session: 学期
+        save: 保存
+        always_available: 始终可用
+        per_session: 每学期
+      create:
+        course_created: 课程已创建
+    admins:
+      index:
+        admins: 管理员
+        admin_created: 创建管理员
+        email: 电子邮件
+        admin_deletion_confirmation: 是否确定要删除此管理员？
+        send_confirmation_email: 发送电子邮件以设置密码
+      create:
+        admin_created: 管理员已创建。将有邮件通知您激活帐户
+      destroy:
+        cant_delete_self_account: "您无法删除自己的帐户"
+        account_deleted: "帐户已删除"
+      email_password_reset:
+        confirmation_email_sent: "已向用户发送设置密码的电子邮件"
+    accreditations:
+      index:
+        accreditations: 认证
+        add_accreditation: 添加认证
+        for_course_html: 用于课程 <strong>%{course}</strong>
+        name: 姓名
+        description: 说明
+        role: 角色
+        courses: 课程
+        accreditaion_deletion_confirmation: 是否确定要删除此认证？
+      edit:
+        edit_accreditation: 编辑认证
+      new:
+        create_accreditation: 新认证
+      form:
+        courses: 课程
+    users:
+      index:
+        people: 人员
+        create_partner: 创建合作伙伴
+        export_to_csv: 导出到 CSV
+        email_name_or_partner: 电子邮件、姓名或合作伙伴
+        country: 国家/地区
+        search: 搜索
+        email: 电子邮件
+        name: 姓名
+        country: 国家/地区
+        partner: 合作伙伴
+        roles: 角色
+        subscriptions_edit: 要编辑的订阅
+        user_deletion_confirmation: 是否确定要删除此用户？
+        status: 州
+        accreditations: 认证
+        course: 课程
+        course_finished: 已结束
+        course_not_finished: 进行中
+        next_date: 下一个日期
+        not_available: 不可用
+        always_available: 始终可用
+      new:
+        create_user: 注册用户
+      edit:
+        edit_user: 编辑用户
+      create:
+        user_created: 用户已创建
+
+      update:
+        user_updated: 用户已更新
+      destroy:
+        user_deleted: 用户已删除
+
+    subscriptions:
+      index:
+        all_users: 所有用户
+        accreditations: 认证
+        course: 课程
+        category: 类别
+        role: 角色
+        finished: 已结束
+        receive_notifications: 接收通知
+        save: 保存
+      print:
+        accreditations: 认证
+        course: 课程
+        category: 类别
+        role: 角色
+        finished: 已结束

@@ -1,0 +1,30 @@
+zh:
+  simple_form:
+    "yes": '是'
+    "no": '否'
+    required:
+      text: '必要'
+      mark: '*'
+    error_notification:
+      default_message: "请检查表中的问题。"
+    labels:
+      defaults:
+        password: '密码'
+      user:
+        name: 姓名
+        email: 电子邮件
+        country: 国家/地区
+        partner: 合作伙伴
+        role: 角色
+      course:
+        category: 类别
+        duration: 时长
+      translations:
+        name: 姓名
+        description: 姓名
+      accreditation:
+        role: 角色
+    hints:
+      defaults:
+        username: '用户'
+        password: '无特殊字符'

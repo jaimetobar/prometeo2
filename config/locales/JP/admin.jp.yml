@@ -1,0 +1,127 @@
+jp:
+  devise:
+    sessions:
+      new:
+        login_header: ユーザー名とパスワードを入力
+        email: メール
+        password: パスワード
+        login: 入力
+        remember_me: IDを保存する
+    shared:
+      links:
+        login: ログイン
+        signup: アカウントの作成
+        forgot_password: パスワードをお忘れですか？
+        didnt_receive_confirmation_instructions: "確認方法を受信していません。"
+        didnt_receive_unlock_instructions: "アカウントのロック解除方法を受信していません。"
+        omnioauth_login: "%{provider}でログイン"
+  admin:
+    courses:
+      index:
+        courses: コース
+        add_course: コースの追加
+        for_accreditation_html: <strong>%{accreditation}</strong> 認定用
+        name: 氏名
+        accreditations: 認定
+        roles: 役割
+        category: カテゴリー
+        description: 説明
+        sessions: セッション
+      edit:
+        edit_course: コースの編集
+      new:
+        create_course: コースの作成
+      form:
+        duration_example: 5時間
+        roles: 役割
+        accreditations: 認定
+        accreditation: 認定
+        sessions: セッション
+        start_date: 開始日
+        end_date: 終了日
+        session: セッション
+        save: 保存
+        always_available: 常時受講可能
+        per_session: セッションごと
+      create:
+        course_created: 作成されたコース
+    admins:
+      index:
+        admins: 管理者
+        admin_created: 管理者の作成
+        email: メール
+        admin_deletion_confirmation: この管理者を本当に削除しますか？
+        send_confirmation_email: パスワード設定メールの送信
+      create:
+        admin_created: 管理者を作成しました。アカウントをアクティブ化するようにメールで通知されます。
+      destroy:
+        cant_delete_self_account: "自分のアカウントを削除することはできません"
+        account_deleted: "アカウントは削除されました"
+      email_password_reset:
+        confirmation_email_sent: "ユーザーにパスワード設定のためのメールが送信されました"
+    accreditations:
+      index:
+        accreditations: 認定
+        add_accreditation: 認定の追加
+        for_course_html: <strong>%{course}</strong> コース用
+        name: 氏名
+        description: 説明
+        role: 役割
+        courses: コース
+        accreditaion_deletion_confirmation: この認定を本当に削除しますか？
+      edit:
+        edit_accreditation: 認定の編集
+      new:
+        create_accreditation: 新規認定
+      form:
+        courses: コース
+    users:
+      index:
+        people: 人々
+        create_partner: パートナーを作成
+        export_to_csv: CSVにエクスポート
+        email_name_or_partner: メール、氏名またはパートナー
+        country: 国
+        search: 検索
+        email: メール
+        name: 氏名
+        country: 国
+        partner: パートナー
+        roles: 役割
+        subscriptions_edit: 編集する購読
+        user_deletion_confirmation: このユーザーを本当に削除しますか？
+        status: 状態
+        accreditations: 認定
+        course: コース
+        course_finished: 終了済
+        course_not_finished: 進行中
+        next_date: 次回日程
+        not_available: 受講不可
+        always_available: 常時受講可能
+      new:
+        create_user: ユーザーの登録
+      edit:
+        edit_user: ユーザーの編集
+      create:
+        user_created: 作成されたユーザー
+      update:
+        user_updated: 更新されたユーザー
+      destroy:
+        user_deleted: 削除されたユーザー
+
+    subscriptions:
+      index:
+        all_users: すべてのユーザー
+        accreditations: 認定
+        course: コース
+        category: カテゴリー
+        role: 役割
+        finished: 終了済
+        receive_notifications: 通知を受け取る
+        save: 保存
+      print:
+        accreditations: 認定
+        course: コース
+        category: カテゴリー
+        role: 役割
+        finished: 終了済

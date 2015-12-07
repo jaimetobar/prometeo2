@@ -1,0 +1,12 @@
+zh:
+  layouts:
+    navigation:
+      admins: 管理员
+      courses: 课程
+      people: 人员
+      accreditations: 认证
+      change_password: 更改密码
+      sign_out: 注销
+      trainings: 培训课程
+      docs: 文档
+      presentations: 演示
