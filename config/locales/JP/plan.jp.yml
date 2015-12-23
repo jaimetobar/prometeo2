@@ -1,0 +1,26 @@
+jp:
+  plan:
+    step_1_roles:
+      plan_copy: Prometeo を使えば、どこでもトレーニングの作成ができます。コースの受講可否と、プロとしての価値を高めるカスタマイズされたプランについてお知らせいたします。
+      plan_header: まずご自分の役割について教えてください。
+    step_2_accreditations:
+      change_role: 役割の変更
+      select_accreditations: 取得したい認定を選択してください
+      create_plan: プランの作成
+    step_3_schedule:
+      change_accreditations: 認定の変更
+      subscribe: 認定の購読を申し込みます
+      suggested_plan: 弊社からご提案するプラン
+      accreditation: 認定
+      course: コース
+      duration: 期間
+      date: 日時
+      always_available: 常時受講可能
+      not_available: 現在受講不可
+      at_least_one_accreditation: 認定を 1件以上選択してください
+    step_4_subscription:
+      change_accreditations: 認定の変更
+      subscription_header: データを入力してください。コースが受講可能になったときにお知らせします。
+      subscribe: 購読
+    create:
+      subscribed: コースがいつ開始するかをお知らせします

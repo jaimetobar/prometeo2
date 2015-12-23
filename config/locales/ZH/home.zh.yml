@@ -1,0 +1,43 @@
+zh:
+  pages:
+    home:
+      train: 开始培训
+      train_copy: 我们已根据您的角色以及有助于您工作的产品定制一套计划。获取在线认证。
+      train_btn: 创建我的计划
+      presentations: 演示
+      presentations_copy: 我们知道您经常有上千项任务要执行。我们为您提供完成的产品演示，帮助您简化工作，节省时间。
+      presentations_btn: 获取演示
+      demo: 演示
+      demo_copy: 一张图片顶千言，一次演示胜过千张图片。30 分钟内即可准备好产品演示。
+      demo_btn: 配置我的演示
+      demo_modal_title: 配置环境
+      demo_modal_body_html: 我们提供的演示环境在 <strong>Red Hat 合作伙伴演示系统 (RHPDS)</strong> 上运行。在那里可以找到我们大多数产品的目录。在选择该环境后可以 (1) 查看包含演示逐步说明的脚本，(2) 有两个日历日免费使用该环境，以及 (3) 收到一封包含使用说明的电子邮件。
+      demo_modal_footer_html: |
+        请注意，<strong>此访问不同于 Red Hat 登录。</strong>
+        您应至少完成一次销售工程师或交付认证
+        然后写信至： <a href="mailto:enablement-latam@redhat.com?Subject=RHPDS 帐户申请" target="_top">enablement-latam@redhat.com</a>
+        请求您的用户名和密码。
+      demo_watch_video: 查看视频指南
+      demo_download_guide: 下载指南
+      demo_go_to_rhpds: 转到 RHPDS
+      faq: 常见问题 (FAQ)
+      faq_copy: |
+        是否要了解如何创建用户？如何访问页面？
+        如何注册证书或获取更多培训？
+        如何请求 NFR？什么是 NFR？
+        要查找这些答案和更多信息，请下载以下材料：
+      faq_download: 下载
+      how_to_use_open: 如何使用开放式
+      how_to_use_open_copy_html: |
+        <strong>在线合作伙伴支持网络</strong>为用于
+        合作伙伴的 Red Hat 课程环境提供一个框架，专注于他们不同的
+        角色：<strong>销售、预售和交付。</strong> <br/><br/>
+        每个计划针对一组特定的解决方案而设计：
+        <strong>基础架构、中间件和云</strong>。
+        您可以通过 Red Hat 登录查看所有内容并注册参加课程，如视频中所示。
+      see_labs_calendar: 查看技术实验室日历
+      the_team: 团队
+      contact_html: |
+        如有更多问题或建议，或者
+        只想问候一声，请联系我们：
+        <a href="mailto:enablement-latam@redhat.com?Subject=问题/建议/问候" target="_top">enablement-latam@redhat.com</a>

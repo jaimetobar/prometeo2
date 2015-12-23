@@ -1,0 +1,43 @@
+jp:
+  pages:
+    home:
+      train: トレーニング開始
+      train_copy: あなたの役割および業務に役立つ製品によって、カスタマイズされたプランをご用意しております。オンライン認定を取得しましょう。
+      train_btn: マイプランの作成
+      presentations: プレゼンテーション
+      presentations_copy: 日々多数のタスクを抱えておられることは知っております。仕事をやりやすくし、時間を節約するために仕上げ済みの製品プレゼンテーションをお届けします。
+      presentations_btn: プレゼンテーションの取得
+      demo: デモ
+      demo_copy: 百聞は一見にしかず。さらにデモは千枚の絵よりも効果的です。弊社製品のデモを30分未満で用意しましょう。
+      demo_btn: マイデモの構成
+      demo_modal_title: 環境設定
+      demo_modal_body_html: 弊社の提供するデモ環境は <strong>Red Hat パートナーデモシステム (RHPDS)</strong> で動作します。この環境には大多数の弊社製品カタログが掲載されています。カタログを選択すると、 (1) デモについてステップバイステップで説明した台本 (2) 2日間の環境使用 (3) 使用方法のメールが提供されます。
+      demo_modal_footer_html: |
+        <strong>このアクセスは Red Hat ログインとは異なる</strong>ことにご注意ください。
+        少なくとも 1 件のセールスエンジニアまたはデリバリー認定を完了してから、
+        メールで: <a href="mailto:enablement-latam@redhat.com?Subject=RHPDS アカウント申込み" target="_top">enablement-latam@redhat.com</a>
+        に、ユーザー名およびパスワードを要求してください。
+      demo_watch_video: ビデオガイドを見る
+      demo_download_guide: ガイドのダウンロード
+      demo_go_to_rhpds: RHPDS へアクセス
+      faq: よくある質問 (FAQ)
+      faq_copy: |
+        ユーザーの作成方法が知りたいですか？どのようにページにアクセスしますか？
+        どうすれば資格を登録できますか、または追加のトレーニングにアクセスできますか？
+        NFR をリクエストする方法とは？NFR とは何ですか？
+        これらの質問への回答および詳しい情報については、以下の資料をダウンロードしてください。
+      faq_download: ダウンロード
+      how_to_use_open: 使用方法を開く
+      how_to_use_open_copy_html: |
+        <strong>オンラインパートナー イネーブルメント ネットワーク</strong> は、パートナーが利用できる
+        Red Hat コースの環境について、異なる
+        役割を中心にしたフレームワークを提供します。<strong>セールス、プリセールスおよびデリバリー</strong> <br/><br/>
+        各プランは特定のソリューションに向けて設計されています。
+        <strong>インフラストラクチャー、ミドルウェアおよびクラウド</strong>。
+        これらすべてに Red Hat Login でアクセスし、ビデオで示される方法で登録することができます。
+      see_labs_calendar: テクニカルラボラトリーのカレンダーを見る
+      the_team: チーム
+      contact_html: |
+        みなさまからのご質問、ご提案だけでなく、
+        ただご挨拶頂くだけでも、ぜひご連絡ください。
+        <a href="mailto:enablement-latam@redhat.com?Subject=ご質問／ご提案／ご挨拶" target="_top">enablement-latam@redhat.com</a>

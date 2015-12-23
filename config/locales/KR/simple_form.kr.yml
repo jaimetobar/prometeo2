@@ -1,0 +1,30 @@
+kr:
+  simple_form:
+    "yes": '예'
+    "no": '아니오'
+    required:
+      text: '필수'
+      mark: '*'
+    error_notification:
+      default_message: "양식에서 문제를 검토해 주십시오."
+    labels:
+      defaults:
+        password: '암호'
+      user:
+        name: 이름
+        email: 이메일
+        country: 국가
+        partner: 파트너
+        role: 역할
+      course:
+        category: 카테고리
+        duration: 수강 기간
+      translations:
+        name: 이름
+        description: 설명
+      accreditation:
+        role: 역할
+    hints:
+      defaults:
+        username: '사용자'
+        password: '특수 문자 없음'
