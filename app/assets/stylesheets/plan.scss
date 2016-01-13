@@ -207,6 +207,52 @@ TODO: add in and out animtations
       font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
   }
+  .additional-knowledge {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #c7c7c7;
+    .bx-wrapper {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    .btn-add {
+      background-color: #c00;
+        border: 0 none;
+        color: #fff;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: Overpass,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        padding: 10px 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 0.2s ease-in 0s;
+        margin: 10px 0;
+        &:hover {
+            background-color: #ad0000;
+            color: #fff;
+        }
+    }
+  }
+  .new-course {
+    border-top: solid 1px #c7c7c7;
+    padding-top: 50px;
+    margin-top: 50px;
+    h3 {
+      color: #cc0000;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+    li {
+      font-size: 21px;
+      font-weight: 400;
+      text-transform: none;
+      margin-bottom: 10px;
+    }
+
+  }
 }
 
 .step-4 {
@@ -219,6 +265,7 @@ TODO: add in and out animtations
     margin-bottom: 100px;
     .subscription-header {
       line-height: 60px;
+      font-weight: normal;
     }
     .btn-success {
       display: block;

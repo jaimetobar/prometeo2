@@ -81,3 +81,5 @@ gem 'config'
 gem 'font-awesome-rails'
 #windows specific
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+#slider
+gem 'bxslider-rails'
