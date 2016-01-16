@@ -69,12 +69,19 @@ es:
         role: Rol
         courses: Cursos
         accreditaion_deletion_confirmation: ¿Está seguro de eliminar la acreditación?
+        advanced: Avanzada
       edit:
         edit_accreditation: Edición de acreditación
       new:
         create_accreditation: Nueva acreditación
       form:
+        course: Curso
         courses: Cursos
+        suggestion: Sugerencia
+        suggestions: Sugerencias
+        tags_help: Los tags deben estar separados por comas ","
+        save: Guardar
+
     users:
       index:
         people: People

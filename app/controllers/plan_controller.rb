@@ -25,7 +25,7 @@ class PlanController < ApplicationController
       render :step_2_accreditations
     else
       @courses = Course.by_accreditations(@accreditations_ids)
-
+      @suggestions = Accreditation.suggestions_for(@accreditations_ids).advanced
       subscription_attributes = Subscription.attributes_from_courses_and_role(@courses,@role)
 
       @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
@@ -99,7 +99,9 @@ class PlanController < ApplicationController
 
     def set_role_and_accreditations
       @role = params[:role]
-      @accreditations = Accreditation.where(role: Accreditation.roles[@role])
+      @accreditations = Accreditation
+        .where(role: Accreditation.roles[@role])
+        .where(advanced: false)
     end
 
     def set_accreditations_ids

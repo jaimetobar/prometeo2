@@ -8,6 +8,7 @@
 #  role       :integer
 #  tags       :string(255)
 #  category   :integer
+#  advanced   :boolean          default(FALSE)
 #
 
 FactoryGirl.define do

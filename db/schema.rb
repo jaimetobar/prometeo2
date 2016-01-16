@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108054106) do
+ActiveRecord::Schema.define(version: 20160116035303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "accreditation_suggestions", force: true do |t|
+    t.integer  "accreditation_id"
+    t.integer  "suggestion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accreditation_suggestions", ["accreditation_id"], name: "index_accreditation_suggestions_on_accreditation_id", using: :btree
 
   create_table "accreditation_translations", force: true do |t|
     t.integer  "accreditation_id", null: false
@@ -35,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151108054106) do
     t.integer  "role"
     t.string   "tags"
     t.integer  "category"
+    t.boolean  "advanced",   default: false
   end
 
   create_table "accreditations_courses", force: true do |t|

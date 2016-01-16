@@ -25,6 +25,7 @@
                                   <th><%= t(".description")%></th>
                                   <th><%= t(".role")%></th>
                                   <th><%= t(".courses")%></th>
+                                  <th><%= t(".advanced")%></th>
                                   <th class="actions"></th>
                               </tr>
                           </thead>
@@ -37,6 +38,11 @@
                                       <td><%= truncate(a.description) %></td>
                                       <td><%= a.role %></td>
                                       <td><%= link_to("#{a.courses.count} #{t('.courses')}", admin_courses_path(accreditation: a.id)) %></td>
+                                      <td>
+                                        <% if a.advanced? %>
+                                          <span class="glyphicon glyphicon-ok"></span>
+                                        <% end %>
+                                      </td>
                                       <td>
                                         <%= link_to edit_admin_accreditation_path(a), class: "btn btn-info" do %>
                                             <span class="glyphicon glyphicon-pencil"></span>

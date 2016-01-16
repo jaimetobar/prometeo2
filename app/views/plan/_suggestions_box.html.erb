@@ -1,0 +1,18 @@
+<% if @suggestions.any? %>
+  <section class="additional-knowledge">
+    <div class="text-center title-row">
+      <h2>Conocimiento Adicional</h2>
+      <p class="accreditation-description">Estas acreditaciones o certificaciones pueden ser de tu interés según el plan que solicitaste.</p>
+      <ul class="bxslider">
+        <% @suggestions.each do |s| %>
+          <li>
+            <h3 class="accreditation-name"><%= s.name %></h3>
+            <p><%= s.description %></p>
+            <a class="btn btn-add btn-lg" href="#">Agregar</a>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </section>
+<% end %>

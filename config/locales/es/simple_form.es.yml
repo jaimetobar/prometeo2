@@ -24,6 +24,7 @@ es:
         description: Descripción
       accreditation:
         role: Rol
+        advanced: Avanzado
     hints:
       defaults:
         username: 'Usuario'
