@@ -1,0 +1,33 @@
+<% a = accreditation %>
+<div class="accreditation">
+  <h3 class="accreditation-name"><%= a.name %></h3>
+  <div class="tags">
+    <% a.tag_list.each do |tag| %>
+      <span class="label label-default"><%= tag %></span>
+    <% end %>
+  </div>
+  <p class="accreditation-description">
+    <%= a.description %>
+  </p>
+  <% @courses.each do |c| %>
+    <% next unless c.accreditations.exists?(id: a.id) %>
+    <div class="row">
+      <div class="col-xs-11 col-xs-offset-1">
+        <div class="course">
+          <h4><%= c.name %></h4>
+          <p><%= c.description %></p>
+          <span class="label label-success"><div class="glyphicon glyphicon-time"></div>&nbsp;<%= " #{c.duration} #{t('common.hours')}" %></span>
+          <span class="label label-info">
+            <% if c.always_available? %>
+              <%= t(".always_available") %>
+            <% elsif next_session = @sessions_per_course[c] %>
+              <%= next_session.start_date %> - <%= next_session.end_date %>
+            <% else %>
+              <%= t(".not_available") %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
