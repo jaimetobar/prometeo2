@@ -5,10 +5,11 @@
       <p class="accreditation-description">Estas acreditaciones o certificaciones pueden ser de tu interés según el plan que solicitaste.</p>
       <ul class="bxslider">
         <% @suggestions.each do |s| %>
-          <li>
+          <li id="suggestion-<%= s.id %>" class="suggestion">
             <h3 class="accreditation-name"><%= s.name %></h3>
             <p><%= s.description %></p>
-            <a class="btn btn-add btn-lg" href="#">Agregar</a>
+            <%= link_to t('.add_suggestion'), add_suggestion_plan_path(s.id,role: @role,accreditations: @accreditations_ids),
+              class: 'add-suggestion btn btn-add btn-lg', "data-accreditation-id" => s.id ,remote: true, method: :get %>
           </li>
         <% end %>
       </ul>

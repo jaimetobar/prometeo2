@@ -253,6 +253,11 @@ TODO: add in and out animtations
     }
 
   }
+  .add-suggestion {
+    &.disabled, &.disabled:hover, &.disabled:active, &.disabled:visited {
+      background-color: grey;
+    }
+  }
 }
 
 .step-4 {

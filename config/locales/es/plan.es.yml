@@ -10,7 +10,6 @@ es:
       courses_for: Cursos para
     step_3_schedule:
       change_accreditations: Cambiar acreditaciones
-      subscribe: Suscribirme a notificaciones
       suggested_plan: Aquí está el plan que te sugerimos
       accreditation: Acreditación
       course: Curso
@@ -29,3 +28,7 @@ es:
       next: Siguiente
     create:
       subscribed: Te avisaremos cuando los cursos vayan a comenzar
+    suggestions_box:
+      add_suggestion: Agregar
+    subscription_btn:
+      subscribe: Suscribirme a notificaciones

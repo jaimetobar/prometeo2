@@ -10,7 +10,6 @@ zh:
       courses_for: 课程
     step_3_schedule:
       change_accreditations: 更改认证
-      subscribe: 订阅认证
       suggested_plan: 以下是我们建议的计划
       accreditation: 认证
       course: 课程
@@ -27,3 +26,5 @@ zh:
         投入 <span class="label label-info">%{hours_count}</span> 个小时，将得到 <span class="label label-info">%{accreditations_count}</span> 积分。我们告诉你如何获得
     create:
       subscribed: 当课程开始时我们会告诉您
+    subscription_btn:
+      subscribe: 订阅认证

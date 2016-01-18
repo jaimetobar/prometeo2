@@ -25,6 +25,8 @@ Rails.application.routes.draw do
         get :step_3_schedule
         get :step_4_subscription
         patch :new_or_update_form
+
+        get 'add_suggestion/:id' => :add_suggestion, as: :add_suggestion
       end
     end
 

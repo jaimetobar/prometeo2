@@ -1,0 +1,5 @@
+<%# required: accreditations_ids, role %>
+<%= link_to step_4_subscription_plan_path(role: role,accreditations: accreditations_ids), class: "btn btn-default btn-success btn-lg pull-right" do %>
+  <span class="hidden-xs hidden-sm"><%= t(".subscribe") %></span>
+  <span class="glyphicon glyphicon-chevron-right"></span>
+<% end %>

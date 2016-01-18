@@ -10,7 +10,6 @@ kr:
       courses_for: 과정
     step_3_schedule:
       change_accreditations: 승인서 변경
-      subscribe: 승인서 등록
       suggested_plan: 다음은 귀하께 추천하는 계획입니다.
       accreditation: 승인서
       course: 강좌
@@ -27,3 +26,5 @@ kr:
         <span class="label label-info">%{hours_count} </span> 시간을 투자하면 <span class="label label-info">%{accreditations_count}</span> 크레딧을 얻게 됩니다. 크레딧을 얻는 방법을 말씀드리겠습니다.
     create:
       subscribed: 강좌가 시작되면 알려드리겠습니다.
+    subscription_btn:
+      subscribe: 승인서 등록

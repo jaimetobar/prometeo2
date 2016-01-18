@@ -1,7 +1,7 @@
 class PlanController < ApplicationController
 
-  before_action :set_role_and_accreditations, only: [:step_2_accreditations,:step_3_schedule,:step_4_subscription,:new_or_update_form,:create]
-  before_action :set_accreditations_ids, only: [:step_3_schedule,:step_4_subscription,:new_or_update_form,:create]
+  before_action :set_role_and_accreditations, only: [:step_2_accreditations,:step_3_schedule,:step_4_subscription,:new_or_update_form,:create,:add_suggestion]
+  before_action :set_accreditations_ids, only: [:step_3_schedule,:step_4_subscription,:new_or_update_form,:create,:add_suggestion]
   before_action :set_navigation
 
   # GET /plan
@@ -80,6 +80,13 @@ class PlanController < ApplicationController
     else
       render :step_4_subscription
     end
+  end
+
+  # GET /entrenamiento/add_suggestion
+  def add_suggestion
+    @accreditation = Accreditation.find(params[:id])
+    @courses = Course.by_accreditations(@accreditations_ids)
+    @accreditations_ids = @accreditations_ids + [@accreditation.id]
   end
 
   protected

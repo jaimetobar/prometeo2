@@ -10,7 +10,6 @@ pt:
       courses_for: Cursos para
     step_3_schedule:
       change_accreditations: Alterar acreditações
-      subscribe: Inscrever-me para receber notificações
       suggested_plan: Este é o plano que lhe sugerimos
       accreditation: Acreditação
       course: Curso
@@ -28,3 +27,5 @@ pt:
         Permita-nos contar como e ajudá-lo(a) a consegui-los
     create:
       subscribed: Você será informado sobre a data da início dos cursos
+    subscription_btn:
+      subscribe: Inscrever-me para receber notificações

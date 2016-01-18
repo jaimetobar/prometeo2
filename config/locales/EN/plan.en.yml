@@ -10,7 +10,6 @@ en:
       courses_for: Courses for
     step_3_schedule:
       change_accreditations: Change accreditations
-      subscribe: Subscribe me to accreditations
       suggested_plan: Here is the plan we suggest to you
       accreditation: Accreditation
       course: Course
@@ -30,3 +29,5 @@ en:
 
     create:
       subscribed: We will let you know when the courses will begin
+    subscription_btn:
+      subscribe: Subscribe me to accreditations
