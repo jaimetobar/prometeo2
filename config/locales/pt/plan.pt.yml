@@ -7,6 +7,7 @@ pt:
       change_role: Mudar de Função
       select_accreditations: Selecione as Acreditações que deseja fazer
       create_plan: Criar plano
+      courses_for: Cursos para
     step_3_schedule:
       change_accreditations: Alterar acreditações
       subscribe: Inscrever-me para receber notificações
@@ -21,5 +22,9 @@ pt:
     step_4_subscription:
       change_accreditations: Alterar acreditações
       subscribe: Inscrever-me
+      subscription_header_html: |
+        Investindo <span class="label label-info">%{hours_count} horas</span> você obterá
+        <span class="label label-info">%{accreditations_count} créditos</span>.
+        Permita-nos contar como e ajudá-lo(a) a consegui-los
     create:
       subscribed: Você será informado sobre a data da início dos cursos

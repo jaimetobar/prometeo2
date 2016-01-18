@@ -16,7 +16,7 @@
     <div class="btn-group roles">
       <% User.roles.each do |role, role_code| %>
         <%= link_to step_2_accreditations_plan_path(role: role), class:"btn btn-default btn-role" do %>
-          <p><%= role.titlecase.split.join("<br />").html_safe %></p>
+          <p><%= t("common.#{role}").titlecase.split.join("<br />").html_safe %></p>
           <button class="go btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button>
         <% end %>
       <% end %>

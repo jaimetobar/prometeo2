@@ -7,6 +7,7 @@ jp:
       change_role: 役割の変更
       select_accreditations: 取得したい認定を選択してください
       create_plan: プランの作成
+      courses_for: コース
     step_3_schedule:
       change_accreditations: 認定の変更
       subscribe: 認定の購読を申し込みます
@@ -22,5 +23,7 @@ jp:
       change_accreditations: 認定の変更
       subscription_header: データを入力してください。コースが受講可能になったときにお知らせします。
       subscribe: 購読
+      subscription_header_html: |
+        <span class="label label-info">%{hours_count}</span> 時間の投資により、 <span class="label label-info">%{accreditations_count}__</span> 点のクレジットを獲得します。詳しくは説明をご覧ください。 
     create:
       subscribed: コースがいつ開始するかをお知らせします

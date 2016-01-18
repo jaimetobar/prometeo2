@@ -7,6 +7,7 @@ en:
       change_role: Change role
       select_accreditations: Select the accreditations you want to take
       create_plan: Create plan
+      courses_for: Courses for
     step_3_schedule:
       change_accreditations: Change accreditations
       subscribe: Subscribe me to accreditations
@@ -22,5 +23,10 @@ en:
       change_accreditations: Change accreditations
       subscription_header: Please, enter your data and we will let you know when the courses become available
       subscribe: Subscribe
+      subscription_header_html: |
+        Investing <span class="label label-info">%{hours_count} hours</span>
+        you'll get <span class="label label-info">%{accreditations_count} accreditations</span>.
+        Let us tell you how and help you get them
+
     create:
       subscribed: We will let you know when the courses will begin

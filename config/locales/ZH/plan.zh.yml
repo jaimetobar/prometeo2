@@ -7,6 +7,7 @@ zh:
       change_role: 更改角色
       select_accreditations: 选择要参加的认证
       create_plan: 创建计划
+      courses_for: 课程
     step_3_schedule:
       change_accreditations: 更改认证
       subscribe: 订阅认证
@@ -22,5 +23,7 @@ zh:
       change_accreditations: 更改认证
       subscription_header: 请输入数据，当课程可用时我们会告诉您
       subscribe: 订阅
+      subscription_header_html: |
+        投入 <span class="label label-info">%{hours_count}</span> 个小时，将得到 <span class="label label-info">%{accreditations_count}</span> 积分。我们告诉你如何获得
     create:
       subscribed: 当课程开始时我们会告诉您

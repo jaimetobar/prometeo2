@@ -21,7 +21,7 @@
     <div class="btn-group roles">
       <div class="accreditations">
         <div class="text-center">
-          <h2>Cursos para <strong><%= @role %></strong></h2>
+          <h2><%= t('.courses_for') %> <strong><%= t("common.#{@role}") %></strong></h2>
         </div>
 
         <% Accreditation.categories.each do |category,value| %>

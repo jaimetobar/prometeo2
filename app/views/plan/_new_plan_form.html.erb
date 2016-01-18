@@ -11,7 +11,7 @@
     <%= f.input :name %>
     <%= f.input :country, priority: country_priority %>
     <%= f.input :partner %>
-    <%= f.input :role, collection: User.roles.keys %>
+    <%= f.input :role, collection: User.roles.keys.map { |role| [t("common.#{role}"),role] } %>
     <%= f.fields_for :subscriptions do |ff| %>
       <%= ff.input :course_id, as: :hidden %>
       <%= ff.input :accreditation_id, as: :hidden %>
