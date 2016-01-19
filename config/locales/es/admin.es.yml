@@ -70,6 +70,7 @@ es:
         courses: Cursos
         accreditaion_deletion_confirmation: ¿Está seguro de eliminar la acreditación?
         advanced: Avanzada
+        is_certification: Es certificado
       edit:
         edit_accreditation: Edición de acreditación
       new:

@@ -69,6 +69,7 @@ en:
         role: Role
         courses: Courses
         accreditaion_deletion_confirmation: Are you sure you want to delete this accreditation?
+        is_certification: Is certification
       edit:
         edit_accreditation: Edit accreditation
       new:

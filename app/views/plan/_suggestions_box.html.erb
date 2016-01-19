@@ -7,6 +7,14 @@
         <% @suggestions.each do |s| %>
           <li id="suggestion-<%= s.id %>" class="suggestion">
             <h3 class="accreditation-name"><%= s.name %></h3>
+            <div class="tags">
+              <% if s.is_certification %>
+                <span class="label label-info"><%= t("common.certification") %></span>
+              <% end %>
+              <% s.tag_list.each do |tag| %>
+              <span class="label label-default"><%= tag %></span>
+              <% end %>
+            </div>
             <p><%= s.description %></p>
             <%= link_to t('.add_suggestion'), add_suggestion_plan_path(s.id,role: @role,accreditations: @accreditations_ids),
               class: 'add-suggestion btn btn-add btn-lg', "data-accreditation-id" => s.id ,remote: true, method: :get %>

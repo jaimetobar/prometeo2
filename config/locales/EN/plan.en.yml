@@ -26,7 +26,8 @@ en:
         Investing <span class="label label-info">%{hours_count} hours</span>
         you'll get <span class="label label-info">%{accreditations_count} accreditations</span>.
         Let us tell you how and help you get them
-
+      certifications_header_html: |
+        Additionally you'll obtain <span class="label label-info">%{subscriptions_count} certifications</span>
     create:
       subscribed: We will let you know when the courses will begin
     subscription_btn:

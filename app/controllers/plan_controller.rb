@@ -25,7 +25,7 @@ class PlanController < ApplicationController
       render :step_2_accreditations
     else
       @courses = Course.by_accreditations(@accreditations_ids)
-      @suggestions = Accreditation.suggestions_for(@accreditations_ids).advanced
+      @suggestions = Accreditation.suggestions_for(@accreditations_ids).where("is_certification = ? OR advanced = ?",true,true)
       subscription_attributes = Subscription.attributes_from_courses_and_role(@courses,@role)
 
       @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
@@ -38,7 +38,8 @@ class PlanController < ApplicationController
   def step_4_subscription
     courses = Course.by_accreditations(@accreditations_ids)
     @hours_count = courses.uniq.sum(:duration)
-    @accreditations_count = @accreditations_ids.length
+    @accreditations_count = Accreditation.where(id: @accreditations_ids).where("is_certification = ?",false).count
+    @certifications_count = Accreditation.where(id: @accreditations_ids).certification.count
 
     subscription_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
     @user = User.new(role: @role, subscriptions_attributes: subscription_attributes)
@@ -87,6 +88,7 @@ class PlanController < ApplicationController
     @accreditation = Accreditation.find(params[:id])
     @courses = Course.by_accreditations(@accreditations_ids)
     @accreditations_ids = @accreditations_ids + [@accreditation.id]
+    @sessions_per_course = Course.sessions_per_course(@courses)
   end
 
   protected
@@ -109,6 +111,7 @@ class PlanController < ApplicationController
       @accreditations = Accreditation
         .where(role: Accreditation.roles[@role])
         .where(advanced: false)
+        .where(is_certification: false)
     end
 
     def set_accreditations_ids

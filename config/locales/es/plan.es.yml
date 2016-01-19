@@ -24,6 +24,8 @@ es:
         Invirtiendo <span class="label label-info">%{hours_count} horas</span>
         obtendrás <span class="label label-info">%{accreditations_count} acreditaciones</span>.
         Permítenos contarte cómo y ayudarte a alcanzarlas.
+      certifications_header_html: |
+        Adicionalmente obtendrás <span class="label label-info">%{subscriptions_count} certificaciones</span>
       subscribe: Suscribirme
       next: Siguiente
     create:

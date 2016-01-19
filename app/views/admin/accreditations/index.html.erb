@@ -26,6 +26,7 @@
                                   <th><%= t(".role")%></th>
                                   <th><%= t(".courses")%></th>
                                   <th><%= t(".advanced")%></th>
+                                  <th><%= t(".is_certification")%></th>
                                   <th class="actions"></th>
                               </tr>
                           </thead>
@@ -40,6 +41,11 @@
                                       <td><%= link_to("#{a.courses.count} #{t('.courses')}", admin_courses_path(accreditation: a.id)) %></td>
                                       <td>
                                         <% if a.advanced? %>
+                                          <span class="glyphicon glyphicon-ok"></span>
+                                        <% end %>
+                                      </td>
+                                      <td>
+                                        <% if a.is_certification? %>
                                           <span class="glyphicon glyphicon-ok"></span>
                                         <% end %>
                                       </td>

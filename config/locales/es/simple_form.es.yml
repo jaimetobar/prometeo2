@@ -25,6 +25,7 @@ es:
       accreditation:
         role: Rol
         advanced: Avanzado
+        is_certification: Es certificado
     hints:
       defaults:
         username: 'Usuario'

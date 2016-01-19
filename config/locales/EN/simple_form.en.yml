@@ -24,6 +24,8 @@ en:
         description: Description
       accreditation:
         role: Role
+        advanced: id advanced
+        is_certification: is certification
     hints:
       defaults:
         username: 'User'

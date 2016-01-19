@@ -2,13 +2,14 @@
 #
 # Table name: accreditations
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime
-#  updated_at :datetime
-#  role       :integer
-#  tags       :string(255)
-#  category   :integer
-#  advanced   :boolean          default(FALSE)
+#  id               :integer          not null, primary key
+#  created_at       :datetime
+#  updated_at       :datetime
+#  role             :integer
+#  tags             :string(255)
+#  category         :integer
+#  advanced         :boolean          default(FALSE)
+#  is_certification :boolean          default(FALSE)
 #
 
 class Accreditation < ActiveRecord::Base
@@ -34,6 +35,7 @@ class Accreditation < ActiveRecord::Base
   after_initialize :defaults
 
   scope :advanced, -> { where(advanced: true) }
+  scope :certification, -> { where(is_certification: true) }
 
   def self.suggestions_for(accreditations_ids)
     ids = AccreditationSuggestion.where(accreditation_id: accreditations_ids).pluck(:suggestion_id)
@@ -57,6 +59,7 @@ class Accreditation < ActiveRecord::Base
   private
     def defaults
       self.advanced ||= false
+      self.is_certification ||= false
       self.tags ||= ""
     end
 end

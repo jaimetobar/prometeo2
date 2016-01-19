@@ -2,13 +2,14 @@
 #
 # Table name: accreditations
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime
-#  updated_at :datetime
-#  role       :integer
-#  tags       :string(255)
-#  category   :integer
-#  advanced   :boolean          default(FALSE)
+#  id               :integer          not null, primary key
+#  created_at       :datetime
+#  updated_at       :datetime
+#  role             :integer
+#  tags             :string(255)
+#  category         :integer
+#  advanced         :boolean          default(FALSE)
+#  is_certification :boolean          default(FALSE)
 #
 
 FactoryGirl.define do
