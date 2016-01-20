@@ -2,4 +2,6 @@ en:
   common:
     hours: hours
     sales: sales
+    sales_engineer: sales engineer
+    delivery: delivery
     certification: certification

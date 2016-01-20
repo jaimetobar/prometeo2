@@ -1,3 +1,6 @@
 pt:
   common:
     hours: horas
+    sales: sales
+    sales_engineer: sales engineer
+    delivery: delivery

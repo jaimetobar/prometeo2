@@ -1,7 +1,7 @@
 es:
   common:
     hours: horas
-    sales: ventas
-    sales_engineer: ingeniero de ventas
-    delivery: entrega
+    sales: sales
+    sales_engineer: sales engineer
+    delivery: delivery
     certification: certificación
