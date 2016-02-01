@@ -23,7 +23,7 @@ kr:
       subscription_header: 여러분의 데이터를 입력하시면 관련 강좌가 있을 때 알려드리겠습니다.
       subscribe: 구독
       subscription_header_html: |
-        <span class="label label-info">%{hours_count} </span> 시간을 투자하면 <span class="label label-info">%{accreditations_count}</span> 크레딧을 얻게 됩니다. 크레딧을 얻는 방법을 말씀드리겠습니다.
+        <span class="label label-info">%{hours_count} </span> 시간을 투자하면 <span class="label label-info">%{accreditations_count}</span> 인증을 얻게 됩니다. 크레딧을 얻는 방법을 말씀드리겠습니다.
     create:
       subscribed: 강좌가 시작되면 알려드리겠습니다.
     subscription_btn:

@@ -23,7 +23,7 @@ zh:
       subscription_header: 请输入数据，当课程可用时我们会告诉您
       subscribe: 订阅
       subscription_header_html: |
-        投入 <span class="label label-info">%{hours_count}</span> 个小时，将得到 <span class="label label-info">%{accreditations_count}</span> 积分。我们告诉你如何获得
+        投入 <span class="label label-info">%{hours_count}</span> 个小时，将获评 <span class="label label-info">%{accreditations_count}</span> 等级。我们告诉你如何获得
     create:
       subscribed: 当课程开始时我们会告诉您
     subscription_btn:

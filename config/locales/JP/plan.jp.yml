@@ -23,7 +23,7 @@ jp:
       subscription_header: データを入力してください。コースが受講可能になったときにお知らせします。
       subscribe: 購読
       subscription_header_html: |
-        <span class="label label-info">%{hours_count}</span> 時間の投資により、 <span class="label label-info">%{accreditations_count}__</span> 点のクレジットを獲得します。詳しくは説明をご覧ください。
+        <span class="label label-info">%{hours_count}</span> 時間の投資により、 <span class="label label-info">%{accreditations_count}__</span> 点の単位を獲得します。詳しくは説明をご覧ください。 
     create:
       subscribed: コースがいつ開始するかをお知らせします
     subscription_btn:

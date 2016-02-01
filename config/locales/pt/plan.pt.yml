@@ -23,7 +23,7 @@ pt:
       subscribe: Inscrever-me
       subscription_header_html: |
         Investindo <span class="label label-info">%{hours_count} horas</span> você obterá
-        <span class="label label-info">%{accreditations_count} créditos</span>.
+        <span class="label label-info">%{accreditations_count} ACREDITAÇÕES</span>.
         Permita-nos contar como e ajudá-lo(a) a consegui-los
     create:
       subscribed: Você será informado sobre a data da início dos cursos
