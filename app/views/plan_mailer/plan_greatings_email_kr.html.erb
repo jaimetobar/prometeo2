@@ -1,11 +1,9 @@
+notifications_users_url(@user.email_token)
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-      <!-- NAME: 1:2 COLUMN -->
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+    <head><!-- NAME: 1:2 COLUMN --><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
 		body,#bodyTable,#bodyCell{
 			height:100% !important;
@@ -628,7 +626,7 @@
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="366" class="mcnTextContentContainer">
                     <tbody><tr>
 
-                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">You requested the creation of a Customized Enablement Plan. Here it is!</td>
+                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">귀하께서 맞춤형 이네이블먼트 플랜 생성을 요청하셨습니다. 여기에 보내드립니다!</td>
                     </tr>
                 </tbody></table>
 
@@ -674,7 +672,7 @@
                             <table border="0" cellpadding="18" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #37424A;">
                                 <tbody><tr>
                                     <td valign="top" class="mcnTextContent" style="color: #FFFFFF;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 18px;font-weight: normal;text-align: center;">
-                                        <h4 class="null" style="text-align: center;"><span style="color:#FFFFFF"><span style="font-size:18px"><strong>YOUR ENABLEMENT PLAN,</strong> <%= @user.name %></span></span></h4>
+                                        <h4 class="null" style="text-align: center;"><span style="color:#FFFFFF"><span style="font-size:18px"><strong>귀하의 이네이블먼트 플랜,</strong> <%= @user.name %></span></span></h4>
 
                                     </td>
                                 </tr>
@@ -706,46 +704,40 @@
 
                         <td valign="top" class="mcnTextContent" style="padding: 9px 18px; line-height: normal;">
 
-                            <div style="text-align: center;"><span style="color:#000000"><span style="text-align:center">We want you to take every career opportunity that will be available to you after you improve your knowledge of Red Hat Solutions.<br><br>This is your plan:<br><br>
+                            <div style="text-align: center;"><span style="color:#000000"><span style="text-align:center">귀하의 Red Hat Solutions에 대한 지식을 향상시킨 후 이용할 수 있는 모든 경력 기회를 포착하시길 바랍니다.<br><br>다음은 귀하의 플랜입니다:<br><br>
 
+<table style="border-spacing:0px;">
+  <thead>
+      <tr>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Accreditation</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Course</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Category</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duration</th>
+          <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Next available date</th>
+      </tr>
+  </thead>
+  <tbody style="border-style: solid; border-color: black;">
+    <% @user.subscriptions.each do |s| %>
+      <tr>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if s.accreditation %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.category %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
+        <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">
+          <% if s.course.always_available? %>
+            Always available
+          <% elsif next_session = @sessions_per_course[s.course] %>
+            <%= next_session.start_date %> - <%= next_session.end_date %>
+          <% else %>
+            Not available
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-
-                              <table style="border-spacing:0px;">
-                                <thead>
-                                    <tr>
-                                        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Accreditation</th>
-                                        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Course</th>
-                                        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Category</th>
-                                        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Duration</th>
-                                        <th style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">Next available date</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="border-style: solid; border-color: black;">
-                                  <% @user.subscriptions.each do |s| %>
-                                    <tr>
-                                      <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.accreditation.name if s.accreditation %></td>
-                                      <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.name %></td>
-                                      <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.category %></td>
-                                      <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;"><%= s.course.duration %></td>
-                                      <td style="border-style:solid; border-color: black; border-width: 1px; padding: 10px;">
-                                        <% if s.course.always_available? %>
-                                          Always available
-                                        <% elsif next_session = @sessions_per_course[s.course] %>
-                                          <%= next_session.start_date %> - <%= next_session.end_date %>
-                                        <% else %>
-                                          Not available
-                                        <% end %>
-                                      </td>
-                                    </tr>
-                                  <% end %>
-                                </tbody>
-                              </table>
-
-
-
-
-
-                            </span></span></div>
+                              </span></span></div>
 
                         </td>
                     </tr>
@@ -786,7 +778,7 @@
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
 
-                        <td valign="top" class="mcnTextContent" style="padding: 9px 18px;color: #0C0000;line-height: normal;"><span style="font-size:16px"><strong>HOW DO I ENROLL IN A COURSE?</strong></span><br> <br> <span style="line-height:1.6em">1) You need to have a Partner Connect account&nbsp;<a href="http://bit.ly/partner_sac_faq" target="_blank">I don&apos;t have one</a><br> 2) Log in and follow the steps in the&nbsp;<strong>How to use OPEN</strong> video, available through&nbsp;<a href="http://help-esac.rhcloud.com" target="_blank">this link</a>.</span><br> 3) Complete the courses and corresponding exams</td>
+                        <td valign="top" class="mcnTextContent" style="padding: 9px 18px;color: #0C0000;line-height: normal;"><span style="font-size:16px"><strong>과정 등록은 어떻게 하나요?</strong></span><br> <br> <span style="line-height:1.6em">1) Partner Connect 계정이 있어야 합니다.&nbsp;<a href="http://bit.ly/partner_sac_faq" target="_blank">계정이 없습니다</a><br> 2) 로그인 한 다음&nbsp;<strong>OPEN 사용 방법</strong> 비디오에 나오는 절차를 따라하세요. 비디오는 <a href="http://help-esac.rhcloud.com" target="_blank">이 링크</a>에서 보실 수 있습니다.</span><br> 3) 과정을 수료한 후 해당되는 시험을 봅니다.</td>
                     </tr>
                 </tbody></table>
 
@@ -813,7 +805,7 @@
 
                             <table border="0" cellpadding="18" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #DCDCDC;">
                                 <tbody><tr>
-                                    <td valign="top" class="mcnTextContent" style="color: #000000;font-family: Helvetica;font-size: 14px;font-weight: normal;line-height: normal;text-align: center;">If you need any help, we&apos;re here for you. <span style="font-size:14px; line-height:1.6em">Just contact us at<span style="font-size:14px; line-height:1.6em">&nbsp;<a href="mailto:enablement-help@redhat.com?subject=Help%20with%20my%20Training%20Plan" target="_blank">enablement-help@redhat.com</a>&nbsp;</span><span style="font-size:14px; line-height:1.6em">and we will help you according to your profile and your existing accreditations.</span></td>
+                                    <td valign="top" class="mcnTextContent" style="color: #000000;font-family: Helvetica;font-size: 14px;font-weight: normal;line-height: normal;text-align: center;">도움이 필요하시면, 언제든지 문의해 주십시오. <span style="font-size:14px; line-height:1.6em">&nbsp;<a href="mailto:enablement-help@redhat.com?subject=교육%20플랜%20지원" target="_blank">enablement-help@redhat.com</a>&nbsp;</span><span style="font-size:14px; line-height:1.6em">에 연락하시면 귀하의 프로필과 기존 인증에 따라 도와드리겠습니다.</span></td>
                                 </tr>
                             </tbody></table>
                         </td>
@@ -843,7 +835,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-top-left-radius: 3px;border-top-right-radius: 3px;border-bottom-right-radius: 3px;border-bottom-left-radius: 3px;background-color: #C40000;">
                     <tbody>
                         <tr>
-                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 16px; padding: 15px;"><a class="mcnButton " title="EDITAR NOTIFICACIONES" href="<%= notifications_users_url(@user.email_token) %>" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">EDIT NOTIFICATIONS</a></td>
+                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 16px; padding: 15px;"><a class="mcnButton " title="EDITAR NOTIFICACIONES" href="<%= notifications_users_url(@user.email_token) %>" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">편집 통지</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -860,7 +852,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
 
-                            <div style="text-align: center;"><em>Red Hat LATAM&nbsp;Partner Enablement Team - 2015</em></div>
+                            <div style="text-align: center;"><em>Red Hat LATAM&nbsp;파트너 이네이블먼트 팀 - 2015</em></div>
 
                         </td>
                     </tr>
