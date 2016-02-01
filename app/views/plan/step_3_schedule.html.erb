@@ -14,9 +14,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12">
-        <%= render 'suggestions_box' %>
-      </div>
+      <% if I18n.locale == :es %>
+        <div class="col-xs-12">
+          <%= render 'suggestions_box' %>
+        </div>
+      <% end %>
 
       <div class="col-xs-8 col-xs-offset-2 text-center">
 
