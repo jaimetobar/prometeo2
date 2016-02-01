@@ -9,10 +9,10 @@
             <h3 class="accreditation-name"><%= s.name %></h3>
             <div class="tags">
               <% if s.is_certification %>
-                <span class="label label-info"><%= t("common.certification") %></span>
+                <span class="label label-certification"><%= t("common.certification") %></span>
               <% end %>
               <% s.tag_list.each do |tag| %>
-              <span class="label label-default"><%= tag %></span>
+                <span class="label label-default"><%= tag %></span>
               <% end %>
             </div>
             <p><%= s.description %></p>
