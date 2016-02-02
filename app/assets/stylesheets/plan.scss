@@ -219,6 +219,12 @@ TODO: add in and out animtations
       background: transparent;
       border: 0;
       box-shadow: none;
+      .bx-prev {
+        left: -50px;
+      }
+      .bx-next {
+        right: -50px;
+      }
     }
     .btn-add {
       background-color: #c00;
