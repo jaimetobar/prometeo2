@@ -212,13 +212,19 @@ TODO: add in and out animtations
     }
   }
   .additional-knowledge {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom: solid 1px #c7c7c7;
+    background: #fff;
+    padding: 20px 20px 1px;
+    margin-top: 30px;
     .bx-wrapper {
       background: transparent;
       border: 0;
       box-shadow: none;
+      .bx-prev {
+        left: -50px;
+      }
+      .bx-next {
+        right: -50px;
+      }
     }
     .btn-add {
       background-color: #c00;
@@ -237,6 +243,27 @@ TODO: add in and out animtations
             background-color: #ad0000;
             color: #fff;
         }
+    }
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    .accreditation-name {
+      font-size: 20px;
+      margin-top: 25px;
+    }
+    li {
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+    .text-center {
+      margin-top: 25px;
+    }
+    .accreditation-description {
+      margin-bottom: 0;
+      margin-top: 5px;
     }
   }
   .new-course {
