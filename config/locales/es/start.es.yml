@@ -51,7 +51,7 @@ es:
       caption_registro_html: |
         <p class="caption text-muted">* Aplican condiciones descritas en su ROE, disponible en <a href="http://partner.redhat.com/" target="_blank">partner.redhat.com</a></p>
       text_link_html: |
-        <a class="btn cta-primary btn-lg" target="_blank" href="https://www.dropbox.com/s/1ak00a0miciq9n6/Guia%20Deal%20Registration.pdf?dl=0">Más información</a>
+        <a class="btn cta-primary btn-lg" target="_blank" href="http://lrd.to/DealReg_guide">Más información</a>
 
       title_training: Entrenarme
       text_training: Hemos creado una herramienta para que de acuerdo a tu trabajo te podamos sugerir el mejor camino para mejorar tus skills profesionales relacionados con Red Hat. Recuerda siempre tener tu cuenta de Partner Center para acceder a los recursos propuestos.
