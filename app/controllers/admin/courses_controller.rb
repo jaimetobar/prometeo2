@@ -50,7 +50,7 @@ class Admin::CoursesController < Admin::AdminController
     end
     def course_params
       params.require(:course).permit(
-        :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration,
+        :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration, :external_id,
         accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ],
         course_sessions_attributes:[ :start_date, :end_date, :_destroy, :id ],
         translations_attributes: [:id, :locale, :name, :description]

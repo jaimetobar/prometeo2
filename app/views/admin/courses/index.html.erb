@@ -21,6 +21,7 @@
                           <thead>
                             <tr>
                               <th><%= t(".name") %></th>
+                              <th>External ID</th>
                               <th><%= t(".accreditations") %></th>
                               <th><%= t(".roles") %></th>
                               <th><%= t(".category") %></th>
@@ -34,6 +35,7 @@
                               <% @courses.each do |course|  %>
                                 <tr>
                                   <td><%= course.name %></td>
+                                  <td><%= course.external_id %></td>
                                   <td><%= link_to("#{course.accreditations.count} #{t('.accreditations')}", admin_accreditations_path(course: course.id),) %></td>
                                   <td><%= course.which_roles %></td>
                                   <td><%= course.category %></td>

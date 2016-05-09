@@ -9,6 +9,7 @@
 
   <%= f.error_notification %>
   <%= f.input :category, as: :select,collection: Course.categories.keys %>
+  <%= f.input :external_id, label: 'External ID'%>
   <div class="form-group">
     <ul class="nav nav-tabs col-sm-9 col-sm-offset-3">
       <% Settings.locales.each do |locale| %>
