@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119040535) do
+ActiveRecord::Schema.define(version: 20160502154037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20160119040535) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "contacts", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "partner_id"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["partner_id"], name: "index_contacts_on_partner_id", using: :btree
+
   create_table "course_sessions", force: true do |t|
     t.integer  "course_id"
     t.date     "start_date"
@@ -107,6 +118,14 @@ ActiveRecord::Schema.define(version: 20160119040535) do
     t.boolean  "for_delivery"
     t.integer  "session_type"
     t.decimal  "duration"
+    t.string   "external_id"
+  end
+
+  create_table "partners", force: true do |t|
+    t.string   "name"
+    t.string   "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subscriptions", force: true do |t|
@@ -126,12 +145,15 @@ ActiveRecord::Schema.define(version: 20160119040535) do
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "country"
-    t.string   "partner"
+    t.string   "partner_name"
     t.integer  "role"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email_token"
     t.string   "name"
+    t.integer  "partner_id"
   end
+
+  add_index "users", ["partner_id"], name: "index_users_on_partner_id", using: :btree
 
 end

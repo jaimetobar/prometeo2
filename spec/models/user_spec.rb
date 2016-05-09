@@ -11,6 +11,7 @@
 #  updated_at  :datetime
 #  email_token :string(255)
 #  name        :string(255)
+#  partner_id  :integer
 #
 
 require 'rails_helper'

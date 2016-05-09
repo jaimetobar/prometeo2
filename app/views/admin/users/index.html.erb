@@ -55,7 +55,7 @@
                         <td><%= user.email %></td>
                         <td><%= user.name %></td>
                         <td><%= user.country %></td>
-                        <td><%= user.partner %></td>
+                        <td><%= user.partner.try(:name) || user.partner_name %></td>
                         <td>
                           <%= link_to "#{user.subscriptions.count} #{t('.subscriptions_edit')}", admin_user_subscriptions_path(user.id) %>
                         </td>

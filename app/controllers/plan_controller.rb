@@ -101,7 +101,7 @@ class PlanController < ApplicationController
 
     def user_params
       params.require(:user).permit(
-        :email,:country,:partner,:role,:name,
+        :email,:country,:partner_name,:role,:name,
         subscriptions_attributes: [:course_id,:accreditation_id]
       )
     end

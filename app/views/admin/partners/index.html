@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row partners-index">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2>
+                    Partners
+                    <%= link_to new_admin_partner_path,class: "btn btn-success btn-md pull-right" do %>
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Agregar Partner
+                    <% end %>
+                  </h2>
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th> Nombre </th>
+                              <th>Account ID</th>
+                              <th>Contactos</th>
+                              <th class="actions"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% if !@partners.blank? %>
+                              <% @partners.each do |partner|  %>
+                                <tr>
+                                  <td><%= partner.name %></td>
+                                  <td><%= partner.account_id %></td>
+                                  <td><%= partner.contacts.pluck(:email).join(', ') %></td>
+                                  <td>
+                                    <%= link_to edit_admin_partner_path(partner), class: "btn btn-info" do %>
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    <% end %>
+                                    <%= link_to admin_partner_path(partner), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do %>
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    <% end %>
+                                  </td>
+                                </tr>
+                              <% end %>
+                            <% end %>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- /.table-responsive -->
+              </div>
+              <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
+      </div>
+  </div>
+</div>

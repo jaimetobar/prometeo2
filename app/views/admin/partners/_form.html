@@ -1,0 +1,38 @@
+<%= simple_form_for [:admin,@partner], html: { class: "form-horizontal" }, method: @method || :post ,
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :account_id, label: 'Account ID' %>
+
+  <div class="form-group optional partner-contacts">
+    <label class="optional col-sm-3 control-label" for="accreditations_courses">Contactos</label>
+    <div class="col-sm-9">
+      <%= f.nested_fields_for :contacts do |ff| %>
+        <div class="row">
+          <div class="col-md-3">
+            <%= ff.input(:first_name) %>
+          </div>
+          <div class="col-md-3">
+            <%= ff.input(:last_name) %>
+          </div>
+          <div class="col-md-3">
+            <%= ff.input(:email) %>
+          </div>
+          <div class="col-md-3">
+            <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.add_nested_fields_link :contacts, content_tag(:span,'Contactos',class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <%= f.button :submit, value: 'Guardar', class:"btn btn-success pull-right" %>
+<% end %>

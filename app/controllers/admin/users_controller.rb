@@ -59,12 +59,12 @@ class Admin::UsersController < Admin::AdminController
   end
 
   private
-  def set_user
-    @user = User.find(params[:id])
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
 
-  def user_params
-    params.require(:user).permit(:email,:country,:partner,:role,:name)
-  end
+    def user_params
+      params.require(:user).permit(:email,:country,:partner_id,:partner_name,:role,:name)
+    end
 
 end

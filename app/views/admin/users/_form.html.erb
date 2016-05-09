@@ -11,7 +11,8 @@
  <%= f.input :name, label: "Nombre del usuario" %>
  <%= f.input :email, label: "Email de usuario" %>
  <%= f.input :country, label: "País", priority: country_priority %>
- <%= f.input :partner, label: "Partner" %>
+ <%= f.input :partner_name, label: "Nombre del partner ingresado por el usuario", disabled: true %>
+ <%= f.input :partner_id, label: "Partner", collection: Partner.all %>
  <%= f.input :role, collection: [:sales_engineer,:sales,:delivery], label: "Tipo de Rol" %>
  <%= f.button :submit, value: "Guardar", class: "btn btn-success pull-right" %>
  <% end %>

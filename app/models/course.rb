@@ -11,6 +11,7 @@
 #  for_delivery       :boolean
 #  session_type       :integer
 #  duration           :decimal(, )
+#  external_id        :string(255)
 #
 
 class Course < ActiveRecord::Base

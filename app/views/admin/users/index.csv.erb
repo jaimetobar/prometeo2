@@ -8,7 +8,7 @@
       s.accreditation ? s.accreditation.name : nil,
       s.course.name,
       s.finished ? t(".course_finished") : t(".course_not_finished"),
-      u.partner,
+      u.partner_name,
       u.country,
       next_session(s.course)
       ]) -%>

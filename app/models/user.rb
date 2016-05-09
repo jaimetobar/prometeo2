@@ -11,17 +11,21 @@
 #  updated_at  :datetime
 #  email_token :string(255)
 #  name        :string(255)
+#  partner_id  :integer
 #
 
 class User < ActiveRecord::Base
 
   enum role: [:sales_engineer,:sales,:delivery]
+
+  belongs_to :partner
   has_many :subscriptions
   has_many :courses, -> { uniq }, through: :subscriptions
   has_many :accreditations, -> { uniq }, through: :subscriptions
+
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
   validates :country, presence: true, inclusion: { in: ISO3166::Country.all.map { |name, code| code } }
-  validates :partner, presence: true
+  validates :partner_name, presence: true
   validates :role, presence: true
   validates :name, presence: true
 
@@ -33,7 +37,7 @@ class User < ActiveRecord::Base
     where(%Q(
       LOWER(UNACCENT(name)) LIKE LOWER(UNACCENT(:q)) OR
       LOWER(UNACCENT(email)) LIKE LOWER(UNACCENT(:q)) OR
-      LOWER(UNACCENT(partner)) LIKE LOWER(UNACCENT(:q))
+      LOWER(UNACCENT(partner_name)) LIKE LOWER(UNACCENT(:q))
     ),q: "%#{query_string}%")
   end
 
