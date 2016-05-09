@@ -58,6 +58,20 @@ class Admin::UsersController < Admin::AdminController
     redirect_to admin_users_path, notice: I18n.t(".user_deleted",scope: @i18n_scope)
   end
 
+  def import_progress_form
+    @importer = UserProgressImporter.new(sheet_number: 2, header_row: 3)
+  end
+
+  def import_progress
+    @importer = UserProgressImporter.new(import_progress_params)
+    if @importer.import
+      redirect_to admin_users_path, notice: 'Progreso importado exitosamente'
+    else
+      flash[:alert] = 'Hubo un error'
+      render :import_progress_form
+    end
+  end
+
   private
     def set_user
       @user = User.find(params[:id])
@@ -65,6 +79,10 @@ class Admin::UsersController < Admin::AdminController
 
     def user_params
       params.require(:user).permit(:email,:country,:partner_id,:partner_name,:role,:name)
+    end
+
+    def import_progress_params
+      params.require(:user_progress_importer).permit(:file,:sheet_number,:header_row)
     end
 
 end

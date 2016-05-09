@@ -60,6 +60,10 @@ Rails.application.routes.draw do
               get :print
             end
           end
+          collection do
+            get :import_progress_form
+            post :import_progress
+          end
         end
         resources :partners
         resources :accreditations

@@ -83,3 +83,5 @@ gem 'font-awesome-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 #slider
 gem 'bxslider-rails'
+gem 'roo', '~> 2.3.2'
+gem 'roo-xls'

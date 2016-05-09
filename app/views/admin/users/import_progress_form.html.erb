@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-success">
+        <div class="panel-heading">Importar progreso de Usuarios</div>
+        <div class="panel-body">
+          <%= form_for(@importer,url: import_progress_admin_users_path, multipart: true) do |f| %>
+            <div class="form-group">
+              <label>Archivo</label>
+              <%= f.file_field :file, class: "form-control", required: true %>
+            </div>
+            <div class="form-group">
+              <label>Número de hoja en donde está el reporte de cursos completados</small></label>
+              <%= f.number_field :sheet_number, class: "form-control", required: true %>
+            </div>
+            <div class="form-group">
+              <label>Número de fila en donde está el encabezado</label>
+              <%= f.number_field :header_row, class: "form-control", required: true %>
+            </div>
+            <%= submit_tag "Importar", class: "btn btn-success" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
