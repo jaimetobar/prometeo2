@@ -4,7 +4,7 @@ class PlanMailer < ApplicationMailer
   def plan_greatings_email(user)
     @user = user
     @sessions_per_course = Course.sessions_per_course(user.courses)
-    template_name = template_for_country(@user.country)
+    template_name = template_for_user('plan_greatings_email', @user)
 # TODO: Use locales for email text translation
 #    I18n.with_locale(@user.profile.locale) do
 #      mail :to=>@user.email
@@ -41,26 +41,11 @@ class PlanMailer < ApplicationMailer
       end
     end
 
-    def template_for_country(country)
-      template_suffix = case country
-      when 'BR'
-        '_br'
-      when 'MX'
-        '_mx'
-      when 'CN'
-        '_zh'
-      when 'JP'
-        '_jp'
-      when 'KP','KR'
-        '_kr'
+    def template_for_user(template_name, user)
+      if user.locale
+        "#{template_name}_#{user.locale.downcase}"
       else
-        southamerican_countries = ISO3166::Country.find_all_by(:subregion,'South America')
-        if southamerican_countries.include? country
-          '_es'
-        else
-          ''
-        end
+        template_name
       end
-      template_name = "plan_greatings_email#{template_suffix}"
     end
 end

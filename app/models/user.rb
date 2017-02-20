@@ -71,10 +71,30 @@ class User < ActiveRecord::Base
     end
   end
 
-  private
-  def add_token
-    begin
-      self.email_token = SecureRandom.urlsafe_base64(64)
-    end while User.exists?(email_token: self.email_token)
+  def locale
+    case self.country
+    when 'BR'
+      'pt'
+    when 'MX'
+      'es-MX'
+    when 'CN'
+      'zh'
+    when 'JP'
+      'jp'
+    when 'KP','KR'
+      'kr'
+    else
+      southamerican_countries = ISO3166::Country.find_all_by(:subregion,'South America')
+      if southamerican_countries.include? self.country
+        'es'
+      end
+    end
   end
+
+  private
+    def add_token
+      begin
+        self.email_token = SecureRandom.urlsafe_base64(64)
+      end while User.exists?(email_token: self.email_token)
+    end
 end
