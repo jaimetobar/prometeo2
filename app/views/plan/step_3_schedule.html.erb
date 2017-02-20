@@ -28,8 +28,12 @@
           </div>
           <div class="row">
             <div class="col-xs-12 accreditations-list">
-              <% Accreditation.where(id: @accreditations_ids).uniq.each do |a| %>
-                <%= render 'accreditation_detail', accreditation: a %>
+              <%
+                accreditations = Accreditation.where(id: @accreditations_ids).uniq
+                accreditations_map = accreditations.reduce({}) { |map, a| map[a.id] = a; map }
+              %>
+              <% @accreditations_ids.uniq.each do |id| %>
+                <%= render 'accreditation_detail', accreditation: accreditations_map[id.to_i] %>
               <% end %>
             </div>
           </div>
