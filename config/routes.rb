@@ -67,7 +67,7 @@ Rails.application.routes.draw do
         end
         resources :partners
         resources :accreditations
-        resources :products, only: [:index, :new]
+        resources :products, only: [:index, :new, :create, :update, :edit, :destroy]
 
       end
     end

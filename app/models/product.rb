@@ -14,8 +14,11 @@ class Product < ActiveRecord::Base
     :container_platforms, :infrastructure_software, :security_and_management
   ]
 
-  has_many :course_products
+  has_many :course_products, dependent: :destroy
   has_many :courses, through: :course_products
+
+  validates :category, presence: true
+  validates :name, presence: true
 
   def name_with_category
     "#{category.to_s.humanize} - #{name}"
