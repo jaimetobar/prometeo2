@@ -17,4 +17,7 @@ class Product < ActiveRecord::Base
   has_many :course_products
   has_many :courses, through: :course_products
 
+  def name_with_category
+    "#{category.to_s.humanize} - #{name}"
+  end
 end

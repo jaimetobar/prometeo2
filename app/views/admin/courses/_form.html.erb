@@ -40,6 +40,7 @@
       <%= f.input :for_delivery, as: :boolean, label: "Delivery"%>
     </div>
   </div>
+
   <div class="form-group optional accreditations_courses form-inline <% if flash[:accreditations_courses] %>has-error<% end %>">
     <label class="optional col-sm-3 control-label" for="accreditations_courses"><%= t(".accreditations")%></label>
     <div class="col-sm-9">
@@ -47,10 +48,20 @@
         <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
         <%= ff.collection_select( :accreditation_id, Accreditation.all, :id, :name, {},class: "form-control") %>
       <% end %>
-      <%= f.add_nested_fields_link :accreditations_courses, content_tag(:span,t(".accreditation"),class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+      <%= f.add_nested_fields_link :accreditations_courses, content_tag(:span,t(".accreditation"), class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
     </div>
   </div>
 
+  <div class="form-group optional course_products form-inline <% if flash[:course_products] %>has-error<% end %>">
+    <label class="optional col-sm-3 control-label" for="course_products"><%= t(".products")%></label>
+    <div class="col-sm-9">
+      <%= f.nested_fields_for :course_products do |ff| %>
+        <%= ff.remove_nested_fields_link(content_tag(:span,nil,class:"glyphicon glyphicon-minus"), class: "btn btn-danger") %>
+        <%= ff.collection_select( :product_id, Product.all, :id, :name_with_category, {},class: "form-control") %>
+      <% end %>
+      <%= f.add_nested_fields_link :course_products, content_tag(:span,t(".product"), class:"glyphicon glyphicon-plus") ,class: "btn btn-success" %>
+    </div>
+  </div>
 
   <%= f.input :session_type, as: :radio_buttons, class: "course-session-type-radio",
   collection: [[t(".always_available"),:always_available],[t(".per_session"),:per_session]], label: "Tipo de Sesion" %>

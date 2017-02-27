@@ -40,6 +40,7 @@ class Course < ActiveRecord::Base
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
+  accepts_nested_attributes_for :course_products, allow_destroy: true
   accepts_nested_attributes_for :translations
 
   def self.by_accreditations(accreditations_ids)
