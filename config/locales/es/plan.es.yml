@@ -8,6 +8,9 @@ es:
       select_accreditations: Selecciona las acreditaciones que deseas tomar
       create_plan: Crear plan
       courses_for: Cursos para
+      filter_by_product: Filtrar por producto
+      clean_filter: Limpiar filtros
+      invert_selection: Invertir filtros
     step_3_schedule:
       change_accreditations: Cambiar acreditaciones
       suggested_plan: Aquí está el plan que te sugerimos

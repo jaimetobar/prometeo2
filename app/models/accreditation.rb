@@ -46,6 +46,12 @@ class Accreditation < ActiveRecord::Base
     where(id: all.sort_by { |c| (c.name || '').downcase }.map(&:id))
   end
 
+  def products
+    Product.joins(:course_products)
+            .where("course_products.course_id" => accreditations_courses.pluck(:course_id))
+            .uniq
+  end
+
   def initialize_translations!
     Settings.locales.each do |locale|
       self.translations.build(locale: locale) unless self.translations.exists?(locale: locale)
