@@ -16,6 +16,7 @@ class Admin::UsersController < Admin::AdminController
           .order('email DESC')
       end
       format.csv do
+        @users = @users.includes(subscriptions: [{accreditation: [:translations]}, {course: [:translations]}])
         # Email- nombre - Curso - Status - Partner - Pais - Acreditación
         headers['Content-Disposition'] = "attachment; filename=\"user-list.csv\""
         headers['Content-Type'] ||= 'text/csv'
