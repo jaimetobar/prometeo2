@@ -24,7 +24,7 @@ class Course < ActiveRecord::Base
   validates :category, presence: true
   validates :session_type, presence: true
   validates :duration, presence: true
-  validates :external_id, uniqueness: true
+  validates :external_id, uniqueness: true, allow_blank: true
 
   validate :validate_presence_of_roles
 
