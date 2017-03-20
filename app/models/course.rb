@@ -33,11 +33,14 @@ class Course < ActiveRecord::Base
   has_many :course_sessions, dependent: :delete_all
   has_many :subscriptions, dependent: :delete_all
   has_many :users, through: :subscriptions
+  has_many :course_products
+  has_many :products, through: :course_products
 
   alias_method :sessions, :course_sessions
 
   accepts_nested_attributes_for :accreditations_courses, allow_destroy: true
   accepts_nested_attributes_for :course_sessions, allow_destroy: true
+  accepts_nested_attributes_for :course_products, allow_destroy: true
   accepts_nested_attributes_for :translations
 
   def self.by_accreditations(accreditations_ids)

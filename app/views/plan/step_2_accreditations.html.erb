@@ -22,6 +22,43 @@
       <div class="accreditations">
         <div class="text-center">
           <h2><%= t('.courses_for') %> <strong><%= t("common.#{@role}") %></strong></h2>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#products-filter">
+            <%= t(".filter_by_product") %>
+          </button>
+        </div>
+
+        <div class="collapse" id="products-filter">
+          <div class="well">
+            <div class="row">
+              <% Product.all.group_by(&:category).each do |category, products| %>
+                <div class="col-20-pt">
+                  <div class="list-group">
+                    <div class="list-group-item disabled">
+                      <strong><%= category.to_s.humanize %></strong>
+                    </div>
+                    <% products.each do |product| %>
+                      <div class="list-group-item product-filter" data-product="<%= product.id %>">
+                        <%= product.name %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="row text-center pb20">
+              <button class="btn btn-default clean-products-filter" type="button">
+                <%= t(".clean_filter") %>
+              </button>
+              <button class="btn btn-default invert-products-filter" type="button">
+                <%= t(".invert_selection") %>
+              </button>
+            </div>
+            <div class="row text-center">
+              <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#products-filter">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <% Accreditation.categories.each do |category,value| %>
@@ -31,7 +68,7 @@
             </div>
             <% @accreditations.send(category).each_with_index do |a,i| %>
               <div class="col-xs-12">
-                <div class="accreditation-box">
+                <%= content_tag :div, class: "accreditation-box", data: a.products.pluck(:id).reduce({}){ |h, i| h.merge("product-#{i}" => true ) } do %>
                   <div class="select-btn-container">
                     <a class="btn btn-default btn-block btn-select-accreditation" data-accreditation-id="<%= a.id %>">
                       <span class="glyphicon glyphicon-ok"></span>
@@ -47,7 +84,7 @@
                     <%= a.description %>
                   </p>
                   <span class="tag"><%= category.titleize %></span>
-                </div>
+                <% end %>
               </div>
             <% end %>
           </div>

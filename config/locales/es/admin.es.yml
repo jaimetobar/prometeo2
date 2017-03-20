@@ -133,3 +133,10 @@ es:
         category: Categoría
         role: Rol
         finished: Finalizado
+
+    products:
+      index:
+        products: Productos
+        add_product: Agregar producto
+        name: Nombre
+        category: Categoría

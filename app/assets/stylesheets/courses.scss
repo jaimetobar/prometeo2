@@ -17,6 +17,19 @@
   }
 }
 
+.courses_edit {
+  .has-error {
+    input {
+      border-color: red;
+    }
+    .help-block {
+      color: red;
+    }
+    .control-label {
+      color: black !important;
+    }
+  }
+}
 .sessions {
   .form-group {
     margin-left: 0px;
@@ -38,6 +51,9 @@
         }
         .help-block {
           color: red;
+        }
+        .control-label {
+          color: black !important;
         }
       }
 

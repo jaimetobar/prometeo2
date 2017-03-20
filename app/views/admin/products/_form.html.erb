@@ -1,0 +1,15 @@
+<%= simple_form_for [:admin, @product], html: { class: "form-horizontal" }, method: @method || :post ,
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.input :category, as: :select, collection: Product.categories.keys %>
+
+  <%= f.button :submit, value: 'Guardar', class:"btn btn-success pull-right" %>
+<% end %>

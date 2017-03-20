@@ -126,3 +126,10 @@ en:
         category: Category
         role: Role
         finished: Ended
+
+    products:
+      index:
+        products: Products
+        add_product: Add Product
+        name: Name
+        category: Category

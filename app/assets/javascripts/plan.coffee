@@ -8,6 +8,18 @@ hiddenInput = (name,value)->
 
 ready = ->
 
+  handleProductsFilter = ->
+    activeProducts = $(".product-filter.active").map (_, filter)->
+      $(filter).data("product")
+    .toArray()
+
+    if activeProducts.length == 0
+      $(".accreditation-box").show()
+    else
+      $(".accreditation-box").hide()
+      activeProducts.forEach (i)->
+        $(".accreditation-box[data-product-#{i}]").show()
+
   $(document).on "click",".btn-select-accreditation", ->
 
     $form = $("form")
@@ -20,5 +32,18 @@ ready = ->
     else
       $form.append( hiddenInput("accreditations[]",id) )
       $btn.addClass "active"
+
+  $(document).on "click", ".product-filter", ->
+    $filter = $(@)
+    $filter.toggleClass("active")
+    handleProductsFilter()
+
+  $(document).on "click", ".clean-products-filter", ->
+    $(".product-filter").removeClass("active")
+    handleProductsFilter()
+
+  $(document).on "click", ".invert-products-filter", ->
+    $(".product-filter").toggleClass("active")
+    handleProductsFilter()
 
 $(document).on("ready",ready)

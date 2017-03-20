@@ -1,0 +1,32 @@
+.container
+  .row.products_index
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          %h2
+            = t(".products")
+            = link_to new_admin_product_path, class: "btn btn-success btn-md pull-right" do
+              %span.glyphicon.glyphicon-plus
+              = t(".add_product")
+        .panel-body
+          .table-responsive
+            %table.table.table-hover
+              %thead
+                %tr
+                  %th #
+                  %th= t(".category")
+                  %th= t(".name")
+                  %th.actions
+              %tbody
+                - @products.each do |product|
+                  %tr
+                    %td= product.id
+                    %td= product.category.to_s.humanize
+                    %td= product.name
+                    %td
+                      = link_to edit_admin_product_path(product), class: "btn btn-info" do
+                        %span.glyphicon.glyphicon-pencil
+                      = link_to admin_product_path(product), method: :delete, data: { confirm: 'Esta seguro de eliminar?' }, class: "btn btn-danger" do
+                        %span.glyphicon.glyphicon-trash
+
+          = will_paginate(@products, previous_label: "<", next_label: ">")

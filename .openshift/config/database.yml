@@ -8,7 +8,7 @@ test: &test
 
 development:
   adapter: postgresql
-  database: prometeo
+  database: help
   host: localhost
   pool: 25
   timeout: 5000

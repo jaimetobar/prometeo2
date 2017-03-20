@@ -6,7 +6,7 @@ class Admin::CoursesController < Admin::AdminController
     if @accreditation = Accreditation.find_by_id(params[:accreditation])
       @courses = @courses
         .joins(:accreditations_courses)
-        .where("accreditations_courses.accreditation_id = ?",@accreditation.id)
+        .where("accreditations_courses.accreditation_id = ?", @accreditation.id)
     end
   end
 
@@ -50,10 +50,12 @@ class Admin::CoursesController < Admin::AdminController
     end
     def course_params
       params.require(:course).permit(
-        :name,:category,:description,:for_sales_engineer,:for_sales,:for_delivery,:session_type,:duration, :external_id,
-        accreditations_courses_attributes:[ :accreditation_id, :_destroy, :id ],
-        course_sessions_attributes:[ :start_date, :end_date, :_destroy, :id ],
-        translations_attributes: [:id, :locale, :name, :description]
+        :name, :category, :description, :for_sales_engineer, :for_sales, :for_delivery,
+        :session_type, :duration, :external_id,
+        accreditations_courses_attributes: [:accreditation_id, :_destroy, :id],
+        course_sessions_attributes: [:start_date, :end_date, :_destroy, :id],
+        translations_attributes: [:id, :locale, :name, :description],
+        course_products_attributes: [:product_id, :_destroy, :id]
       )
     end
 end
