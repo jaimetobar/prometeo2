@@ -38,11 +38,11 @@ class PlansNotifier
         notification_timestamp: DateTime.now,
         subscriptions: user.subscriptions.includes(:accreditation, course: [:course_sessions]).map do |s|
           {
-            course: s.course.name,
-            accreditation: s.accreditation.name,
+            course: s.course.try(:name),
+            accreditation: s.accreditation.try(:name),
             finished: s.finished,
-            session_type: s.course.session_type,
-            next_date: s.course.next_session,
+            session_type: s.course.try(:session_type),
+            next_date: s.course.try(:next_session),
             created_at: s.created_at,
           }
         end
