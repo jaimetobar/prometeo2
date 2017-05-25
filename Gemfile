@@ -31,6 +31,7 @@ group :development, :test do
   gem 'byebug'
   gem 'thor'
   gem 'faker'
+  gem 'figaro'
 end
 group :test do
   gem 'database_cleaner'

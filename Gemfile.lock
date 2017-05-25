@@ -99,6 +99,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     globalize (4.0.3)
@@ -287,6 +289,7 @@ DEPENDENCIES
   email_validator
   factory_girl_rails
   faker
+  figaro
   font-awesome-rails
   globalize (~> 4.0.3)
   haml-rails (~> 0.9)

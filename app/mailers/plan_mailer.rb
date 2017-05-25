@@ -19,10 +19,6 @@ class PlanMailer < ApplicationMailer
 
   def upcoming_courses_email(user, subscriptions_ids ,start_date)
     @user = user
-    # TODO:
-    # I'm collectiong ids because there's something that fails with sidekik
-    # when I try to send the subscriptions as an ActiveRecord Asociation.
-    # I guess that it has to do with serialization of the object
     @subscriptions =  Subscription.where(id: subscriptions_ids)
     @start_date = start_date
     mail(

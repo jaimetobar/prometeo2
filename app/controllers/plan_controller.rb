@@ -60,6 +60,7 @@ class PlanController < ApplicationController
       flash.keep(:notice)
       render :updated
       PlanMailer.delay.plan_greatings_email(@user)
+      PlansNotifier.notify_update(@user)
     elsif EmailValidator.valid?(email)
       subscriptions_attributes = Subscription.attributes_from_courses_and_role(courses,@role)
       @user = User.new(role: @role, subscriptions_attributes: subscriptions_attributes, email: email)
@@ -77,6 +78,7 @@ class PlanController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       PlanMailer.delay.plan_greatings_email(@user)
+      PlansNotifier.notify_create(@user)
       redirect_to root_path, notice: I18n.t("plan.create.subscribed")
     else
       render :step_4_subscription
