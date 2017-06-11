@@ -13,22 +13,26 @@ class PlansNotifier
   end
 
   def self.notify_create(user)
-    self.notify({
-      action: :create,
-      data: self.build_data(user)
-    })
+    user.subscriptions.includes(:accreditation, course: [:course_sessions]).each do |s|
+      self.notify({
+        action: :create,
+        data: self.build_data(user, s)
+      })
+    end
   end
 
   def self.notify_update(user)
-    self.notify({
-      action: :update,
-      data: self.build_data(user)
-    })
+    user.subscriptions.includes(:accreditation, course: [:course_sessions]).each do |s|
+      self.notify({
+        action: :update,
+        data: self.build_data(user, s)
+      })
+    end
   end
 
   private
 
-    def self.build_data(user)
+    def self.build_data(user, subscription)
       {
         email: user.email,
         name: user.name,
@@ -36,16 +40,12 @@ class PlansNotifier
         country: user.country,
         created_at: user.created_at,
         notification_timestamp: DateTime.now,
-        subscriptions: user.subscriptions.includes(:accreditation, course: [:course_sessions]).map do |s|
-          {
-            course: s.course.try(:name),
-            accreditation: s.accreditation.try(:name),
-            finished: s.finished,
-            session_type: s.course.try(:session_type),
-            next_date: s.course.try(:next_session),
-            created_at: s.created_at,
-          }
-        end
+        course: subscription.course.try(:name),
+        accreditation: subscription.accreditation.try(:name),
+        finished: subscription.finished,
+        session_type: subscription.course.try(:session_type),
+        next_date: subscription.course.try(:next_session),
+        created_at: subscription.created_at
       }
     end
 end
