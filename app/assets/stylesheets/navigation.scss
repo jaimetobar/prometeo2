@@ -20,7 +20,7 @@
   a {
     cursor: pointer;
   }
-  @each $tab in plan, docs, presentations, start, admin-users, admin-admins, admin-courses, admin-accreditations, admin-partners {
+  @each $tab in plan, docs, presentations, start, admin-users, admin-admins, admin-courses, admin-accreditations, admin-partners, admin-products {
     &.active-#{$tab} {
       .#{$tab} { @include active; }
     }
