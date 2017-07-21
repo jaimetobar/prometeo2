@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
     get '/documentos', to: "pages#docs", as: :docs
     get '/presentaciones', to: "pages#presentations", as: :presentations
+    get '/eventos' => redirect('https://airtable.com/shrWq99WKKdTkc5j6/tblgcHji6PHVyAki0'), as: :events
     get '/esenciales', to: "pages#start", as: :essentials
     get '/start' => redirect('/esenciales'), as: :start
 
